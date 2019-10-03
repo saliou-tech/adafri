@@ -1,0 +1,65 @@
+
+
+<ng-template #isConnected >
+
+  <main>
+       <a onclick="topFunction()" id="myBtn" class="btn-fab btn-fab-md adafri-background" title="Go to top"><i class="icon-caret-up"></i></a>
+       <div id="particles-js">
+           <div  class="height-full text-center " style="background:url(assets/img/images/bureau.jpg) no-repeat left bottom; background-size:cover;">
+           <div class="row">
+             <div class="col-md-6 text-center d-none d-md-block">
+                <h1 class="text-white d-inline-block adafri-police" style="margin-top: 20px;">Bienvenue {{email}}</h1>
+                <br>
+                <h5 class="text-white adafri-police d-inline-block" style="margin-top: 20px;">Votre solde est de: {{accountValue}} CFA</h5>
+             </div>
+             <div class="col-md-6 text-center d-md-none d-sm-block">
+                <h4 class="text-white d-inline-block adafri-police" style="margin-top: 20px;">Bienvenue {{email}}</h4>
+                <br>
+                <h5 class="text-white adafri-police d-inline-block" style="margin-top: 20px;">Votre solde est de: {{accountValue}} CFA</h5>
+             </div>
+             <div class="col-md-6"  style="float: right; border-radius: 20px;">
+               <div class="row">
+                 <div class="col-md-12">
+
+                   <img [src]="photoUrl" alt="" style="width:35%; border-radius: 200px" id="photoProfile" (click)="triggerUpload()">
+
+
+                     <!-- <h5 class="adafri-police text-white" style="margin-top: 60px">Bienvenue</h5>
+                                         <h5 class="adafri-police text-white" style="margin-top: 20px">{{email}}</h5> -->
+
+
+
+
+
+                 </div>
+
+               </div>
+               <br>
+               <br>
+               <div class="row">
+                <div class="col-md-12">
+                  <div class="text-center justify-content-between">
+
+
+                            <img class='img-responsive animated pulse fast infinite d-none d-md-block' style="border-radius: 400px;  position: absolute; left: -100px" src="assets/img/images/play.png" (click)="go()">
+                             <img class='img-responsive animated pulse fast infinite d-md-none d-sm-block' style="border-radius: 400px;" src="assets/img/images/play.png" (click)="go()">
+
+
+
+         </div>
+                </div>
+
+               </div>
+           </div>
+           </div>
+
+
+
+
+           </div>
+
+       </div>
+    <!-- #primary -->
+</main>
+
+</ng-template>

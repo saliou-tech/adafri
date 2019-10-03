@@ -1,0 +1,108 @@
+<div class='col-md-8'>
+                            <div class='card-body'>
+                              <ul class='list-group no-b'>
+                               <li class='list-group-item d-flex justify-content-between align-items-center'>
+                                  <div>
+                                      <i class='icon icon-opacity purple-text'></i>Opacité
+                                  </div>
+                                   <div *ngIf='selected && selected.type != 'group''>
+                                        
+                                              <input type='range' class='range-slider form-control' [(ngModel)]='props.opacity' (change)='setOpacity()'>
+                                         
+                                      </div>
+                              </li>
+                              
+                                <li class='list-group-item d-flex justify-content-between align-items-center'>
+                                  <div>
+                                    <i class='icon icon-palette text-blue'></i>Couleur
+                                  </div>
+                                  <div *ngIf='selected && textEditor || selected && figureEditor'>
+
+                                    <input type='text' class='form-control' [cpPosition]=''bottom''
+                                      [(colorPicker)]='props.fill' [style.background]='props.fill' [value]='props.fill'
+                                      (colorPickerChange)='setFill()' style='width: 55%; float: right'>
+
+                                  </div>
+                                </li>
+                                <li class='list-group-item d-flex justify-content-between align-items-center'>
+                                  <div>
+                                    <i class='icon icon-format_size pink-text'></i> Police
+                                  </div>
+                                  <div *ngIf='selected && textEditor'>
+                                    <select class='custom-select select2' [(ngModel)]='props.fontFamily'
+                                      (change)='setFontFamily()' style='margin-left: 10px;' required>
+                                      <option value='arial'>Arial</option>
+                                      <option value='helvetica' selected>Helvetica</option>
+                                      <option value='verdana'>Verdana</option>
+                                      <option value='courier'>Courier</option>
+                                      <option value='Roboto'>Roboto</option>
+                                      <option value='Open Sans'>Open Sans</option>
+                                      <option value='Zilla Slab'>Zilla Slab</option>
+                                      <option value='Lato'>Lato</option>
+                                      <option value='Bellefair'>Bellefair</option>
+                                      <option value='Fresca'>Fresca</option>
+                                      <option value='Raleway'>Raleway</option>
+                                      <option value='Open Sans Condensed'>Open Sans Condensed</option>
+                                      <option value='Indie Flower'>Indie Flower</option>
+                                      <option value='Josefin Sans'>Josefin Sans</option>
+                                      <option value='Inconsolata'>Inconsolata</option>
+                                      <option value='Pacifico'>Pacifico</option>
+                                      <option value='Gloria Hallelujah'>Gloria Hallelujah</option>
+                                    </select>
+                                  </div>
+                                </li>
+                                <li class='list-group-item d-flex justify-content-between align-items-center'>
+                                  <div>
+                                    <i class='icon icon-line_style text-green'></i> Style
+                                  </div>
+                                  <div>
+
+                                    <ul class='social social list-inline' *ngIf='selected && textEditor'>
+
+                                      <li class='list-inline-item'> <a class='btn-fab btn-fab-sm shadow btn-info'
+                                          [ngClass]='{'active': props.fontStyle }' (click)='setFontStyle()'><i
+                                            class='icon-format_italic'></i></a></li>
+                                      <li class='list-inline-item'> <a class='btn-fab btn-fab-sm shadow btn-info'
+                                          [ngClass]='{&#39active&#39: hasTextDecoration(&#39underline&#39) }'
+                                          (click)='setTextDecoration(&#39underline&#39)'><i class='icon-underline'></i></a>
+                                      </li>
+                                      <li class='list-inline-item'> <a class='btn-fab btn-fab-sm shadow btn-info'
+                                          [ngClass]='{&#39active&#39: props.fontWeight }' (click)='setBold()'><i
+                                            class='icon-bold'></i></a></li>
+
+                                    </ul>
+                                  </div>
+                                </li>
+
+                              </ul>
+                            </div>
+                            <div class='col-md-3'>
+
+
+
+                            </div>
+                            <div class='col image-block draggable' style='display: none'>
+                              <div class='card b-0'>
+                                <div class='card-body p-5'>
+                                  <div class='card'>
+                                    <div class='card-header'>Upload image</div>
+                                    <div class='card-body text-center'>
+                                      <img id='testImage' *ngIf='url' class='images-item-upload' [src]='url'
+                                        (click)='addImageOnCanvas(url);'>
+                                      <input type='file' (change)='readUrl($event);' id='image'>
+                                      <br />
+                                      <br />
+                                      <div class='btn-group btn-group-justified' role='group' aria-label='...'>
+                                        <div class='btn-group' role='group'>
+                                          <button type='button' class='btn btn-outline-danger btn-sm'
+                                            (click)='removeWhite(url);'>
+                                            <i class='fa fa-times' aria-hidden='true'></i> Remove</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+            

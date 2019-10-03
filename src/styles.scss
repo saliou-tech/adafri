@@ -1,0 +1,139 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:300,400');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+/* @import '~@angular/material/theming'; */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~material-community-components/theming';
+
+/* @include mat-core(); */
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+/* $demo-primary: mat-palette($mat-indigo);
+$demo-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$demo-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$demo-theme: mat-light-theme($demo-primary, $demo-accent, $demo-warn);
+
+// build angular material theme
+@include angular-material-theme($demo-theme);
+
+// pass angular material theme to material community components
+@include mcc-theme($demo-theme);
+ */
+/*  @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+/*  @import "~@angular/material/prebuilt-themes/pink-bluegrey.css";  */
+/*  @import "~@angular/material/prebuilt-themes/purple-green.css";  */
+/* .adafri{
+    color: #4cb5b1 !important
+}
+
+.adafri-color{
+    color: #4cb5b1 !important
+}
+
+.adafri-nav-darken{
+    background-color: #4cb5b1 !important;
+}
+
+.adafri-nav-lighten{
+    background-color: white !important;
+}
+
+
+
+.adafri-background{
+    background-color: #4cb5b1 !important;
+}
+
+.adafri-police{
+    font-family: "merriweather", serif;
+    
+}
+
+.adafri-police-10{
+    font-family: "merriweather", serif !important;
+    font-size: 10px !important;
+}
+.adafri-police-12{
+    font-family: "merriweather", serif;
+    font-size: 12px !important 
+}
+.adafri-police-14{
+    font-family: "merriweather", serif;
+    font-size: 14px !important
+}
+.adafri-police-18{
+    font-family: "merriweather", serif !important;
+    font-size: 18px !important;
+}
+.adafri-police-16{
+    font-family: "merriweather", serif !important;
+    font-size: 16px !important;
+}
+
+.adafri-police-22{
+    font-family: "merriweather", serif !important;
+    font-size: 22px !important;
+}
+.adafri-police-24{
+    font-family: "merriweather", serif !important;
+    font-size: 24px !important; 
+}
+.adafri-police-26{
+    font-family: "merriweather", serif !important;
+    font-size: 26px !important; 
+}
+.adafri-police-28{
+    font-family: "merriweather", serif !important;
+    font-size: 28px !important; 
+}
+.adafri-police-30{
+    font-family: "merriweather", serif !important;
+    font-size: 30px !important; 
+}
+.adafri-police-32{
+    font-family: "merriweather", serif !important;
+    font-size: 32px !important; 
+}
+.adafri-police-34{
+    font-family: "merriweather", serif !important;
+    font-size: 34px !important; 
+}
+.adafri-police-36{
+    font-family: "merriweather", serif !important;
+    font-size: 36px !important; 
+}
+.border-grey{
+    border: 1px solid grey !important;
+}
+.border-red{
+    border: 1px solid red !important;
+}
+.border-green{
+    border: 1px solid green !important;
+}
+
+.adafri-border{
+    border: 1px solid #4cb5b1 !important;
+}
+
+.adafri-body-darken{
+    background-color: #4cb5b1 !important;
+}
+
+.adafri-lighten-darken{
+    background-color: white !important;
+}
+
+
+.whitesapce-nowrap{
+    white-space: nowrap !important;
+}
+
+
+ */

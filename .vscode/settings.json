@@ -1,0 +1,18 @@
+{
+
+    "editor.defaultFormatter": "vscode.emmet",
+    "html.format.endWithNewline": true,
+    "html.format.indentHandlebars": true,
+    "html.format.indentInnerHtml": true,
+    "html-css-class-completion.enableEmmetSupport": true,
+    "editor.formatOnSave": false,
+// Enable per-language
+"[javascript]": {
+    "editor.formatOnSave": true
+},
+"python.pythonPath": "banner-api\\Scripts\\python.exe",
+"powermode.comboTimeout": 0,
+"powermode.enableExplosions": false,
+"powermode.enableShake": false,
+"powermode.explosionDuration": 0
+}

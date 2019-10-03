@@ -1,0 +1,3011 @@
+<div id="app">
+
+    <!-- <div id="loader" class="loader text-center adafri-background">
+  
+   <div class="text-center no-b d-none d-md-inline d-sm-none" style="width: 100px; height: 100px;  position:absolute; left:50%; top:40%; width:100px;" >
+       <img class="img-responsive animated no-b sync fast shadow2" src="assets/img/images/google.ico" style="width: 100px; border-radius: 100px">
+       <br>
+       <br>
+       <p class="text-white adafri-police-14 font-weight-bold animated">Synchronisation...</p> 
+      
+       <img class="img-responsive" src="assets/img/images/google.svg">
+      
+   </div>
+  
+   
+  
+    <div class="text-center no-b d-md-none d-sm-inline" style="width: 100px; height: 100px;  position:absolute; left:50%; top:40%; width:100px; margin-left:-50px;">
+       <img class="img-responsive animated no-b sync shadow2 fast" src="assets/img/images/google.ico" style="width: 100px; border-radius: 100px">
+   
+       <br>
+       <br>
+      <p class="text-white adafri-police-12 font-weight-bold animated">Synchronisation...</p>
+      <img class="img-responsive" src="assets/img/images/google.svg">
+      
+   </div>
+  
+  
+  </div> -->
+
+    <!--  <aside class="main-sidebar fixed offcanvas b-r sidebar-tabs" data-toggle='offcanvas' *ngIf="!_init_campagne">
+    <div class="sidebar">
+      <div class="d-flex hv-100 align-items-stretch">
+        <div class="text-white adafri-background adafri-police-16">
+          <div class="nav mt-5 pt-5 flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+             <a class="nav-link adafri-background adafri-police-16" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+                       aria-controls="v-pills-home" aria-selected="true" (click)="toggleListAd()"><i class="icon-inbox2"></i></a>
+                    <a class="nav-link adafri-background adafri-police-16" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
+                       aria-controls="v-pills-profile" aria-selected="false"  (click)='toggleEditor()'><i class="icon-add"></i></a>
+                    <a class="nav-link blink skin_handle"  href="#"><i class="icon-lightbulb_outline"></i></a>
+                    <a class="nav-link" id="v-pills-messages-tab" href="#"><i class="icon-message"></i></a>
+                    <a class="nav-link" id="v-pills-add-ad-tab" href="#"><i class="icon-settings"></i></a> 
+            <a href="">
+              <figure class="avatar">
+                  <img src="assets/img/adafri.png" alt="">
+                 <span class="avatar-badge online"></span>
+              </figure> 
+            </a>
+          </div>
+        </div>
+        <div class="tab-content flex-grow-1" id="v-pills-tabContent">
+          <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-smallledby="v-pills-home-tab">
+            <div class="relative brand-wrapper sticky b-b">
+              <div class="d-flex justify-content-between align-items-center p-3">
+                <div class="text-xs-center">
+                  <span class="font-weight-lighter s-18">Menu</span>
+                </div>
+                <div class="badge badge-danger r-0">New Panel</div>
+              </div>
+            </div>
+            <ul class="sidebar-menu">
+              <li class="treeview">
+                <a href="index.html">
+                  <i class="icon icon-sailing-boat-water s-24"></i> <span>Dashboard</span>
+                </a>
+              </li>
+                <li class="treeview"><a href="#">
+                            <i class="icon icon icon-package s-24"></i>
+                            <span>Products</span>
+                            <span class="badge r-3 badge-primary pull-right">4</span>
+                        </a>
+                            <ul class="treeview-menu">
+                                <li><a href="panel-page-products.html"><i class="icon icon-circle-o"></i>All
+                                    Products</a>
+                                </li>
+                                <li><a href="panel-page-products-create.html"><i class="icon icon-add"></i>Add
+                                    New </a>
+                                </li>
+                            </ul>
+                        </li> 
+              <li class="treeview"><a href="#"><i class="icon icon-bandcamp s-24"></i>Campagne<i
+                    class=" icon-angle-left  pull-right"></i></a>
+                <ul class="treeview-menu">
+                  <li><a (click)="toggleListCampaign()" style="cursor: pointer"><i class="icon icon-circle-o"></i>Toutes
+                      les campagnes</a>
+                  </li>
+                  <li><a (click)="action_2()" style="cursor: pointer"><i class="icon icon-add"></i>Ajouter une nouvelle
+                      campagne</a>
+                  </li>
+                </ul>
+              </li>
+             <li class="treeview"><a href="#">
+                            <i class="icon icon-package s-24"></i>
+                            <i class=" icon-angle-left  pull-right"></i>
+                            <span>Gallerie images</span>
+                        </a>
+                            <ul class="treeview-menu" style="overflow: auto; height: 100%">
+                                
+                            </ul>
+                        </li> 
+               <li class="treeview"><a href="#">
+                            <i class="icon icon-package s-24"></i>
+                            <i class=" icon-angle-left  pull-right"></i>
+                            <span>Inbox</span>
+                        </a>
+                            <ul class="treeview-menu">
+                                <li><a href="inbox.html"><i class="icon icon-circle-o"></i>Inbox</a>
+                                </li>
+                                <li><a href="inbox2.html"><i class="icon icon-circle-o"></i>Inbox 2</a>
+                                </li>
+                                <li><a href="inbox-create.html"><i class="icon icon-add"></i>Compose</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="treeview ">
+                            <a href="#">
+                                <i class="icon icon-package  s-24"></i> <span>Apps</span>
+                                <i class=" icon-angle-left  pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="chat.html"><i class="icon icon-circle-o"></i>Chat</a>
+                                </li>
+                                <li><a href="tasks.html"><i class="icon icon-circle-o"></i>Tasks / Todo</a>
+                                </li>
+                                <li><a href="calendar.html"><i class="icon icon-date_range"></i>Calender</a>
+                                </li>
+                                <li><a href="contacts.html"><i class="icon icon-circle-o"></i>Contacts</a>
+                                </li>
+                                <li><a href="projects.html"><i class="icon icon-circle-o"></i>Projects</a>
+                                </li>
+                                <li><a href="projects-list.html"><i class="icon icon-circle-o"></i>Projects List</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="icon icon-documents3 s-24"></i> <span>Pages</span>
+                                <i class=" icon-angle-left  pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="icon icon-documents3"></i>Blank Pages<i
+                                        class=" icon-angle-left  pull-right"></i></a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="panel-page-blank.html"><i class="icon icon-document"></i>Simple
+                                            Blank</a>
+                                        </li>
+                                        <li><a href="panel-page-blank-tabs.html"><i class="icon icon-document"></i>Tabs
+                                            Blank <i
+                                                    class=" icon-angle-left  pull-right"></i></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="#"><i class="icon icon-fingerprint text-green"></i>Auth Pages<i
+                                        class=" icon-angle-left  pull-right"></i></a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="login.html"><i class="icon icon-document"></i>Login Page 1</a>
+                                        </li>
+                                        <li><a href="login-2.html"><i class="icon icon-document"></i>Login Page 2</a>
+                                        </li>
+                                        <li><a href="login-3.html"><i class="icon icon-document"></i>Login Page 3</a>
+                                        </li>
+                                        <li><a href="login-4.html"><i class="icon icon-document"></i>Login Page 4</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="#"><i class="icon icon-bug text-red"></i>Error Pages<i
+                                        class=" icon-angle-left  pull-right"></i></a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="panel-page-404.html"><i class="icon icon-document"></i>404 Page</a>
+                                        </li>
+                                        <li><a href="panel-page-500.html"><i class="icon icon-document"></i>500 Page<i
+                                                class=" icon-angle-left  pull-right"></i></a>
+                                        </li>
+                                        <li><a href="panel-page-error.html"><i class="icon icon-document"></i>420 Page<i
+                                                class=" icon-angle-left  pull-right"></i></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="#"><i class="icon icon-documents3"></i>Other Pages<i
+                                        class=" icon-angle-left  pull-right"></i></a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="panel-page-invoice.html"><i class="icon icon-document"></i>Invoice
+                                            Page</a>
+                                        </li>
+                                        <li><a href="panel-page-no-posts.html"><i class="icon icon-document"></i>No Post
+                                            Page</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="icon icon-goals-1  s-24"></i> <span>Elements</span>
+                                <i class=" icon-angle-left  pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="panel-element-widgets.html">
+                                    <i class="icon icon-widgets amber-text s-14"></i> <span>Widgets</span>
+                                </a>
+                                </li>
+                                <li><a href="panel-element-counters.html">
+                                    <i class="icon icon-filter_9_plus amber-text s-14"></i> <span>Counters</span>
+                                </a>
+                                <li><a href="panel-element-buttons.html">
+                                    <i class="icon icon-touch_app amber-text s-14"></i> <span>Buttons</span>
+                                </a>
+                                </li>
+                                <li>
+                                    <a href="panel-element-typography.html">
+                                        <i class="icon icon-text-width amber-text s-14"></i> <span>Typography</span>
+                                    </a>
+                                </li>
+                                <li><a href="panel-element-tabels.html">
+                                    <i class="icon icon-table amber-text s-14"></i> <span>Tables</span>
+                                </a>
+                                </li>
+                                <li><a href="panel-element-alerts.html">
+                                    <i class="icon icon-exclamation-circle amber-text s-14"></i> <span>Alerts</span>
+                                </a>
+                                </li>
+                                <li><a href="panel-element-slider.html"><i
+                                        class="icon icon-view_carousel amber-text s-14"></i>
+                                    <span>Slider</span></a></li>
+                                <li><a href="panel-element-tabs.html"><i class="icon icon-folders2 amber-text s-14"></i>
+                                    <span>Tabs</span></a></li>
+                                <li><a href="panel-element-progress-bars.html"><i
+                                        class="icon icon-folders2 amber-text s-14"></i>
+                                    <span>Progress Bars</span></a></li>
+                                <li><a href="panel-element-badges.html"><i class="icon icon-flag7 amber-text s-14"></i>
+                                    <span>Badges</span></a></li>
+                                <li><a href="panel-element-preloaders.html"><i
+                                        class="icon icon-data_usage amber-text s-14"></i>
+                                    <span>Preloaders</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview ">
+                            <a href="#">
+                                <i class="icon icon-wpforms  s-24 "></i> <span>Forms & Plugins</span>
+                                <i class=" icon-angle-left  pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="panel-element-forms.html"><i
+                                        class="icon icon-wpforms light-green-text"></i>Bootstrap
+                                    Inputs</a>
+                                </li>
+                                <li><a href="form-jquery-validations.html"><i
+                                        class="icon icon-note-important light-green-text"></i>
+                                    Form Validation (Jquery)</a>
+                                </li>
+                                <li><a href="form-bootstrap-validations.html"><i
+                                        class="icon icon-note-important light-green-text"></i>
+                                    Form Validation (Bootstrap)</a>
+                                </li>
+                                <li><a href="panel-element-editor.html"><i class="icon icon-pen2 light-green-text"></i>Editor</a>
+                                </li>
+                                <li><a href="panel-element-toast.html"><i
+                                        class="icon icon-notifications_active light-green-text"></i>Toasts</a>
+                                </li>
+                                <li><a href="panel-element-stepper.html"><i
+                                        class="icon icon-burst_mode light-green-text"></i>Stepper</a>
+                                </li>
+                                <li><a href="panel-element-date-time-picker.html"><i
+                                        class="icon icon-date_range light-green-text"></i>Date Time Picker</a>
+                                </li>
+                                <li><a href="panel-element-color-picker.html"><i
+                                        class="icon icon-adjust light-green-text"></i>Color
+                                    Picker</a>
+                                </li>
+                                <li><a href="panel-element-range-slider.html"><i
+                                        class="icon icon-space_bar light-green-text"></i>Range
+                                    Slider</a>
+                                </li>
+                                <li><a href="panel-element-select2.html"><i
+                                        class="icon  icon-one-finger-click light-green-text"></i>Select 2</a>
+                                </li>
+                                <li><a href="panel-element-tags.html"><i class="icon  icon-tags3 light-green-text"></i>Tags</a>
+                                </li>
+                                <li><a href="panel-element-data-tables.html"><i
+                                        class="icon icon-table light-green-text"></i>Data
+                                    Tables</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="treeview"><a href="#">
+                            <i class="icon icon-bar-chart2  s-24"></i>
+                            <span>Charts</span>
+                            <i class=" icon-angle-left  pull-right"></i>
+                        </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="panel-element-charts-js.html"><i
+                                            class="icon icon-area-chart pink-text s-14"></i><span>Charts.Js</span></a>
+                                </li>
+                                <li>
+                                    <a href="panel-element-morris.html"><i
+                                            class="icon icon-bubble_chart pink-text s-14"></i>Morris
+                                        Charts</a>
+                                </li>
+                                <li>
+                                    <a href="panel-element-echarts.html">
+                                        <i class="icon icon-bar-chart-o pink-text s-14"></i>Echarts</a>
+                                </li>
+                                <li>
+                                    <a href="panel-element-easy-pie-charts.html">
+                                        <i class="icon icon-area-chart pink-text s-14"></i>Easy Pie Charts</a>
+                                </li>
+                                <li>
+                                    <a href="panel-element-jqvmap.html">
+                                        <i class="icon icon-map pink-text s-14"></i>Jqvmap</a>
+                                </li>
+                                <li>
+                                    <a href="panel-element-sparklines.html">
+                                        <i class="icon icon-line-chart2 pink-text s-14"></i>Sparklines</a>
+                                </li>
+                                <li>
+                                    <a href="panel-element-float.html">
+                                        <i class="icon icon-pie-chart pink-text s-14"></i>Float Charts</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="treeview"><a href="#">
+                            <i class="icon icon-dialpad  s-24"></i>
+                            <span>Extra</span>
+                            <i class=" icon-angle-left  pull-right"></i>
+                        </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="panel-element-letters.html">
+                                        <i class="icon icon-brightness_auto light-blue-text s-14"></i>
+                                        <span>Avatar Placeholders</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="panel-element-icons.html">
+                                        <i class="icon icon-camera2 light-blue-text s-14"></i> <span>Icons</span>
+                                    </a>
+                                </li>
+                                <li><a href="panel-element-colors.html">
+                                    <i class="icon icon-palette light-blue-text s-14"></i> <span>Colors</span>
+                                </a>
+                                </li>
+                            </ul>
+                        </li>
+            </ul>
+          </div>
+          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-smallledby="v-pills-profile-tab">
+            <div class="relative brand-wrapper sticky b-b p-3">
+              <h4>Gallerie</h4>
+            </div>
+            <div class="sticky slimScroll">
+
+              <div class="p-2">
+                <ul class="list-unstyled">
+
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside> -->
+
+
+    <!--  <a href="#" data-toggle="push-menu" class="paper-nav-toggle left ml-2 fixed" *ngIf="!_init_campagne">
+     <figure class="avatar">
+                  <img src="assets/img/adafri.png" alt="">
+              
+              </figure>
+  </a> -->
+    <div class="has-sidebar-tabs">
+      <!--navbar-->
+
+      <div class="sticky">
+        <!-- <div class="navbar navbar-expand d-flex justify-content-between bd-navbar green lighten-3 shadow">
+             -->
+        <div class="navbar navbar-expand d-flex justify-content-between bd-navbar white shadow" style="height: 90px">
+          <img class="d-none d-md-block float-left" src="assets/img/images/newlogo.png" style="width: 15%"
+            (click)="go()">
+          <img class="d-md-none d-sm-block float-left" src="assets/img/images/newlogo.png" style="width: 35%"
+            (click)="go()">
+            <span class="font-weight-bold adafri-police-16 d-none d-md-block " style="position: absolute; left: 15%;">
+              {{ad_group_name}}
+            </span>
+                                <span class="badge bg-white text-success float-left d-none d-md-block " *ngIf="status==='ENABLED'" style="position: absolute; left: 25%">Etat: <span class="blink"><i
+                          class="icon icon-circle mr-2" style="color: green"></i>Dossier actif</span></span>
+                    <span class="badge badge-danger pink d-none d-md-block " style="position: absolute; left: 25%" *ngIf="status==='PAUSED'"><span class="blink"><i
+                          class="icon icon-circle mr-2"></i>Dossier désactiver</span></span>
+          <!--Top Menu Start -->
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- Messages-->
+
+              <!-- Notifications -->
+              <li style="margin-top: 8px; cursor: pointer">
+
+              </li>
+              <li style="margin-top: 3px">
+                <a class="nav-link adafri-police-16 font-weight-bold" title="Argent disponible dans votre compte">
+                  <i class="icon-money-bag"></i> {{accountValue}} CFA
+                </a>
+              </li>
+              <li class="dropdown custom-dropdown notifications-menu" style="margin-top: 5px">
+                <a href="#" class=" nav-link" data-toggle="dropdown" aria-expanded="false">
+                  <i class="icon-notifications_none text-black-50"></i>
+                  <span
+                    class="badge adafri-background badge-mini rounded-circle text-white">{{numberOfNotifications}}</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li class="header">Vous avez {{numberOfNotifications}} notification(s)</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu no-b">
+                      <li class="no-b white text-center">
+
+                        <a href="#" *ngIf="accountValue !==0">
+                          <i class="icon icon-data_usage text-danger"></i>Aucune Notification pour le moment
+                        </a>
+                        <a class="adafri-police-12 text-danger" *ngIf="accountValue ===0">
+                          <i class="icon icon-data_usage text-danger"></i>Votre solde est vide
+                        </a>
+                        <a class="btn btn-sm adafri-background text-white btn-social r-20 d-inline-block adafri-police-12"
+                          data-toggle="modal" data-target="#modalRechargement">
+                          <i class="icon-payment"></i> Charger mon compte
+                        </a>
+
+                      </li>
+                      <li class="no-b white text-center">
+
+                      </li>
+                      <!--  <li class="no-b white text-center" *ngIf="accountValue<10000">
+                              <button class="btn btn-sm white border-grey text-black-50 btn-social r-20 d-inline-block" data-toggle="modal" data-target="#modalRechargement">
+                                Charger mon compte
+                            </button>
+                        </li> -->
+
+                    </ul>
+                  </li>
+
+                </ul>
+              </li>
+
+
+
+              <!-- Right Sidebar Toggle Button -->
+
+              <!-- User Account-->
+              <li class="dropdown custom-dropdown user user-menu ">
+                <a href="#" class="nav-link text-white" data-toggle="dropdown" style="font-size: 12px">
+
+                  <figure class="avatar">
+                    <img [src]='photoURL'>
+                  </figure>
+
+                </a>
+                <div class="dropdown-menu p-4 dropdown-menu-right">
+                  <div class="row box justify-content-between my-4">
+                    <div class="col">
+                      <a (click)="auth.signOut()">
+                        <i class="icon-apps purple lighten-2 avatar  r-5"></i>
+                        <div class="pt-1">Déconnexion</div>
+                      </a>
+                    </div>
+                    <div class="col"><a href="#">
+                        <i class="icon-beach_access pink lighten-1 avatar  r-5"></i>
+                        <div class="pt-1">Profile</div>
+                      </a></div>
+
+                  </div>
+
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Button trigger modal -->
+
+
+      <!-- Modal -->
+
+
+      <header class="white relative white shadow border-dark">
+        <div class="container-fluid text-center p-0">
+          <div class="text-center adafri-background">
+
+            <img class="img-responsive d-inline-block" src="assets/img/images/banner.jpg">
+          </div>
+          <!-- view modal -->
+
+          <!-- modal -->
+
+          <!-- modal -->
+
+            <!--           <div *ngIf="isDone" class="row">
+                <div  class="paper-card alert shadow alert-danger alert-dismissible fade show text-white" role="alert" style="float: right; position: absolute; right: 0 ;top: 0; z-index: 1;"  >
+                  <span *ngIf="placement.toString().length===0" class="adafri-police-14 ">hey<strong class="font-weight-bold adafri-police-16"> {{currentUserName}},</strong> Emplacements des visuels non définis ! <strong class="font-weight-bold adafri-police-16" style="cursor: pointer" ><a class="btn btn-sm ct-js-btn-scroll emplacement"  data-toggle="pill"  (click)="triggerEmplacement()" href="#v-pills-placement-tab">Cliquez ici</a></strong> </span><br>
+                   <span *ngIf="placement.toString().length===0" class="adafri-police-14">Options de ciblage non définies! <strong class="font-weight-bold adafri-police-16" style="cursor: pointer"><a class="btn btn-sm ct-js-btn-scroll emplacement"  data-toggle="pill"  (click)="triggerCiblage()" href="#v-pills-ciblage-ads-tab">Cliquez ici</a></strong>.</span>
+  
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  
+</div>
+<br>
+
+
+             </div> -->
+            <!--  <span class="text-white adafri-police-14" *ngIf="placement.toString().length===0">Emplacements non définis:<a style="text-decoration: underline; cursor: pointer" (click)="triggerEmplacement()"> <strong>Cliquez ici</strong></a></span>
+ <br>
+  <span class="text-white adafri-police-14" *ngIf="genres.toString().length ===0 || populations.toString().length ===0 || tappareils.toString().length === 0">Ciblages non définis:<a style="text-decoration: underline; cursor: pointer" (click)="triggerCiblage()"> <strong>Cliquez ici</strong></a></span> -->
+           <!--  <div class="col">
+              <div class="card r-3 no-b shadow1 animated fadeIn slow adafri-background" style="margin-top: 10px;"
+                id="particles-js">
+                <div class="p-4">
+                  <div class="text-center">
+                   
+                    <img class="img-responsive" src="assets/img/images/banner.jpg">
+                  </div>
+                  <div class="sc-counter mt-3 adafri-police text-center animated fadeInLeft text-white">Gérer vos
+                    annonces</div>
+                  <div class="counter-title adafri-police text-center animated fadeInLeft text-white">{{ad_group_name}}
+                  </div>
+                  <div class="text-center animated zoomInUp slow">
+                    <span class="badge bg-white text-success" *ngIf="status==='ENABLED'"><span class="blink"><i
+                          class="icon icon-circle mr-2" style="color: green"></i>Groupe d'annonce actif</span></span>
+                    <span class="badge badge-danger pink" *ngIf="status==='PAUSED'"><span class="blink"><i
+                          class="icon icon-circle mr-2"></i>Groupe d'annonces en veille</span></span>
+
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          
+
+          <div class="row">
+            <ul class="nav nav-material responsive-tab" id="v-pills-tab" role="tablist">
+              <li>
+                <a class="nav-link active" id="v-pills-tab1-tab" data-toggle="pill" href="#v-pills-tab1" role="tab"
+                  aria-controls="v-pills-tab1" style="color: grey" >
+                  <i class="icon icon-view_list" style="color: grey"></i>Liste des annonces
+                </a>
+              </li>
+             
+              <li>
+               
+                <a class="nav-link" id="v-pills-ciblage-ads-tab" style="color: grey" data-toggle="pill"
+                  href="#v-pills-ciblage-ads" role="tab" aria-controls="v-pills-ciblage-ads" aria-selected="false" ><i
+                    class="icon icon-target"></i>Ciblage</a>
+              </li>
+               <li>
+               
+                <a class="nav-link" id="v-pills-add-ad-tab" data-toggle="pill" href="#v-pills-add-ad" role="tab"
+                  aria-controls="v-pills-add-ad" aria-selected="false" style="color: grey" (click)="scrollDownToChoose()"><i class="icon icon-yelp"
+                    style="color: grey"></i>Créer un visuel</a>
+              </li> 
+            </ul>
+          </div>
+
+        </div>
+      </header>
+
+      <div class="height-full animatedParent animateOnce my-3 grey lighten-4 paper-card p-0" style="box-shadow: none">
+        <div class="text-center">
+         <!--  <div class="paper-card p-2 d-inline-block border-dark r-3">
+             <div class="counter-title adafri-police-16 font-weight-bold text-center d-inline-block animated fadeInLeft text-black">Dossier: {{ad_group_name}}
+                  </div><br>
+                  <div class="text-center animated zoomInUp slow d-inline-block">
+                    <span class="adafri-police text-black">Etat:</span><br>
+                    <span class="badge bg-white text-success" *ngIf="status==='ENABLED'"><span class="blink"><i
+                          class="icon icon-circle mr-2" style="color: green"></i>Dossier actif</span></span>
+                    <span class="badge badge-danger pink" *ngIf="status==='PAUSED'"><span class="blink"><i
+                          class="icon icon-circle mr-2"></i>Dossier désactiver</span></span>
+
+                  </div>
+          </div> -->
+                 
+         <!--  <a class="btn btn-sm btn-social white d-inline-block btn-social border-dark text-black" style="margin-top: 10px" id="v-pills-add-ad-tab" data-toggle="pill" href="#v-pills-add-ad" role="tab"
+                aria-controls="v-pills-add-ad" aria-selected="false" style="color: grey" (click)="scrollDownToChoose()"><img src="assets/img/images/banner.png"> Créer un visuel</a> -->
+          <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active p-0 text-center" id="v-pills-tab1" role="tabpanel"
+              aria-labelledby="v-pills-home-tab">
+              <ng-container *ngIf="number_ads != 0 && list_ad;">
+
+
+                <div class="container text-center">
+                  <br>
+                  <span class="adafri-police-22 text-black">Liste des visuels</span>
+                  <br>
+                  <div class="row d-flex bd-highlight no-gutters">
+                    <div class="col-md-12">
+                      <div class="card shadow animated paper-card fadeInLeft white d-none d-md-block border-grey r-5">
+                        <div class="card-body p-0">
+                          <div class="table-responsive">
+
+                            <table class="table table-bordered">
+                              <tbody>
+                                <th class="adafri-police-14"></th>
+                                <th class="adafri-police-14">Libellé</th>
+                                <th class="adafri-police-14">Visuel</th>
+                                <th class="adafri-police-14">Status</th>
+                                <th class="adafri-police-14">Etat</th>
+                                <th class="adafri-police-14">Actions</th>
+                                <ng-container *ngIf="ads.toString().length > 0; else noAds">
+
+                                  <tr class="text-center" *ngFor="let ad of ads | async">
+
+                                    <td class="text-center" style="width: 30px">
+                                      <div class="dropdown text-center">
+                                        <button type="button"
+                                          class="btn btn-sm white dropdown-toggle float-left box-popup box text-black-50"
+                                          style="box-shadow: none" data-toggle="dropdown">
+                                          <i class="icon-pause" *ngIf="ad?.status==='PAUSED'"></i>
+                                          <i class="icon-circle text-success" *ngIf="ad?.status==='ENABLED'"></i>
+                                          <i class="icon-phonelink_off text-success" *ngIf="ad?.status===''"></i>
+
+                                        </button>
+                                        <div class="dropdown-menu no-b white shadow" *ngIf="ad?.status==='PAUSED'">
+                                          <a style="cursor: pointer" class="adafri-police-14 dropdown-item"
+                                            (click)="changeAdStatus(ad?.id, ad?.ad_group_id, ad?.ad_id, ad?.status)"><i
+                                              class="icon-circle text-success"></i> Activer</a>
+                                          <a style="cursor: pointer" class="adafri-police-14 dropdown-item disabled"
+                                            href="#"><i class="icon-pause"></i> Désactiver</a>
+                                          <a style="cursor: pointer" class="adafri-police-14 dropdown-item text-danger"
+                                            (click)="removeAd(ad?.id, ad?.ad_group_id, ad?.ad_id)"><i
+                                              class="icon-delete"></i> Supprimmer</a>
+                                        </div>
+                                        <div class="dropdown-menu no-b white shadow" *ngIf="ad?.status==='ENABLED'">
+                                          <a style="cursor: pointer" class="adafri-police-14 dropdown-item disabled"
+                                            href="#"><i class="icon-circle text-success"></i> Activer</a>
+                                          <a style="cursor: pointer" class="adafri-police-14 dropdown-item text-danger"
+                                            (click)="changeAdStatus(ad?.id, ad?.ad_group_id, ad?.ad_id, ad?.status)"><i
+                                              class="icon-pause"></i> Désactiver</a>
+                                          <a style="cursor: pointer" class="adafri-police-14 dropdown-item text-danger"
+                                            (click)="removeAd(ad?.id, ad?.ad_group_id, ad?.ad_id)"><i
+                                              class="icon-delete"></i> Supprimmer</a>
+                                        </div>
+                                        <div class="dropdown-menu no-b white shadow" *ngIf="ad?.status===''">
+                                          <a style="cursor: pointer"
+                                            class="adafri-police-14 dropdown-item disabled grey lighten-4" href="#"><i
+                                              class="icon-circle text-success"></i> Activer</a>
+                                          <a style="cursor: pointer"
+                                            class="adafri-police-14 dropdown-item text-danger grey lighten-4 disabled"><i
+                                              class="icon-pause"></i> Désactiver</a>
+                                          <a style="cursor: pointer" class="adafri-police-14 dropdown-item text-danger"
+                                            style="cursor: pointer" (click)="removeAdFirebase(ad?.id)"><i
+                                              class="icon-delete"></i> Supprimmer</a>
+                                        </div>
+                                      </div>
+
+                                    </td>
+                                    <td class="text-center">
+                                      <p class="d-inline-block adafri-police-14 text-black">{{ ad?.ad_name }}</p>
+                                    </td>
+                                    <td class="text-center grey lighten-4">
+                                      <img src="{{ad?.url_image}}" style="width: 20%"
+                                        class="img-responsive d-inline-block shadow" alt="{{ad?.ad_name}}">
+
+                                    </td>
+                                    <td class="text-center" *ngIf="ad?.status===''">
+                                      <p class="d-inline-block adafri-police-14 blink text-warning">En attende de
+                                        publication</p>
+                                    </td>
+
+                                    <td class="text-center" *ngIf="ad?.status==='PAUSED' && status==='PAUSED'">
+                                      <p class="d-inline-block adafri-police-14 text-black-50">Mise en ville</p>
+                                    </td>
+                                    <td class="text-center" *ngIf="ad?.status==='ENABLED' && status==='ENABLED'">
+                                      <p class="d-inline-block adafri-police-14 adafri">Activée</p>
+                                    </td>
+                                    <td class="text-center" *ngIf="ad?.status==='PAUSED' && status==='ENABLED'">
+                                      <p class="d-inline-block adafri-police-14 text-black-50">Mise en veille</p>
+                                    </td>
+                                    <td class="text-center" *ngIf="ad?.status==='ENABLED' && status==='PAUSED'">
+                                      <p class="d-inline-block adafri-police-14 text-black-50">Mise en veille car le
+                                        {{name}} est en veille</p>
+                                    </td>
+                                    <td class="text-center" *ngIf="ad?.status===''">
+                                           <span class="d-none d-md-inline-block adafri-police-16 text-black" >......</span>
+                                         
+                                        </td>
+                                      <td class="text-center" *ngIf="ad?.combinedApprovalStatus==='APPROUVÉ'">
+                                           <p class="d-none d-md-inline-block adafri-police-16 text-black">Approuvé</p>
+                                           <p class="d-md-none d-sm-inline-block adafri-police-12 text-black">Approuvé</p>
+                                        </td>
+                                      <td class="text-center" *ngIf="ad?.combinedApprovalStatus==='DÉSAPPROUVÉ'">
+                                           <p class="d-none d-md-inline-block adafri-police-16 text-danger font-weight-bold">Désaprouvé</p>
+                                              <p class="d-none d-md-inline-block adafri-police-16 text-black-50 font-weight-bold">{{ad?.policy[0].policyTopicName}}</p>
+                                               <p class="d-md-none d-sm-inline-block adafri-police-12 text-danger font-weight-bold">Désaprouvé</p>
+                                              <p class="d-md-none d-sm-inline-block adafri-police-12 text-black-50 font-weight-bold">{{ad?.policy[0].policyTopicName}}</p>
+                                        </td> 
+
+                                    <td class="text-center">
+                                      <a class="btn-fab btn-fab-sm white blink shadow text-black-50 r-20 d-inline-block adafri-police-16 border-warning"
+                                        [id]="ad?.id"
+                                        (click)="goAdSettings(ad?.id, ad?.ad_name, ad?.ad_group_id, ad?.ad_id, ad?.status, ad?.url_image, ad?.finalUrls, ad?.finalAppUrls, ad?.finalMobileUrls, ad?.image_content, ad?.referenceId, ad?.size, ad?.ad_type)"
+                                        style="border: 1px solid grey" *ngIf="ad?.status===''"><i
+                                          class="icon-send-o text-warning"></i></a>
+
+                                      <a class="btn-fab btn-fab-sm white shadow text-black-50 r-20 d-inline-block adafri-police-14"
+                                        [id]="ad?.id"
+                                        (click)="goAdSettings(ad?.id, ad?.ad_name, ad?.ad_group_id, ad?.ad_id, ad?.status, ad?.url_image, ad?.finalUrls, ad?.finalAppUrls, ad?.finalMobileUrls, ad?.image_content, ad?.referenceId, ad?.size, ad?.ad_type)"
+                                        style="border: 1px solid grey" *ngIf="ad?.status!==''"><i
+                                          class="icon-settings2 text-black"></i></a>
+                                    </td>
+                                    <hr>
+                                  </tr>
+                                </ng-container>
+
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="card no-b shadow animated paper-card p-0 fadeInLeft white d-md-none d-sm-block">
+                        <div class="card-body">
+                          <div class="table-responsive">
+
+                            <table class="table table-bordered">
+                              <tbody>
+                                <th class="adafri-police-14"></th>
+                                <th class="adafri-police-12 p-0">Libellé</th>
+                                <th class="adafri-police-12 p-0">Visuel</th>
+                                <th class="adafri-police-12 p-0">Status</th>
+                                  <th class="adafri-police-12 p-0">Etat</th>
+                                <th class="adafri-police-12 p-0">Actions</th>
+                                <ng-container *ngIf="ads.toString().length > 0; else noAds">
+
+                                  <tr class="text-center" *ngFor="let ad of ads | async">
+
+                                    <td class="text-center p-0" style="width: 30px">
+                                      <div class="dropdown text-center">
+                                        <button type="button"
+                                          class="btn btn-sm white dropdown-toggle float-left box-popup box text-black-50"
+                                          style="box-shadow: none" data-toggle="dropdown">
+                                          <i class="icon-pause" *ngIf="ad?.status==='PAUSED'"></i>
+                                          <i class="icon-circle text-success" *ngIf="ad?.status==='ENABLED'"></i>
+                                          <i class="icon-phonelink_off text-success" *ngIf="ad?.status===''"></i>
+
+                                        </button>
+                                        <div class="dropdown-menu no-b white shadow" *ngIf="ad?.status==='PAUSED'">
+                                          <a style="cursor: pointer" class="adafri-police-14 dropdown-item"
+                                            (click)="changeAdStatus(ad?.id, ad?.ad_group_id, ad?.ad_id, ad?.status)"><i
+                                              class="icon-circle text-success"></i> Activer</a>
+                                          <a style="cursor: pointer" class="adafri-police-14 dropdown-item disabled"
+                                            href="#"><i class="icon-pause"></i> Désactiver</a>
+                                          <a style="cursor: pointer" class="adafri-police-14 dropdown-item text-danger"
+                                            (click)="removeAd(ad?.id, ad?.ad_group_id, ad?.ad_id)"><i
+                                              class="icon-delete"></i> Supprimmer</a>
+                                        </div>
+                                        <div class="dropdown-menu no-b white shadow" *ngIf="ad?.status==='ENABLED'">
+                                          <a style="cursor: pointer" class="adafri-police-14 dropdown-item disabled"
+                                            href="#"><i class="icon-circle text-success"></i> Activer</a>
+                                          <a style="cursor: pointer" class="adafri-police-14 dropdown-item text-danger"
+                                            (click)="changeAdStatus(ad?.id, ad?.ad_group_id, ad?.ad_id, ad?.status)"><i
+                                              class="icon-pause"></i> Désactiver</a>
+                                          <a style="cursor: pointer" class="adafri-police-14 dropdown-item text-danger"
+                                            (click)="removeAd(ad?.id, ad?.ad_group_id, ad?.ad_id)"><i
+                                              class="icon-delete"></i> Supprimmer</a>
+                                        </div>
+                                        <div class="dropdown-menu no-b white shadow" *ngIf="ad?.status===''">
+                                          <a style="cursor: pointer"
+                                            class="adafri-police-14 dropdown-item disabled grey lighten-4" href="#"><i
+                                              class="icon-circle text-success"></i> Activer</a>
+                                          <a style="cursor: pointer"
+                                            class="adafri-police-14 dropdown-item text-danger grey lighten-4 disabled"><i
+                                              class="icon-pause"></i> Désactiver</a>
+                                          <a style="cursor: pointer" class="adafri-police-14 dropdown-item text-danger"
+                                            style="cursor: pointer" (click)="removeAdFirebase(ad?.id)"><i
+                                              class="icon-delete"></i> Supprimmer</a>
+                                        </div>
+                                      </div>
+
+                                    </td>
+                                    <td class="text-center p-0">
+                                      <span style="word-break: break-word;" class="d-inline-block adafri-police-12 text-black">{{ ad?.ad_name }}</span>
+                                    </td>
+                                    <td class="text-center p-0">
+                                      <img src="{{ad?.url_image}}" class="img-responsive d-inline-block"
+                                        alt="{{ad?.ad_name}}">
+
+                                    </td>
+                                    <td class="text-center" *ngIf="ad?.status===''">
+                                      <p class="d-inline-block adafri-police-12 blink text-warning">En attende de
+                                        publication</p>
+                                    </td>
+
+                                    <td class="text-center p-0" *ngIf="ad?.status==='PAUSED' && status==='PAUSED'">
+                                      <p class="d-inline-block adafri-police-12 text-black-50">Mise en ville</p>
+                                    </td>
+                                    <td class="text-center p-0" *ngIf="ad?.status==='ENABLED' && status==='ENABLED'">
+                                      <p class="d-inline-block adafri-police-12 adafri">Activée</p>
+                                    </td>
+                                    <td class="text-center p-0" *ngIf="ad?.status==='PAUSED' && status==='ENABLED'">
+                                      <p class="d-inline-block adafri-police-14 text-black-50">Mise en veille</p>
+                                    </td>
+                                    <td class="text-center p-0" *ngIf="ad?.status==='ENABLED' && status==='PAUSED'">
+                                      <p class="d-inline-block adafri-police-12 text-black-50">Mise en veille car le
+                                        {{name}} est en veille</p>
+                                    </td>
+                                     <td class="text-center" *ngIf="ad?.status===''">
+                                           <span class="d-none d-md-inline-block adafri-police-12 text-black" >......</span>
+                                         
+                                        </td>
+
+                                     <td class="text-center" *ngIf="ad?.combinedApprovalStatus==='APPROUVÉ'">
+                                           <p class="d-none d-md-inline-block adafri-police-12 text-black">Approuvé</p>
+                                           <p class="d-md-none d-sm-inline-block adafri-police-12 text-black">Approuvé</p>
+                                        </td>
+                                      <td class="text-center" *ngIf="ad?.combinedApprovalStatus==='DÉSAPPROUVÉ'">
+                                           <p class="d-none d-md-inline-block adafri-police-12 text-danger font-weight-bold">Désaprouvé</p>
+                                              <p class="d-none d-md-inline-block adafri-police-12 text-black-50 font-weight-bold">{{ad?.policy[0].policyTopicName}}</p>
+                                               <p class="d-md-none d-sm-inline-block adafri-police-12 text-danger font-weight-bold">Désaprouvé</p>
+                                              <p class="d-md-none d-sm-inline-block adafri-police-12 text-black-50 font-weight-bold">{{ad?.policy[0].policyTopicName}}</p>
+                                        </td> 
+                                   
+                                    <td class="text-center p-0" *ngIf="combinedApprovalStatus==='À L\'ÉTUDE'">
+                                      <p class="d-inline-block adafri-police-12 adafri">En attente</p>
+                                    </td>
+                                    <!--   <td class="text-center p-0" *ngIf="combinedApprovalStatus==='DÉSAPPROUVÉE'">
+                                           <p class="d-inline-block adafri-police-12 text-danger font-weight-bold">Désaprouvée</p>
+                                        </td>
+                            -->
+
+                                    <td class="text-center p-0">
+                                      <a class="btn-fab btn-fab-sm white blink shadow text-black-50 r-20 d-inline-block adafri-police-12 border-warning"
+                                        [id]="ad?.id"
+                                        (click)="goAdSettings(ad?.id, ad?.ad_name, ad?.ad_group_id, ad?.ad_id, ad?.status, ad?.url_image, ad?.finalUrls, ad?.finalAppUrls, ad?.finalMobileUrls, ad?.image_content, ad?.referenceId, ad?.size, ad?.ad_type)"
+                                        style="border: 1px solid grey" *ngIf="ad?.status===''"><i
+                                          class="icon-send-o text-warning"></i></a>
+
+                                      <a class="btn-fab btn-fab-sm white shadow text-black-50 r-20 d-inline-block adafri-police-12"
+                                        [id]="ad?.id"
+                                        (click)="goAdSettings(ad?.id, ad?.ad_name, ad?.ad_group_id, ad?.ad_id, ad?.status, ad?.url_image, ad?.finalUrls, ad?.finalAppUrls, ad?.finalMobileUrls, ad?.image_content, ad?.referenceId, ad?.size, ad?.ad_type)"
+                                        style="border: 1px solid grey" *ngIf="ad?.status!==''"><i
+                                          class="icon-settings2 text-black"></i></a>
+                                    </td>
+                                    <hr>
+                                  </tr>
+                                </ng-container>
+
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </ng-container>
+              <ng-container *ngIf="number_ads==='0' && init_choose_ad_size!==true">
+                <div class="container-fluid text-center" style="margin-top: 20px">
+                  <div class="row">
+                    <div class="col-md-12 text-center">
+                      <mat-card class="d-inline-block">
+                          <img mat-card-image src="assets/img/images/banniere.png" alt="Photo of a Shiba Inu">
+                        <mat-card-content>
+                          <p>Commencer par créer un visuel</p>
+                        </mat-card-content>
+                      
+                      <mat-card-actions>
+                        <button mat-raised-button color="accent" (click)='initAdd()'>Créer mon premier visuel</button>
+                      </mat-card-actions>
+                      </mat-card>
+                     
+                    </div>
+                    <!--   <div class="col-md-6 text-center">
+                 <div class="card no-b shadow adafri-background">
+                   <div class="card-header no-b text-white adafri-police-22">Bienvenue dans votre groupe de visuel</div>
+                    <div class="card-body text-center text-white">
+                    
+                      <p class="adafri-police-16">Cliquez sur emplacement pour placer toutes les annonces de ce groupe dans différents sites web</p>
+                      <p class="adafri-police-16">Cliquez sur ciblage pour choisir vos cibles</p>
+                    </div>
+                 </div>
+                
+                </div> -->
+                  </div>
+
+                </div>
+              </ng-container>
+
+             
+              <ng-container *ngIf="isAdBlock">
+                <div class="height-full text-center grey lighten-4" style="margin-top: 15px">
+
+                  <div class="card mb-3 no-b r-0 animated fadeIn grey lighten-4">
+
+                    <div class="card-body text-center" id="isAdBlock">
+                      <div class="row">
+                        <div class="col-md-12 text-center">
+                          <div class="card no-b d-inline-block rey lighten-4">
+
+                            <div class="card-body text-center grey lighten-4">
+                              <span class="adafri-police text-black">Votre site web</span>
+                              <input type="text" autocomplete="off"
+                                class="form-control grey lighten-4 no-b text-black adafri-police d-inline-block text-center"
+                                 placeholder="Exemple: https://www.votresite.com"
+                                 [value]="currentFinalUrls" required
+                                (keyup)="handleErrorUrl()" readonly>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-12 text-center">
+                          <div class="card no-b shadow" style="display: inline-block;">
+                            <div class="card-header adafri-background text-white no-b text-center">
+                              <h6 class="adafri-police">Nom: <strong> {{currentAdName}}</strong></h6>
+                              <span style="float: right; font-size: 12px; margin-top: -5px"><strong>Format:
+                                  {{currentAdSize[0].width}}x{{currentAdSize[0].height}}</strong></span>
+                            </div>
+                            <div class="card-body white no-b">
+                              <div class="card-img no-b">
+                                <img class="img-responsive" [src]="currentImageUrl">
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer no-b grey lighten-4 justify-content-between">
+                      <button class="btn shadow white text-black-50 r-20 btn-sm btn-social"
+                        style="border: solid 1px grey" title="modifier" (click)="toggleCurrentEditor()"
+                        *ngIf="currentAdType==='CREATIVE' && currentAdStatus==='' && !isRoller "><i
+                          [class]="iconEditor"></i>{{text_modify}}</button>
+                      <button class="btn shadow white text-black-50 r-20 btn-sm btn-social"
+                        style="border: solid 1px grey" title="modifier" (click)="toggleCurrentUploadBlock()"
+                        *ngIf="currentAdType==='UPLOAD' && currentAdStatus==='' && !isRoller"><i
+                          [class]="iconEditor"></i>{{text_modify}}</button>
+                      <a class="btn btn-sm btn-social white text-warning blink r-20"
+                        style="font-size: 12px; border: 1px solid orange" (click)="buildAd()"
+                        *ngIf="currentAdStatus=='' && !isRoller && !isUploadModified">
+                        <i class="icon-send"></i> Diffuser sur google
+                      </a>
+                      <a class="btn btn-sm btn-social white text-danger r-20" style="font-size: 12px"
+                        (click)="toggleListAd()" *ngIf="!isRoller && !isUploadModified" style="border: 1px solid red">
+                        <i class="icon-close"></i> Fermer
+                      </a>
+                    </div>
+                  </div>
+
+
+
+                      <ng-container  *ngIf="currentEditor && currentAdStatus===''">
+                <div class="paper-card shadow p-0 animated fadeInDown delay-1s" id="blockModifyCreatives" >
+                  <div class="card grey lighten-2 no-b paper-card p-0">
+                    <div class="card-header grey lighten-2 adafri-police-16 text-center text-black no-b">
+                      <span style="font-size: 12px"><strong *ngFor="let size of currentAdSize">Format: {{size.width}}x{{size.height}}</strong></span>
+                    </div>
+                    <div class="card-body">
+                      <form >
+                        <div class="form-row text-center">
+                          <div class="col-md-12 text-center">
+                            <small class="adafri-police-14 font-weight-bold">Nom du visuel</small><br>
+                            <input type="text" class="form-control d-inline-block text-center" 
+                             [id]="idOfAdNameNotPublishCreatives"
+                                placeholder="Nom" [value]="currentAdName"  style="width: 100%" required> 
+                  
+                          
+                          <br>
+                          <div class="col-md-12 text-center">
+                            <small class="adafri-police-14 font-weight-bold">Votre site web</small><br>
+                            <input type="text" autocomplete="off" class="form-control d-inline-block text-center"
+                              placeholder="Exemple: https://www.votresite.com" style="width: 100%"
+                              [id]="idOfdisplayUrlNotPublishCreatives" [value]="currentFinalUrls" required (keyup)="handleErrorUrl()" >
+                              <ng-container *ngIf="url_errors != []">
+                              <div class="text-danger" *ngFor="let error of url_errors">
+                                {{error.url}} {{error.text}}
+                              </div>
+
+                            </ng-container>
+                          </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+
+                  <div class="card no-b">
+
+                           <div class="card-header white text-center b-0 d-md-none d-sm-block">
+                      <div class="row">
+                                <div class="btn-toolbar mb-3 d-inline-block animated fadeInLeftBig delay-2" role="toolbar"
+                        aria-label="Toolbar with button groups">
+
+                        <div class="btn-group " id="tool" style="" role="group" aria-label="First group">
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="triggerImage()"><i class="icon-image"></i></button>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button id="btnGroupDrop1" type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/img/images/squares.png">
+                              </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" (click)="addShape('circle');"><img
+                                    src="assets/img/images/circle.png"> Cercle</a>
+                                <a class="dropdown-item" (click)="addShape('square');"><img
+                                    src="assets/img/images/carre.png"> Carré</a>
+                                <a class="dropdown-item" (click)="addShape('rectangle');"><img
+                                    src="assets/img/images/rectangle.png"> Rectangle</a>
+                                <a class="dropdown-item" (click)="addShape('triangle');"><img
+                                    src="assets/img/images/triangle.png"> Triangle</a>
+                                <a class="dropdown-item" (click)="addShape('star');"><img
+                                    src="assets/img/images/star.png"> Polygone</a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button id="btnGroupDrop1" type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/img/images/background.png">
+                              </button>
+                              <div class="dropdown-menu paper-card shadow no-b text-center"
+                                style="padding: 40px !important" aria-labelledby="btnGroupDrop1">
+                                <span class="adafri-police-14">
+                                  Couleur du canvas
+                                </span>
+                                <input class="no-b" style="cursor: pointer" type="text" class="form-control"
+                                  [cpPosition]="'right'" [cpPresetColors]="customColors" [cpOKButton]="true"
+                                  [cpAddColorButtonText]="'Speichern'" [cpAddColorButton]="true"
+                                  [cpOKButtonClass]="'btn btn-light btn-sm'" [cpSaveClickOutside]="false"
+                                  [(colorPicker)]="props.canvasFill" [style.background]="props.canvasFill"
+                                  [value]="props.canvasFill" (cpPresetColorsChange)="updateColorPresets($event)"
+                                  (colorPickerChange)="setCanvasFill()" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button id="btnGroupDrop1" type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/img/images/opacity.png">
+                              </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1"
+                                style="padding: 40px !important">
+                                <input type="range" class="range-slider form-control" [(ngModel)]="props.opacity"
+                                  (change)="setOpacity()">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                  src="assets/img/images/add-text.png"> </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+                                <div class="input-group mb-2 mr-sm-2">
+                                  <div class="input-group-prepend no-b white">
+                                    <div class="input-group-text no-b white"><a
+                                        class="btn-fab btn-fab-sm adafri-background text-white" (click)="addText()"><i
+                                          class="icon-add_circle text-white"></i></a></div>
+                                  </div>
+                                  <input type="text" class="form-control" id="text_canvas" placeholder="Texte">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                  src="assets/img/images/font-size.png"> </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+
+                                <a class="dropdown-item" *ngFor="let sizes of FONT_SIZES"
+                                  (click)="setFontSize(sizes.size)" style="cursor: pointer">{{sizes.name}}</a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                  src="assets/img/images/style.png"> </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+
+                                <a class="dropdown-item" *ngFor="let font of FONT_FAMILY"
+                                  (click)="setFontFamily(font.font)" style="cursor: pointer">{{font.name}}</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                      </div>
+                      <div class="row">
+                       <div class="btn-toolbar mb-3 d-inline-block animated fadeInLeftBig delay-2" role="toolbar"
+                        aria-label="Toolbar with button groups">
+                        <div class="btn-group " id="tool" style="" role="group" aria-label="First group">
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="setTextDecoration('underline')"><img
+                              src="assets/img/images/underline.png"></button>
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="setTextDecoration('underline')"><img src="assets/img/images/barre.png"></button>
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="setBold()"><img src="assets/img/images/bold.png"></button>
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"><img
+                              src="assets/img/images/delete.png" (click)="removeSelected();"></button>
+
+                          <!--  <button type="button" class="btn grey lighten-2 text-black border-right border-left"><img src="assets/img/images/clear.png" (click)="confirmClear()"></button> -->
+                          </div>
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="card-header white text-center b-0 d-none d-md-block">
+                      <div class="btn-toolbar mb-3 d-inline-block animated fadeInLeftBig delay-2" role="toolbar"
+                        aria-label="Toolbar with button groups">
+
+                        <div class="btn-group " id="tool" style="" role="group" aria-label="First group">
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="triggerImage()"><i class="icon-image"></i></button>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button id="btnGroupDrop1" type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/img/images/list.png">
+                              </button>
+                              <div class="dropdown-menu paper-card shadow no-b text-center" aria-labelledby="btnGroupDrop1">
+                                <span class="adafri-police-16 font-weight-bold">Element du canvas</span>
+
+                                 <ul class="social social list-inline" dnd-sortable-container [sortableData]="layers.reverse()">
+                          <li class="list-inline-item r-20" *ngFor="let item of layers; let i = index" dnd-sortable
+                            [dragEnabled]="item.selectable" [sortableIndex]="layers.length - i - 1"
+                            (click)="selectLayer(item)" (onDropSuccess)="updateLayerSort()"
+                            [ngClass]="{'active': item.active}"><a
+                              class="btn-fab btn-fab-sm shadow white border-dark adafri-police-16 text-dark"><i
+                                class="text-dark {{elementTypes[item.type].icon}}"
+                                [ngClass]="{'text-muted': !item.active}"></i></a>
+                          </li>
+                        </ul>
+                            <!--     <a class="dropdown-item" (click)="addShape('circle');"><img
+                                    src="assets/img/images/circle.png"> Cercle</a>
+                                <a class="dropdown-item" (click)="addShape('square');"><img
+                                    src="assets/img/images/carre.png"> Carré</a>
+                                <a class="dropdown-item" (click)="addShape('rectangle');"><img
+                                    src="assets/img/images/rectangle.png"> Rectangle</a>
+                                <a class="dropdown-item" (click)="addShape('triangle');"><img
+                                    src="assets/img/images/triangle.png"> Triangle</a>
+                                <a class="dropdown-item" (click)="addShape('star');"><img
+                                    src="assets/img/images/star.png"> Polygone</a> -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button id="btnGroupDrop1" type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/img/images/squares.png">
+                              </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" (click)="addShape('circle');"><img
+                                    src="assets/img/images/circle.png"> Cercle</a>
+                                <a class="dropdown-item" (click)="addShape('square');"><img
+                                    src="assets/img/images/carre.png"> Carré</a>
+                                <a class="dropdown-item" (click)="addShape('rectangle');"><img
+                                    src="assets/img/images/rectangle.png"> Rectangle</a>
+                                <a class="dropdown-item" (click)="addShape('triangle');"><img
+                                    src="assets/img/images/triangle.png"> Triangle</a>
+                                <a class="dropdown-item" (click)="addShape('star');"><img
+                                    src="assets/img/images/star.png"> Polygone</a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button id="btnGroupDrop1" type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/img/images/background.png">
+                              </button>
+                              <div class="dropdown-menu paper-card shadow no-b text-center"
+                                style="padding: 40px !important" aria-labelledby="btnGroupDrop1">
+                                <span class="adafri-police-14">
+                                  Couleur du canvas
+                                </span>
+                                <input class="no-b" style="cursor: pointer" type="text" class="form-control"
+                                  [cpPosition]="'right'" [cpPresetColors]="customColors" [cpOKButton]="true"
+                                  [cpAddColorButtonText]="'Speichern'" [cpAddColorButton]="true"
+                                  [cpOKButtonClass]="'btn btn-light btn-sm'" [cpSaveClickOutside]="false"
+                                  [(colorPicker)]="props.canvasFill" [style.background]="props.canvasFill"
+                                  [value]="props.canvasFill" (cpPresetColorsChange)="updateColorPresets($event)"
+                                  (colorPickerChange)="setCanvasFill()" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button id="btnGroupDrop1" type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/img/images/opacity.png">
+                              </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1"
+                                style="padding: 40px !important">
+                                <input type="range" class="range-slider form-control" [(ngModel)]="props.opacity"
+                                  (change)="setOpacity()">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                  src="assets/img/images/add-text.png"> </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+                                <div class="input-group mb-2 mr-sm-2">
+                                  <div class="input-group-prepend no-b white">
+                                    <div class="input-group-text no-b white"><a
+                                        class="btn-fab btn-fab-sm adafri-background text-white" (click)="addText()"><i
+                                          class="icon-add_circle text-white"></i></a></div>
+                                  </div>
+                                  <input type="text" class="form-control" id="text_canvas" placeholder="Texte">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                  src="assets/img/images/font-size.png"> </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+
+                                <a class="dropdown-item" *ngFor="let sizes of FONT_SIZES"
+                                  (click)="setFontSize(sizes.size)" style="cursor: pointer">{{sizes.name}}</a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                  src="assets/img/images/style.png"> </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+
+                                <a class="dropdown-item" *ngFor="let font of FONT_FAMILY"
+                                  (click)="setFontFamily(font.font)" style="cursor: pointer">{{font.name}}</a>
+                              </div>
+                            </div>
+                          </div>
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="setTextDecoration('underline')"><img
+                              src="assets/img/images/underline.png"></button>
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="setTextDecoration('underline')"><img src="assets/img/images/barre.png"></button>
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="setBold()"><img src="assets/img/images/bold.png"></button>
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"><img
+                              src="assets/img/images/delete.png" (click)="removeSelected();"></button>
+
+                          <!--  <button type="button" class="btn grey lighten-2 text-black border-right border-left"><img src="assets/img/images/clear.png" (click)="confirmClear()"></button> -->
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                    <div class="card-body white no-b p-0">
+                      
+                      <div class="row">
+                        <div class="col-md-12" style="text-align: center;">
+                          <div style="display: inline-block" class="paper-card p-0 animated fadeInRightBig delay-2">
+                            <div class="canvas-container text-center" (drop)="handleDropOnCanvas($event)"
+                              (dragover)="handleDragOverCanvas($event)" placeholder="canvas">
+                              <canvas id="canvas" class="d-inline-block" [ngStyle]="canvas_style"></canvas>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+                    <div class="card-footer border-0 white text-center justify-content-between">
+                      <button class="btn btn-sm r-20 btn-social white text-black-50 adafri-police-14 border-grey"
+                        (click)="handleModifiedImage()">
+                        <i class="icon-paper-plane text-black"></i> Visualiser le visuel
+                      </button>
+                       <button class="btn btn-sm btn-social text-danger white r-20 border-danger adafri-police-14"
+                        title="Ajouter un texte" (click)="destroyModifyCanvas()"><i
+                          class="icon-edit"></i>Détruire le canvas</button>
+                    </div>
+                  </div>
+                </div>
+
+
+
+              </ng-container>
+
+                </div>
+              </ng-container>
+              <div class="card no-b" style="display: none" id="blockUploadModified">
+
+                        <div class="card paper-card shadow no-b r-0 grey lighten-3 p-0">
+                  <div class="card-header grey lighten-3 adafri-police-16 text-center text-black no-b">
+                    <span style="font-size: 16px" *ngFor="let size of currentAdSize"><strong>Format: {{size.width}}x{{size.height}}</strong></span>
+                  </div>
+                  <div class="card-body no-b">
+                    <form >
+                      <div class="form-row text-center">
+                        <div class="col-md-12 mb-3 text-center">
+                        </div>
+                        <div class="form-group col-md-12 mb-3">
+                          <small class="adafri-police-14 font-weight-bold">Votre site web</small><br>
+                          <input type="text" autocomplete="off" class="form-control d-inline-block border-dark text-center"
+                          id="redirect" placeholder="Exemple: https://www.votresite.com"
+                          [id]="idOfDisplayUrlNotPublishUpload" [value]="currentFinalUrls" (keyup)="handleErrorUrl()">
+                          <ng-container *ngIf="url_errors != []">
+                            <div class="text-danger" *ngFor="let error of url_errors">
+                              {{error.url}} {{error.text}}
+                            </div>
+
+                          </ng-container>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <br>
+                 <div class="text-center" *ngIf="button_modify_image_upload"><a
+                      class="btn btn-sm white text-danger r-20 btn-socia border-danger" style="border: 1px solid red"
+                      (click)="toggleModifyUploadImage()"><i class="icon-edit"></i> Modifier l'image</a></div>
+                <div class="card white no-b paper-card p-0"  id="button_modify_image_upload" style="display: none">
+                  <ngx-dropzone (change)="onSelect($event)" class="text-center" [multiple]="false">
+                    <ngx-dropzone-label><i class="icon-cloud_upload text-black-50 s-48"></i><br>Glissez ou cliquez pour ajouter une ou plusieurs images</ngx-dropzone-label>
+                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true"
+                      (removed)="onRemove(f)" *ngFor="let f of files" [file]="f" class="text-center"
+                      style="width: 100% !important ;display: inline-flex !important;height: 140px;min-height: 140px;min-width: 180px;max-width: 180px;justify-content: center;align-items: center;padding: 0px 20px;margin: 10px;border-radius: 5px;position: relative;">
+                      <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                    </ngx-dropzone-image-preview>
+                  </ngx-dropzone>
+                   <a class="btn btn-sm white text-danger r-20 btn-social border-danger"
+                        style="border: 1px solid red" (click)="closeModifyUploadImage()"><i class="icon-close"></i> Ne
+                        pas modifier l'image</a>
+                </div>
+
+                <div class="card-footer white no-b text-center">
+
+                  <button class="btn btn-sm r-20 btn-social white text-black-50 r-20" style="border: 1px solid grey"
+                    (click)="handleModifiedImage()">
+                    <i class="icon-paper-plane"></i> Visualiser la modification
+                  </button>
+                </div>
+                <div *ngIf="isCreating">
+                  <app-spinner-overlay [message]="message"></app-spinner-overlay>
+
+                </div>
+              </div>
+              <ng-container>
+
+                <div class="card mb-3 shadow no-b r-0" *ngIf="modifyPublishAd">
+                  <div class="card-header adafri-background adafri-police-16 text-center text-white no-b">
+                    <h6>Modifier l'annonce</h6>
+                  </div>
+                  <div class="card-body text-center" *ngIf="!isRoller">
+                    <form>
+
+                      <div class="form-row text-center">
+                        <div class="col-md-6 mb-3 text">
+                          <small for="validationCustom01">Nom du visuel</small>
+                          <input type="text" class="form-control" id="ad_name_modify" placeholder="Nom"
+                            [value]="currentAdName" required>
+                          <div *ngIf="formErrors.name" class="help is-danger">
+                            {{ formErrors.name }}
+                          </div>
+                        </div>
+                        <!-- <div class="col-md-4 mb-3 text">
+                        <small for="validationCustom01">Applications mobiles de destinations</small>
+                        <ng-multiselect-dropdown style="background-color: white" [placeholder]="'Applications'"
+                          [data]="dropdownListApps" [settings]="dropdownSettingsApps" (onSelect)="onAppsSelect($event)"
+                          (onSelectAll)="onAppsSelectAll($event)" (onDeSelect)="onAppsDeSelect($event)"
+                          (onDeSelectAll)="onAppsDeSelectAll()">
+                        </ng-multiselect-dropdown>
+                        <div class="valid-feedback">
+                          Looks good!
+                        </div>
+                      </div> -->
+                        <div class="form-group col-md-6 mb-3">
+                          <small for="pattern">Votre site web</small>
+                          <input type="text" autocomplete="off" class="form-control" id="redirect"
+                            placeholder="Exemple: https://www.votresite.com" id="finalUrlsmodify"
+                            [value]="currentFinalUrls" required (keyup)="handleErrorUrl()">
+                          <ng-container *ngIf="url_errors != ''">
+                            <div class="text-danger" *ngFor="let error of url_errors">
+                              {{error.url}} {{error.text}}
+                            </div>
+
+                          </ng-container>
+                          <!--  </div>
+      <div class="form-group col-md-3">
+        <small>Actual Value</small>
+        <div>{{pattern.value}}</div>
+      </div>
+   -->
+
+
+
+
+
+
+                        </div>
+
+
+
+
+
+
+
+                      </div>
+
+                    </form>
+
+
+
+
+
+                  </div>
+                  <div class="lds-roller" *ngIf="isRoller">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                  <div class="card-footer white no-b text-center">
+                    <a class="btn btn-sm btn-block btn-social adafri-background adafri-police-16 text-white r-20 btn social"
+                      (click)="updateAdOnFirebase()" *ngIf="!isRoller"><i class="icon-check text-white"></i> Enregistrer
+                    </a>
+                  </div>
+                </div>
+
+              </ng-container>
+            </div>
+          
+            <div class="tab-pane fade text-center paper-card grey lighten-4" style="box-shadow: none" id="v-pills-ciblage-ads" role="tabpanel" aria-labelledby="v-pills-add-ad-tab">
+               <div class="text-center" id="ciblage">
+
+                  <span class="adafri-police-18 font-weight-bold">Tous les ciblages qui seront fait ici concerneront uniquement les annonces de ce groupe</span>
+                </div>
+              <ul class="timeline d-inline-block">
+
+  <li class="time-label">
+                  <span class="badge adafri-background r-3 adafri-police-16">
+                    Emplacement des annonces
+                  </span>
+                </li>
+                <li>
+                  <a class="btn btn-sm btn-social white border-grey adafri-police-16 text-black-50 r-20"
+                    data-toggle="collapse" href="#collapseEmplacement" role="button" aria-expanded="false"
+                    aria-controls="collapseEmplacement" style="box-shadow: none" (click)="scrollToEmplacementBlockTarget()">
+
+                    <i class="ion icon-group"></i> Mes emplacements
+                  </a>
+                  <div class="collapse paper-card p-0 grey lighten-4 text-center"  id="collapseEmplacement" style="margin-top: 10px; box-shadow: none">
+                     <div class="card grey white p-0 shadow paper-card" *ngIf="isPlacement" id="emplacement">
+                <div class="card-header white adafri-police-16 text-black text-center">
+                  <span class="adafri-police-18 font-weight-bold">Sites webs où les annonces de ce groupe seront affichées</span>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-bordered">
+                    
+                      <tbody class="white">
+                         <tr class="text-center "  *ngIf="placement!=''">
+                          <th class="adafri-police-16 font-weight-bold">Sites webs</th>
+                          <th class="adafri-police-16 font-weight-bold">supprimer le site</th>
+                        </tr>
+                        <tr *ngIf="placement==''" class="text-center adafri-police-14">
+                          <p class="adafri-police-16 text-black-50 d-inline-block" style="position: absolute; left: 0; right: 0">Aucun emplacement pour le moment</p>
+                        </tr>
+                        <ng-container>
+                          <tr *ngFor="let place of placement" class="text-center">
+                            <td class="adafri-police-14">{{place.item_text}}</td>
+
+                            <td><a class="adafri-police-14" style="cursor: pointer" (click)="removePlacement(place?.item_text, place?.criterion_id)"><i
+                                  class="icon-delete text-danger"></i></a></td>
+                          </tr>
+
+                        </ng-container>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="card-footer white no-b text-center">
+                  <a class="btn btn-sm shadow adafri-background adafri-police-16 text-white r-20"
+                    (click)="handleTogglePlacement()" *ngIf="placement==''"><i class="icon-add_location text-white"></i>Définir un
+                    emplacement</a>
+                  <a class="btn btn-sm shadow adafri-background adafri-police-16 text-white r-20"
+                    (click)=" handleTogglePlacement()" *ngIf="placement!=''"><i class="icon-edit_location text-white"></i>Modifier
+                    les emplacement</a>
+                </div>
+              </div>
+
+
+              <div class="card white no-b shadow paper-card" *ngIf="!isPlacement">
+                <div class="card-header grey lighten-4 no-b text-center">
+                  <span class="text-black adafri-police-18 font-weight-bold">Définissez ici les sites où les annonces de ce groupe seront affichées</span>
+                </div>
+                <div class="card-body no-b">
+                  <ul class="sidebar-menu text-center" style="margin-top: 10px">
+                    <li class="treeview">
+                      <ng-multiselect-dropdown style="background-color: white" [placeholder]="'Sites Nationnaux'"
+                        [data]="dropdownListNationalsWebsites" [settings]="dropdownSettingsNationalsWebsites"
+                        (onSelect)="onNationalsWebsitesSelect($event)"
+                        (onSelectAll)="onNationalsWebsitesSelectAll($event)"
+                        (onDeSelect)="onNationalsWebsitesDeSelect($event)"
+                        (onDeSelectAll)="onNationalsWebsitesDeSelectAll()">
+                      </ng-multiselect-dropdown>
+                      <ng-container *ngIf="nationals_errors != ''">
+                        <div class="text-danger">
+                          {{nationals_errors}}
+                        </div>
+
+                      </ng-container>
+                    </li>
+                    <br>
+                    <li class="treeview">
+                      <ng-multiselect-dropdown style="background-color: white" [placeholder]="'Sites Internationnaux'"
+                        [data]="dropdownListInternationalsWebsites" [settings]="dropdownSettingsInternationalsWebsites"
+                        (onSelect)="onInternationalsWebsitesSelect($event)"
+                        (onSelectAll)="onInternationalsWebsitesSelectAll($event)"
+                        (onDeSelect)="onInternationalsWebsitesDeSelect($event)"
+                        (onDeSelectAll)="onInternationalesWebsitesDeSelectAll()">
+                      </ng-multiselect-dropdown>
+                    </li>
+                    <br>
+                    <li class="treeview">
+                      <ng-multiselect-dropdown style="background-color: white" [placeholder]="'Sites annonces'"
+                        [data]="dropdownListAdsWebsites" [settings]="dropdownSettingsAdsWebsites"
+                        (onSelect)="onAdsWebsitesSelect($event)" (onSelectAll)="onAdsWebsitesSelectAll($event)"
+                        (onDeSelect)="onAdsWebsitesDeSelect($event)" (onDeSelectAll)="onAdsWebsitesDeSelectAll()">
+                      </ng-multiselect-dropdown>
+                    </li>
+
+                    <!--  <li class="treeview"><a><i class="icon icon-male indigo-text s-18"></i><small
+                      for="validationCustom01">Applications mobiles de destinations</small></a>
+                  <ng-multiselect-dropdown style="background-color: white" [placeholder]="'Applications'"
+                    [data]="dropdownListApps" [settings]="dropdownSettingsApps" (onSelect)="onAppsSelect($event)"
+                    (onSelectAll)="onAppsSelectAll($event)" (onDeSelect)="onAppsDeSelect($event)"
+                    (onDeSelectAll)="onAppsDeSelectAll()">
+                  </ng-multiselect-dropdown>
+                </li> -->
+                  </ul>
+                </div>
+                <div class="card-footer white no-b text-center">
+                  <a class="btn btn-sm shadow adafri-background adafri-police-14 text-white r-20 btn-social"
+                    (click)="targetPlacement()"><i class="icon-check text-black"></i>Cibler</a>
+                  <a class="btn btn-sm btn-social shadow white text-danger r-20 adafri-police-14 border-danger" (click)="closeAddPlacement()"><i
+                      class="icon-close"></i>Annuler</a>
+                </div>
+              </div>
+                  </div>
+                
+               
+                <li class="time-label" style="margin-top: 30px
+                ">
+                  <span class="badge badge-warning r-3 adafri-police-16">
+                    Liste de vos types de ciblage
+                  </span>
+                </li>
+                <li>
+                  <a class="btn btn-sm btn-social white border-grey adafri-police-16 text-black-50 r-20"
+                    data-toggle="collapse" href="#collapseAge" role="button" aria-expanded="false"
+                    aria-controls="collapseAge" style="box-shadow: none" (click)="scrollToAgeBlockTarget()">
+
+                    <i class="ion icon-group"></i> Ciblage des âges
+                  </a>
+                  <div class="collapse paper-card p-0 grey lighten-4 text-center" id="collapseAge" style="margin-top: 10px; box-shadow: none">
+                    <div class="card p-0 shadow timeline-item paper-card p-0">
+                      <div class="card-header grey lighten-4 text-center no-b">
+                        <!-- <h4 class="card-title">Liste des âges ciblés</h4> -->
+                        <span class="adafri-police-16 font-weight-bold">Visualiser ici vos tranches d'âges ciblées.</span>
+
+                      </div>
+                      <div class="collapse show" id="invoiceCard">
+                        <div class="card-body p-40">
+                          <div class="table-responsive">
+                            <table class="table table-bordered">
+                             
+                              <tbody>
+                                 <tr class="text-center">
+                                  <th class="adafri-police-16 font-weight-bold">Âges ciblés</th>
+
+                                </tr>
+                               
+                                 <tr  *ngIf="populations==''" class="text-center adafri-police-14">
+                          <p class="adafri-police-16 text-black-50 d-inline-block" style="position: absolute; left: 0; right: 0">Aucune tranche d'âge ciblée</p>
+                        </tr>
+                                <ng-container>
+                                  <tr *ngFor="let pop of populations" class="text-center">
+                                    <td class="text-center adafri-police-14">{{pop.item_text}}</td>
+
+                                  </tr>
+
+                                </ng-container>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <div class="card-footer white no-b text-center">
+                          <a class="btn btn-social shadow btn-sm adafri-background adafri-police-16 text-white r-20"
+                            (click)="openAddCiblageAge()" *ngIf="!isCiblageAge && populations==''"><i
+                              class="icon-add_location"></i>Ajouter une tranche d'âge</a>
+                          <a class="btn btn-social shadow btn-sm adafri-background adafri-police-16 text-white r-20"
+                            (click)="openAddCiblageAge()" *ngIf="!isCiblageAge && populations!=''"><i
+                              class="icon-add_location"></i>Modifier le ciblage</a>
+
+                          <div class="card mt-3 mb-3 text-center no-b" *ngIf="isCiblageAge">
+
+                            <ul class="no-b">
+                              <li class="list-group-item">
+                                <ng-multiselect-dropdown style="background-color: white" [placeholder]="'Âges'"
+                                  [data]="dropdownListAges" [settings]="dropdownSettingsAges"
+                                  (onSelect)="onAgeSelect($event)" (onSelectAll)="onAgeSelectAll($event)"
+                                  (onDeSelect)="onAgeDeSelect($event)" (onDeSelectAll)="onDeSelectAllAge()">
+                                </ng-multiselect-dropdown>
+
+                              </li>
+
+                            </ul>
+
+                            <div class="card-footer text-center white no-b">
+
+                              <a class="btn btn-social shadow btn-sm adafri-background adafri-police-16 text-white r-20"
+                                (click)="targetAge()" *ngIf="isCiblageAge"><i class="icon-check"></i> Ajouter</a>
+                              <a class="btn btn-social shadow btn-sm btn-danger text-white r-20"
+                                (click)="closeAddCiblageAges()" *ngIf="isCiblageAge"><i class="icon-close"></i>
+                                Fermer</a>
+
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                <li>
+                  <a class="btn btn-sm btn-social white border-grey adafri-police-16 text-black-50 r-20"
+                    data-toggle="collapse" href="#collapseGenre" role="button" aria-expanded="false"
+                    aria-controls="collapseGenre" style="box-shadow: none" (click)="scrollToGenderBlockTarget()">
+
+                    <i class="ion icon-intersex"></i> Ciblage des genres
+                  </a>
+                  <div class="collapse paper-card grey lighten-4 text-center p-0" id="collapseGenre" style="margin-top: 10px; box-shadow: none">
+                    <div class="card shadow timeline-item paper-card p-0">
+                      <div class="card-header grey lighten-4 text-center no-b">
+                    
+                       <span class="adafri-police-16 font-weight-bold">Visualiser ici vos genres ciblés.</span>
+
+                      </div>
+                      <div class="collapse show" id="invoiceCard">
+                        <div class="card-body">
+                          <div class="table-responsive">
+                            <table class="table table-bordered">
+                             
+                              <tbody>
+                                 <tr class="text-center">
+                                  <th class="adafri-police-16 font-weight-bold">Genres ciblés</th>
+                                </tr>
+                                 <tr  *ngIf="genres==''" class="text-center adafri-police-14">
+                          <p class="adafri-police-16 text-black-50 d-inline-block" style="position: absolute; left: 0; right: 0">Aucun genre ciblé</p>
+                        </tr>
+                                <ng-container>
+                                  <tr *ngFor="let gen of genres" class="text-center">
+                                    <td class="text-center adafri-police-14">{{gen.item_text}}</td>
+
+                                  </tr>
+
+                                </ng-container>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <div class="card-footer text-center white no-b">
+
+                          <a class="btn btn-social shadow btn-sm adafri-background adafri-police-16 text-white r-20"
+                            (click)="openAddCiblageGenre()" *ngIf="!isCiblageGenre && genres ==''"><i
+                              class="icon-check"></i> Cibler un genre</a>
+                          <a class="btn btn-social shadow btn-sm adafri-background adafri-police-16 text-white r-20"
+                            (click)="openAddCiblageGenre()" *ngIf="!isCiblageGenre && genres!=''"><i
+                              class="icon-close"></i>Modifier le ciblage</a>
+                          <div class="card mt-3 mb-3 text-center no-b" *ngIf="isCiblageGenre">
+
+                            <ul class="no-b">
+                              <li class="list-group-item">
+                                <ng-multiselect-dropdown style="background-color: white" [placeholder]="'Genres'"
+                                  [data]="dropdownListSexes" [settings]="dropdownSettingsSexes"
+                                  (onSelect)="onSexeSelect($event)" (onSelectAll)="onSexeSelectAll($event)"
+                                  (onDeSelect)="onSexeDeSelect($event)" (onDeSelectAll)="onDeSelectAllSexe()">
+                                </ng-multiselect-dropdown>
+
+                              </li>
+
+                            </ul>
+
+                            <div class="card-footer text-center white no-b">
+
+                              <a class="btn btn-social shadow btn-sm adafri-background adafri-police-16 text-white r-20"
+                                (click)="targetGender()" *ngIf="isCiblageGenre"><i class="icon-check"></i> Ajouter</a>
+                              <a class="btn btn-social shadow btn-sm btn-danger text-white r-20"
+                                (click)="closeAddCiblageGenre()" *ngIf="isCiblageGenre"><i class="icon-close"></i>
+                                Fermer</a>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <li>
+                  <a class="btn btn-sm btn-social white border-grey adafri-police-16 text-black-50 r-20"
+                    data-toggle="collapse" href="#collapseAppareil" role="button" aria-expanded="false"
+                    aria-controls="collapseAppareil" style="box-shadow: none" (click)="scrollToDeviceBlockTarget()">
+
+                    <i class="icon icon-devices_other"></i> Ciblage d'appareils
+                  </a>
+                  <div class="collapse paper-card grey lighten-4 p-0" id="collapseAppareil" style="margin-top: 10px">
+                    <div class="card shadow paper-card p-0">
+                         <div class="card-header grey lighten-4 text-center no-b">
+                    
+                       <span class="adafri-police-16 font-weight-bold">Visualiser ici vos appareils ciblés.</span>
+
+                      </div>
+                   
+                        <div class="card-body">
+                          <div class="table-responsive">
+                            <table class="table table-bordered">
+                             <!--  <thead class="white">
+                                <tr class="text-center">
+                                  <th><strong>Appareils</strong></th>
+                                    <th>Enchères</th>
+                          <th>Coût de l'enchère</th>
+                          <th>Supprimer le ciblage</th> 
+                                </tr>
+                              </thead> -->
+                              <tbody>
+                                  <tr class="text-center">
+                                  <th class="adafri-police-16 font-weight-bold">Appareils ciblés</th>
+                                </tr>
+                                <tr  *ngIf="appareils==''" class="text-center adafri-police-14">
+                          <p class="adafri-police-16 text-black-50 d-inline-block" style="position: absolute; left: 0; right: 0">Aucun appareil ciblé</p>
+                        </tr>
+                                <ng-container>
+                                  <tr *ngFor="let app of appareils" class="text-center">
+                                    <td class="text-center adafri-police-14">{{app.item_text}}</td>
+                                    <!--  <td>0</td>
+                            <td>0 CFA</td>
+                           <td><i class="icon-delete text-danger"></i></td> -->
+                                  </tr>
+
+                                </ng-container>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <div class="card-footer text-center white no-b">
+
+                          <a class="btn btn-social shadow btn-sm adafri-background adafri-police-16 text-white r-20"
+                            (click)="openAddCiblageDevices()" *ngIf="!isCiblageDevices && appareils ==''"><i
+                              class="icon-check"></i> Cibler un appareil</a>
+                          <a class="btn btn-social shadow btn-sm adafri-background adafri-police-16 text-white r-20"
+                            (click)="openAddCiblageDevices()" *ngIf="!isCiblageDevices && appareils!=''"><i
+                              class="icon-close"></i>Modifier le ciblage</a>
+                          <div class="card mt-3 mb-3 text-center no-b" *ngIf="isCiblageDevices">
+
+                            <ul class="no-b">
+                              <li class="list-group-item">
+                                <ng-multiselect-dropdown style="background-color: white" [placeholder]="'Appareils'"
+                                  [data]="dropdownListDevices" [settings]="dropdownSettingsDevices"
+                                  (onSelect)="onDevicesSelect($event)" (onSelectAll)="onDevicesSelectAll($event)"
+                                  (onDeSelect)="onDevicesDeSelect($event)" (onDeSelectAll)="onDeSelectAllDevices()">
+                                </ng-multiselect-dropdown>
+
+                              </li>
+
+                            </ul>
+
+                            <div class="card-footer text-center white no-b">
+
+                              <a class="btn btn-social shadow btn-sm adafri-background adafri-police-16 text-white r-20"
+                                (click)="targetDevices()" *ngIf="isCiblageDevices"><i class="icon-check"></i>
+                                Ajouter</a>
+                              <a class="btn btn-social shadow btn-sm btn-danger text-white r-20"
+                                (click)="closeAddCiblageDevices()" *ngIf="isCiblageDevices"><i class="icon-close"></i>
+                                Fermer</a>
+
+                            </div>
+                          </div>
+                        </div>
+                  
+                      
+                    </div>
+                  </div>
+        
+                </li>
+
+              </ul>
+
+
+
+        
+
+            </div>
+
+
+            <div class="tab-pane fade white" id="v-pills-add-ad" role="tabpanel" aria-labelledby="v-pills-add-ad-tab">
+              <div class="paper-card text-center grey lighten-4 no-b" style="box-shadow: none">
+                        <div class="card no-b paper-card p-0 border-grey shadow d-inline-block" id="chooseAdSize" *ngIf="chooseAdSize" style="margin-top: 20px">
+                <div class="card-header adafri-background text-center">
+                  <span class="adafri-police-18 text-white font-weight-bold ">Cliquez sur un des formats ci-dessous</span>
+                </div>
+                <div class="card-body no-b white text-center">
+                
+                  <div class="text-center">
+                    <span class="adafri-police-16 font-weight-bold">Les formats les plus performants <i
+                          class="icon-diamond2 adafri d-inline-block s-36"></i></span>
+                    <div class="row">
+
+                      <div class="col text-center" *ngFor="let type of AD_TYPES_SPECIAL_1" style="cursor: pointer"> <span
+                          class="badge badge-white text-black adafri-police-14 img-check d-inline" style="border: 1px solid grey"
+                          (click)="checkAdType(type.id, type.width, type.height, type.img, type.name)"
+                          [id]="type.id">{{type.width}}x{{type.height}}</span></div>
+
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+
+                      <div class="col text-center" *ngFor="let type of AD_TYPES_SPECIAL_2" style="cursor: pointer"> <span
+                          class="badge badge-white text-black adafri-police-14 img-check d-inline" style="border: 1px solid grey"
+                          (click)="checkAdType(type.id, type.width, type.height, type.img, type.name)"
+                          [id]="type.id">{{type.width}}x{{type.height}}</span></div>
+
+                    </div>
+                  </div>
+                  <br>
+                  <hr>
+                  <br>
+                  <div class="text-center">
+                    <span class="adafri-police-16 font-weight-bold">Les autres formats</span>
+                    <div class="row">
+
+                      <div class="col text-center" *ngFor="let type of AD_TYPES_NOSPECIAL_1" style="cursor: pointer"><i
+                          class="icon-diamond2 adafri d-inline" *ngIf="type.isSpecial===true"></i> <span
+                          class="badge badge-white text-black adafri-police-14 img-check d-inline"
+                          style="border: 1px solid grey; margin-left: 5px"
+                          (click)="checkAdType(type.id, type.width, type.height, type.img, type.name)"
+                          [id]="type.id">{{type.width}}x{{type.height}}</span></div>
+
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+
+                      <div class="col text-center" *ngFor="let type of AD_TYPES_NOSPECIAL_2" style="cursor: pointer"><i
+                          class="icon-diamond2 adafri d-inline" *ngIf="type.isSpecial===true"></i> <span
+                          class="badge badge-white text-black adafri-police-14 img-check d-inline"
+                          style="border: 1px solid grey; margin-left: 5px"
+                          (click)="checkAdType(type.id, type.width, type.height, type.img, type.name)"
+                          [id]="type.id">{{type.width}}x{{type.height}}</span></div>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer text-center white no-b">
+                  <div class="card no-b" style="display: inline-block" *ngIf="illustration">
+                    <div class="card-header white adafri-police-16 text-black no-b">
+                      <span class="text-black adafri-police-14">Format annonce</span>
+                    </div>
+                    <div class="card-body white no-b">
+                      <div class="card-img no-b">
+                        <img class="img-responsive" [src]="illustrationUrl" id="illustration">
+                      </div>
+                    </div>
+                   <!--  <div class="card-footer white no-b text-center">
+                      <button class="btn btn-sm shadow white adafri-police-16 text-black border-dark r-20 btn-social"
+                        title="Ajouter un texte" (click)="chooseAdType()"><i class="icon-check text-dark"></i>choisir</button>
+
+                    </div> -->
+                  </div>
+
+                </div>
+                  <div class="row text-center">
+                <div class="col text-center">
+                  <div class="card no-b animated fadeIn slow " *ngIf="chooseBlock" id="blockChoisir" style="display: inline-block">
+                  <!--   <div class="card-header white adafri-police-16 text-black no-b text-center">
+                      <h6 class="text-black adafri-police-16">Format: {{selectedWidth}}x{{selectedHeight}}</h6>
+                    </div> -->
+                    <div class="card-body text-center no-b ">
+                      <a class="btn btn-sm btn-social white text-black-50 r-20" (click)="handleUploadBanner()"
+                        style="border: 1px solid grey">
+                        <i class="icon-cloud_upload"></i> Charger une bannière
+                      </a>
+                      <hr class="invisible">
+                      <button class="btn btn-sm btn-social white text-black-50 r-20" (click)="handleCreatives()"
+                        style="border: 1px solid grey">
+                        <i class="icon-creativity"></i> Construire une bannière
+                      </button>
+
+                    </div>
+                   <!--  <div class="card-footer white no-b text-center">
+                      <button class="btn white btn-sm text-red r-20" (click)="goBackSelectSize()"
+                        title="Ajouter un texte" style="border: 1px solid red"><i class="icon-edit"></i>Changer le
+                        format</button>
+                    </div> -->
+                  </div>
+                </div>
+
+              </div>
+              </div>
+
+            
+
+              <ng-container *ngIf="handleCreateCanvas">
+                <div class="paper-card shadow p-0 animated fadeInDown delay-1s" id="blockCreateCreatives" >
+                  <div class="card grey lighten-2 no-b paper-card p-0">
+                    <div class="card-header grey lighten-2 adafri-police-16 text-center text-black no-b">
+                      <span style="font-size: 12px"><strong>Format: {{selectedWidth}}x{{selectedHeight}}</strong></span>
+                    </div>
+                    <div class="card-body">
+                      <form>
+                        <div class="form-row text-center">
+                          <div class="col-md-12 text-center">
+                            <small class="adafri-police-14 font-weight-bold">Nom du visuel</small><br>
+                            <input type="text" class="form-control d-inline-block text-center" 
+                              [id]="idOfAdNameCreateCreatives" placeholder="Nom" required> 
+                             <!--  <input type="text" class="form-control d-sm-inline-block text-center d-md-none" style="width: 100%"
+                             [id]="idOfAdNameCreateCreatives" placeholder="Nom" formControlName="name" required> -->
+                           <!--  <div *ngIf="formErrors.name" class="help is-danger d-inline-block">
+                     
+                              {{ formErrors.name }}
+                            </div> -->
+                          
+                          <br>
+                          <div class="col-md-12 text-center">
+                            <small class="adafri-police-14 font-weight-bold">Votre site web</small><br>
+                            <input type="text" autocomplete="off" class="form-control d-inline-block text-center"
+                              id="redirect" placeholder="Exemple: https://www.votresite.com" style="width: 100%"
+                              [id]="idOfDisplayUrlCreateCreatives" required (keyup)="handleErrorUrl()">
+                           
+                              <!--  <input type="text" autocomplete="off" class="form-control d-sm-inline-block text-center d-md-none"
+                              id="redirect" placeholder="Exemple: https://www.votresite.com" style="width: 100%"
+                              [id]="idOfDisplayUrlCreateCreatives" required (keyup)="handleErrorUrl()"> -->
+                            <ng-container *ngIf="url_errors != []">
+                              <div class="text-danger" *ngFor="let error of url_errors">
+                                {{error.url}} {{error.text}}
+                              </div>
+
+                            </ng-container>
+                          </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+
+                  <div class="card no-b">
+
+                           <div class="card-header white text-center b-0 d-md-none d-sm-block">
+                      <div class="row">
+                                <div class="btn-toolbar mb-3 d-inline-block animated fadeInLeftBig delay-2" role="toolbar"
+                        aria-label="Toolbar with button groups">
+
+                        <div class="btn-group " id="tool" style="" role="group" aria-label="First group">
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="triggerImage()"><i class="icon-image"></i></button>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button id="btnGroupDrop1" type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/img/images/squares.png">
+                              </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" (click)="addShape('circle');"><img
+                                    src="assets/img/images/circle.png"> Cercle</a>
+                                <a class="dropdown-item" (click)="addShape('square');"><img
+                                    src="assets/img/images/carre.png"> Carré</a>
+                                <a class="dropdown-item" (click)="addShape('rectangle');"><img
+                                    src="assets/img/images/rectangle.png"> Rectangle</a>
+                                <a class="dropdown-item" (click)="addShape('triangle');"><img
+                                    src="assets/img/images/triangle.png"> Triangle</a>
+                                <a class="dropdown-item" (click)="addShape('star');"><img
+                                    src="assets/img/images/star.png"> Polygone</a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button id="btnGroupDrop1" type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/img/images/background.png">
+                              </button>
+                              <div class="dropdown-menu paper-card shadow no-b text-center"
+                                style="padding: 40px !important" aria-labelledby="btnGroupDrop1">
+                                <span class="adafri-police-14">
+                                  Couleur du canvas
+                                </span>
+                                <input class="no-b" style="cursor: pointer" type="text" class="form-control"
+                                  [cpPosition]="'right'" [cpPresetColors]="customColors" [cpOKButton]="true"
+                                  [cpAddColorButtonText]="'Speichern'" [cpAddColorButton]="true"
+                                  [cpOKButtonClass]="'btn btn-light btn-sm'" [cpSaveClickOutside]="false"
+                                  [(colorPicker)]="props.canvasFill" [style.background]="props.canvasFill"
+                                  [value]="props.canvasFill" (cpPresetColorsChange)="updateColorPresets($event)"
+                                  (colorPickerChange)="setCanvasFill()" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button id="btnGroupDrop1" type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/img/images/opacity.png">
+                              </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1"
+                                style="padding: 40px !important">
+                                <input type="range" class="range-slider form-control" [(ngModel)]="props.opacity"
+                                  (change)="setOpacity()">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                  src="assets/img/images/add-text.png"> </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+                                <div class="input-group mb-2 mr-sm-2">
+                                  <div class="input-group-prepend no-b white">
+                                    <div class="input-group-text no-b white"><a
+                                        class="btn-fab btn-fab-sm adafri-background text-white" (click)="addText()"><i
+                                          class="icon-add_circle text-white"></i></a></div>
+                                  </div>
+                                  <input type="text" class="form-control" id="text_canvas" placeholder="Texte">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                  src="assets/img/images/font-size.png"> </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+
+                                <a class="dropdown-item" *ngFor="let sizes of FONT_SIZES"
+                                  (click)="setFontSize(sizes.size)" style="cursor: pointer">{{sizes.name}}</a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                  src="assets/img/images/style.png"> </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+
+                                <a class="dropdown-item" *ngFor="let font of FONT_FAMILY"
+                                  (click)="setFontFamily(font.font)" style="cursor: pointer">{{font.name}}</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                      </div>
+                      <div class="row">
+                       <div class="btn-toolbar mb-3 d-inline-block animated fadeInLeftBig delay-2" role="toolbar"
+                        aria-label="Toolbar with button groups">
+                        <div class="btn-group " id="tool" style="" role="group" aria-label="First group">
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="setTextDecoration('underline')"><img
+                              src="assets/img/images/underline.png"></button>
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="setTextDecoration('underline')"><img src="assets/img/images/barre.png"></button>
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="setBold()"><img src="assets/img/images/bold.png"></button>
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"><img
+                              src="assets/img/images/delete.png" (click)="removeSelected();"></button>
+
+                          <!--  <button type="button" class="btn grey lighten-2 text-black border-right border-left"><img src="assets/img/images/clear.png" (click)="confirmClear()"></button> -->
+                          </div>
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="card-header white text-center b-0 d-none d-md-block">
+                      <div class="btn-toolbar mb-3 d-inline-block animated fadeInLeftBig delay-2" role="toolbar"
+                        aria-label="Toolbar with button groups">
+
+                        <div class="btn-group " id="tool" style="" role="group" aria-label="First group">
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="triggerImage()"><i class="icon-image"></i></button>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button id="btnGroupDrop1" type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/img/images/list.png">
+                              </button>
+                              <div class="dropdown-menu paper-card shadow no-b text-center" aria-labelledby="btnGroupDrop1">
+                                <span class="adafri-police-16 font-weight-bold">Element du canvas</span>
+
+                                 <ul class="social social list-inline" dnd-sortable-container [sortableData]="layers.reverse()">
+                          <li class="list-inline-item r-20" *ngFor="let item of layers; let i = index" dnd-sortable
+                            [dragEnabled]="item.selectable" [sortableIndex]="layers.length - i - 1"
+                            (click)="selectLayer(item)" (onDropSuccess)="updateLayerSort()"
+                            [ngClass]="{'active': item.active}"><a
+                              class="btn-fab btn-fab-sm shadow white border-dark adafri-police-16 text-dark"><i
+                                class="text-dark {{elementTypes[item.type].icon}}"
+                                [ngClass]="{'text-muted': !item.active}"></i></a>
+                          </li>
+                        </ul>
+                            <!--     <a class="dropdown-item" (click)="addShape('circle');"><img
+                                    src="assets/img/images/circle.png"> Cercle</a>
+                                <a class="dropdown-item" (click)="addShape('square');"><img
+                                    src="assets/img/images/carre.png"> Carré</a>
+                                <a class="dropdown-item" (click)="addShape('rectangle');"><img
+                                    src="assets/img/images/rectangle.png"> Rectangle</a>
+                                <a class="dropdown-item" (click)="addShape('triangle');"><img
+                                    src="assets/img/images/triangle.png"> Triangle</a>
+                                <a class="dropdown-item" (click)="addShape('star');"><img
+                                    src="assets/img/images/star.png"> Polygone</a> -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button id="btnGroupDrop1" type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/img/images/squares.png">
+                              </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" (click)="addShape('circle');"><img
+                                    src="assets/img/images/circle.png"> Cercle</a>
+                                <a class="dropdown-item" (click)="addShape('square');"><img
+                                    src="assets/img/images/carre.png"> Carré</a>
+                                <a class="dropdown-item" (click)="addShape('rectangle');"><img
+                                    src="assets/img/images/rectangle.png"> Rectangle</a>
+                                <a class="dropdown-item" (click)="addShape('triangle');"><img
+                                    src="assets/img/images/triangle.png"> Triangle</a>
+                                <a class="dropdown-item" (click)="addShape('star');"><img
+                                    src="assets/img/images/star.png"> Polygone</a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button id="btnGroupDrop1" type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/img/images/background.png">
+                              </button>
+                              <div class="dropdown-menu paper-card shadow no-b text-center"
+                                style="padding: 40px !important" aria-labelledby="btnGroupDrop1">
+                                <span class="adafri-police-14">
+                                  Couleur du canvas
+                                </span>
+                                <input class="no-b" style="cursor: pointer" type="text" class="form-control"
+                                  [cpPosition]="'right'" [cpPresetColors]="customColors" [cpOKButton]="true"
+                                  [cpAddColorButtonText]="'Speichern'" [cpAddColorButton]="true"
+                                  [cpOKButtonClass]="'btn btn-light btn-sm'" [cpSaveClickOutside]="false"
+                                  [(colorPicker)]="props.canvasFill" [style.background]="props.canvasFill"
+                                  [value]="props.canvasFill" (cpPresetColorsChange)="updateColorPresets($event)"
+                                  (colorPickerChange)="setCanvasFill()" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button id="btnGroupDrop1" type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/img/images/opacity.png">
+                              </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1"
+                                style="padding: 40px !important">
+                                <input type="range" class="range-slider form-control" [(ngModel)]="props.opacity"
+                                  (change)="setOpacity()">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                  src="assets/img/images/add-text.png"> </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+                                <div class="input-group mb-2 mr-sm-2">
+                                  <div class="input-group-prepend no-b white">
+                                    <div class="input-group-text no-b white"><a
+                                        class="btn-fab btn-fab-sm adafri-background text-white" (click)="addText()"><i
+                                          class="icon-add_circle text-white"></i></a></div>
+                                  </div>
+                                  <input type="text" class="form-control" id="text_canvas" placeholder="Texte">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                  src="assets/img/images/font-size.png"> </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+
+                                <a class="dropdown-item" *ngFor="let sizes of FONT_SIZES"
+                                  (click)="setFontSize(sizes.size)" style="cursor: pointer">{{sizes.name}}</a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                  src="assets/img/images/style.png"> </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+
+                                <a class="dropdown-item" *ngFor="let font of FONT_FAMILY"
+                                  (click)="setFontFamily(font.font)" style="cursor: pointer">{{font.name}}</a>
+                              </div>
+                            </div>
+                          </div>
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="setTextDecoration('underline')"><img
+                              src="assets/img/images/underline.png"></button>
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="setTextDecoration('underline')"><img src="assets/img/images/barre.png"></button>
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="setBold()"><img src="assets/img/images/bold.png"></button>
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"><img
+                              src="assets/img/images/delete.png" (click)="removeSelected();"></button>
+
+                          <!--  <button type="button" class="btn grey lighten-2 text-black border-right border-left"><img src="assets/img/images/clear.png" (click)="confirmClear()"></button> -->
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                    <div class="card-body white no-b p-0">
+                      
+                      <div class="row">
+                        <div class="col-md-12" style="text-align: center;">
+                          <div style="display: inline-block" class="paper-card p-0 animated fadeInRightBig delay-2">
+                            <div class="canvas-container text-center" (drop)="handleDropOnCanvas($event)"
+                              (dragover)="handleDragOverCanvas($event)" placeholder="canvas">
+                              <canvas id="canvas" class="d-inline-block" [ngStyle]="canvas_style"></canvas>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+                    <div class="card-footer border-0 white text-center justify-content-between">
+                      <button class="btn btn-sm r-20 btn-social white text-black-50 adafri-police-14 border-grey"
+                        (click)="handleImageModal()">
+                        <i class="icon-paper-plane text-black"></i> Visualiser le visuel
+                      </button>
+                      <button class="btn btn-sm btn-social text-danger white r-20 border-danger adafri-police-14"
+                        title="Ajouter un texte" (click)="goBackFromCreatives()"><i
+                          class="icon-edit"></i>Retour</button>
+                    </div>
+                  </div>
+                </div>
+
+
+
+              </ng-container>
+              <div class="paper-card shadow p-0" id="block">
+                <div class="card paper-card shadow no-b r-0 grey lighten-3 p-0">
+                  <div class="card-header grey lighten-3 adafri-police-16 text-center text-black no-b">
+                    <span style="font-size: 16px"><strong>Format: {{selectedWidth}}x{{selectedHeight}}</strong></span>
+                  </div>
+                  <div class="card-body no-b">
+                    <form>
+                      <div class="form-row text-center">
+                        <div class="col-md-12 mb-3 text-center">
+                        </div>
+                        <div class="form-group col-md-12 mb-3">
+                          <small class="adafri-police-14 font-weight-bold">Votre site web</small><br>
+                          <input type="text" autocomplete="off" class="form-control d-inline-block border-dark text-center"
+                          id="redirect" placeholder="Exemple: https://www.votresite.com"
+                            [id]="idOfDisplayUrlCreateUpload" required (keyup)="handleErrorUrl()">
+                          <ng-container *ngIf="url_errors != []">
+                            <div class="text-danger" *ngFor="let error of url_errors">
+                              {{error.url}} {{error.text}}
+                            </div>
+
+                          </ng-container>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <br>
+                <div class="card white no-b paper-card p-0">
+                  <ngx-dropzone (change)="onSelect($event)" class="text-center">
+                    <ngx-dropzone-label><i class="icon-cloud_upload text-black-50 s-48"></i><br>Glissez ou cliquez pour ajouter une ou plusieurs images</ngx-dropzone-label>
+                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true"
+                      (removed)="onRemove(f)" *ngFor="let f of files" [file]="f" class="text-center"
+                      style="width: 100% !important ;display: inline-flex !important;height: 140px;min-height: 140px;min-width: 180px;max-width: 180px;justify-content: center;align-items: center;padding: 0px 20px;margin: 10px;border-radius: 5px;position: relative;">
+                      <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                    </ngx-dropzone-image-preview>
+                  </ngx-dropzone>
+                </div>
+                <div class="card-footer white text-center no-b">
+
+                  <button class="btn btn-sm border-dark r-20 btn-social white text-black"
+                    (click)=" handleImageUploadModal()">
+                    <i class="icon-paper-plane text-black"></i> Visualiser
+                  </button>
+                  <button class="btn white btn-sm text-danger adafri-police-14 border-danger r-20"
+                    (click)="goBackFromUpload()" title="Ajouter un texte"><i class="icon-edit"></i>Retour</button>
+                </div>
+
+
+
+
+              </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <div *ngIf="isCreating">
+        <app-spinner-overlay [message]="message"></app-spinner-overlay>
+
+      </div>
+      <aside class="control-sidebar fixed white" style="height: 400px; margin-top: 20% !important">
+        <div class="slimScroll" style="height: 400px;">
+          <div class="sidebar-header bg-light">
+            <h6 class='text-warning'>{{text_option}}</h6>
+            <a href="#" data-toggle="control-sidebar" class="paper-nav-toggle active"><i></i></a>
+          </div>
+
+
+          <div class="card">
+            <div class="card-header white">
+              <strong>Elément sur le canvas</strong>
+            </div>
+            <div class="card-body p-0">
+
+              <ul class="social social list-inline" dnd-sortable-container [sortableData]="layers.reverse()">
+                <li class="list-inline-item r-20" *ngFor="let item of layers; let i = index" dnd-sortable
+                  [dragEnabled]="item.selectable" [sortableIndex]="layers.length - i - 1" (click)="selectLayer(item)"
+                  (onDropSuccess)="updateLayerSort()" [ngClass]="{'active': item.active}"><a
+                    class="btn-fab btn-fab-sm shadow adafri-background adafri-police-16 text-white"><i
+                      class="text-white {{elementTypes[item.type].icon}}"
+                      [ngClass]="{'text-muted': !item.active}"></i></a>
+                </li>
+
+
+
+
+
+
+              </ul>
+            </div>
+          </div>
+
+          <div class="card-body text-center">
+
+            <div class="row">
+
+
+
+              <div class="col-md-8">
+                <div class="card-body">
+
+                  <ul class="list-group no-b text-center">
+                    <li class="list-group-item d-flex align-items-center" *ngIf="selected && selected.type != 'group'">
+                      <div>
+                        <i class="icon icon-opacity purple-text"></i>
+                      </div>
+                      <div>
+
+                        <input type="range" class="range-slider form-control" [(ngModel)]="props.opacity"
+                          (change)="setOpacity()" style="width: 150px !important;">
+
+                      </div>
+                    </li>
+
+                    <li class="list-group-item d-flex align-items-center"
+                      *ngIf="selected && textEditor || selected && figureEditor">
+
+                      <i class="icon icon-palette text-blue"></i>
+
+
+                      <input type="text" class="form-control" [cpPosition]="'bottom'" [(colorPicker)]="props.fill"
+                        [style.background]="props.fill" [value]="props.fill" (colorPickerChange)="setFill()"
+                        style="width: 150px !important;">
+
+
+                    </li>
+                    <li class="list-group-item d-flex align-items-center" *ngIf="selected && textEditor">
+                      <div>
+                        <i class="icon icon-format_size pink-text"></i>
+                      </div>
+                      <div>
+                        <select class="custom-select select2" [(ngModel)]="props.fontFamily" (change)="setFontFamily()"
+                          style="width: 150px !important;" required>
+                          <option value="arial">Arial</option>
+                          <option value="helvetica" selected>Helvetica</option>
+                          <option value="verdana">Verdana</option>
+                          <option value="courier">Courier</option>
+                          <option value="Roboto">Roboto</option>
+                          <option value="Open Sans">Open Sans</option>
+                          <option value="Zilla Slab">Zilla Slab</option>
+                          <option value="Lato">Lato</option>
+                          <option value="Bellefair">Bellefair</option>
+                          <option value="Fresca">Fresca</option>
+                          <option value="Raleway">Raleway</option>
+                          <option value="Open Sans Condensed">Open Sans Condensed</option>
+                          <option value="Indie Flower">Indie Flower</option>
+                          <option value="Josefin Sans">Josefin Sans</option>
+                          <option value="Inconsolata">Inconsolata</option>
+                          <option value="Pacifico">Pacifico</option>
+                          <option value="Gloria Hallelujah">Gloria Hallelujah</option>
+                        </select>
+                      </div>
+                    </li>
+                    <li class="list-group-item d-flex align-items-center" *ngIf="selected && textEditor">
+                      <div>
+                        <i class="icon icon-line_style text-green"></i>
+                      </div>
+                      <div style="display: flex; flex-direction: row">
+
+
+
+                    <li class="list-inline-item"> <a class="btn-fab btn-fab-sm shadow btn-info"
+                        [ngClass]="{'active': props.fontStyle }" (click)="setFontStyle()"><i
+                          class="icon-format_italic"></i></a></li>
+                    <li class="list-inline-item"> <a class="btn-fab btn-fab-sm shadow btn-info"
+                        [ngClass]="{'active': hasTextDecoration('underline') }"
+                        (click)="setTextDecoration('underline')"><i class="icon-underline"></i></a>
+                    </li>
+                    <li class="list-inline-item"> <a class="btn-fab btn-fab-sm shadow btn-info"
+                        [ngClass]="{'active': props.fontWeight }" (click)="setBold()"><i class="icon-bold"></i></a></li>
+
+
+                </div>
+                </li>
+
+                </ul>
+              </div>
+              <div class="col-md-3">
+
+
+
+              </div>
+              <div class="col image-block draggable" style="display: none">
+                <div class="card b-0">
+                  <div class="card-body p-5">
+                    <div class="card">
+                      <div class="card-header">Upload image</div>
+                      <div class="card-body text-center">
+                        <img id="testImage" *ngIf="url" class="images-item-upload" [src]="url"
+                          (click)="addImageOnCanvas(url);">
+                        <input type="file" (change)="readUrl($event);" id="image">
+                        <br />
+                        <br />
+                        <div class="btn-group btn-group-justified" role="group" aria-small="...">
+                          <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeWhite(url);">
+                              <i class="fa fa-times" aria-d-none="true"></i> Remove</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+    </div>
+    </aside>
+
+    <!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+    <!-- <div class="control-sidebar-bg shadow white fixed draggable" style="height: 300px; margin-top: 20% !important">
+    </div> -->
+    <div class="modal fade no-b modal-fullscreen" id="modalViewInit" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalLabel" aria-hidden="false">
+      <div class="modal-dialog no-b" role="document">
+        <div class="modal-content no-b">
+          <div class="modal-header no-b">
+            <h5 class="modal-title" id="exampleModalsmall">{{text_visualise}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-small="Close">
+              <span aria-d-none="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body no-b text-center" style="height: max-content">
+            <div class="paper-card shadow">
+               <div class="card no-b d-inline-block" *ngFor="let image of imagesUpload">
+          
+              <img class="img-responsive" src="{{image.src}}" alt="{{image.name}}" id="ad_image" [ngStyle]="img_view_create_style">
+
+
+            </div>
+            </div>
+          </div>
+          <div class="modal-footer white no-b">
+            <button *ngIf="!isRoller" type="button" class="btn white text-danger btn-social btn-sm r-20 border-red"
+              data-dismiss="modal" id="button_close_ad">Fermer</button>
+            <button *ngIf="!isRoller" type="button"
+              class="btn white adafri-police border-grey text-black-50 btn-sm btn-social r-20"
+              (click)=" saveAdOnFirebase()">Sauvegarder</button>
+            <div class="lds-roller" *ngIf="isRoller">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade no-b modal-fullscreen" id="modalViewModified" tabindex="-1" role="dialog"
+      aria-smallledby="exampleModalsmall" aria-d-none="true">
+      <div class="modal-dialog no-b" role="document">
+        <div class="modal-content no-b">
+          <div class="modal-header no-b">
+            <h5 class="modal-title" id="exampleModalsmall">{{text_visualise}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-small="Close">
+              <span aria-d-none="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body no-b text-center">
+            <div class="card white no-b shadow d-inline-block" [ngStyle]="img_view_create_style">
+              <img class="card-img-top" [ngStyle]="img_view_create_style" src="assets/img/demo/portfolio/p6.jpg" alt="card my-3 image cap"
+                id="ad_image_modified">
+
+              <div class="card-footer no-b">
+                <small>Nom: </small>
+                <small class="text-muted" id="modified_name"></small><br>
+                <small>Url de destination: </small>
+                <small class="text-muted">{{url_modify}}</small>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer whtite no-b">
+
+            <button type="button" class="btn white text-danger btn-social btn-sm r-20 border-red"
+              id="closeModalViewModified" data-dismiss="modal" *ngIf="!isRoller"><i
+                class="icon-arrow_back"></i>Revenir</button>
+            <button type="button" class="btn white adafri-police border-grey text-black-50 btn-sm btn-social r-20"
+              (click)="updateAdOnFirebase()" *ngIf="!isRoller"><i class="icon-send"></i>Enregistrer</button>
+            <div class="lds-roller" *ngIf="isRoller">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modalPayment" tabindex="-1" role="dialog" aria-smallledby="exampleModalsmall"
+      aria-d-none="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalsmall">Publier l'annonce</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-small="Close">
+              <span aria-d-none="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="card">
+              <img class="card-img-top" src="assets/img/demo/portfolio/p6.jpg" style="width: 250px; height: 300px"
+                alt="card my-3 image cap" id="ad_image_modified">
+
+              <div class="card-footer">
+                <small class="text-muted" id="modified_name"></small>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn white text-danger btn-social btn-sm r-20 border-red"
+              id="closeModalViewModified" data-dismiss="modal">Close</button>
+            <button type="button" class="btn adafri-background adafri-police-16 text-white"
+              (click)="updateAdOnFirebase()">Enregistrer les
+              modification</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button style="display: none" data-toggle="modal" data-target="#modalViewInit" id="button_modal_init"></button>
+  <button style="display: none" data-toggle="modal" data-target="#modalViewModified"
+    id="button_modal_modified"></button>
+  <button style="display: none" data-toggle="modal" data-target="#modalDefineBudget"
+    id="button_modal_define_budget"></button>
+  <!--/#app -->
+  <div class="modal fade no-b" id="modalDefineBudget" tabindex="-1" role="dialog" aria-smallledby="exampleModalsmall"
+    aria-d-none="true">
+    <div class="modal-dialog no-b" role="document">
+      <div class="modal-content no-b">
+        <div class="modal-header no-b">
+          <h6 class="modal-title" id="exampleModalsmall">Définition du budget</h6>
+          <button type="button" class="close" data-dismiss="modal" aria-small="Close">
+            <span aria-d-none="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body no-b text-center">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="text-center" style="display: inline-block">
+                <h6 class="my-3">{{accountValue}} CFA dans le compte</h6>
+                <h6 class="my-3">Budget de la campagne: {{budget}} CFA </h6>
+                <a class="btn btn-lg btn-block btn-social adafri-background adafri-police-16 text-white r-20"
+                  style="width: 250px; font-size: 12px" (click)="handlePlaceBudgetFromSolde()"
+                  *ngIf="accountValue!=0 && budget==0">
+                  <i class="icon-payment text-white"></i> Placement depuis mon solde
+                </a>
+                <a class="btn btn-lg btn-block btn-social adafri-background adafri-police-16 text-white r-20"
+                  style="width: 250px; font-size: 12px" (click)="handleAccountRechargement()" *ngIf="accountValue==0">
+                  <i class="icon-payment text-white"></i> Recharger mon compte d'abord
+                </a>
+                <a class="btn btn-lg btn-block btn-social adafri-background adafri-police-16 text-white r-20"
+                  style="width: 250px; font-size: 12px" (click)="handleBudgetPlacement()" *ngIf="budget==0">
+                  <i class="icon-pay-point text-white"></i> Placer directement un budget
+                </a>
+                <a class="btn btn-lg btn-block btn-social btn-warning blink text-white r-20"
+                  style="width: 250px; font-size: 12px" (click)="buildAd()" *ngIf="budget!=0">
+                  <i class="icon-pay-point text-white"></i> Publier l'annonce
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="col-md-12" style="margin: auto" id="dateBlock" *ngIf="budget==0">
+              <div class="d-flex justify-content-between align-items-center">
+                <div><span class="text-success">Date de début: {{startDateFrench}}</span></div>
+                <div><span class="text-danger">Date de fin: {{endDateFrench}}</span></div>
+              </div>
+              <div class="text-center">
+                Cette campagne dure {{dure_campagne}} jours
+                <a class="btn btn-sm teal darken-3  text-white r-20 btn-social" (click)="OpenModifyDateCampaign()"
+                  style="font-size: 12px">
+                  <i class="icon-edit"></i>Modifier les dates
+
+                </a>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="lds-roller" *ngIf="isRoller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+
+          <div class="form-row text-center" *ngIf="modifyDate">
+
+            <div style="display: inline-block; margin: auto">
+              <ul class="list-group list-group-flush">
+
+                <li class="list-group-item"><i class="icon icon-hourglass-start text-info"
+                    style="float: left"></i><strong class="s-12 text-info" style="float: right">Date de début</strong>
+                  <strong class="s-12 text-info" style="float: left">{{startDateFrench}}</strong>
+                  <ejs-datepicker id='datepicker' (change)="onStartDateChange($event)" [min]='minDate' [max]='maxDate'>
+                  </ejs-datepicker>
+                </li>
+                <li class="list-group-item"><i class="icon icon-hourglass-end text-info" style="float: left"></i><strong
+                    class="s-12 text-info" style="float: right">Date de fin</strong><strong class="s-12 text-info"
+                    style="float: left">{{endDateFrench}}</strong>
+                  <ejs-datepicker id='datepicker' (change)=" onEndDateChange($event)" [min]='minDate' [max]='maxDate'>
+                  </ejs-datepicker>
+                </li>
+                <!--   <li class="list-group-item"><i class="icon icon-web text-danger"></i> <strong class="s-12">Website</strong> <span class="float-right s-12">pappertemplate.com</span></li> -->
+                <button type="button" class="btn btn-sm adafri-background adafri-police-16 text-white btn-social r-20"
+                  style="height: 30px; display: inline-block; margin-top: 30px"
+                  (click)="updateCampaignDate()">Appliquer</button>
+                <button type="button" class="btn btn-sm bg-danger text-white btn-social r-20"
+                  style="height: 30px; display: inline-block; margin-top: 30px"
+                  (click)="CloseUpdateCampaignDate()">Annuler</button>
+              </ul>
+            </div>
+
+          </div>
+
+          <div class="form-row text-center" *ngIf="isSetBudget">
+            <div class="col-md-12 mb-3 text-center">
+
+              <small class="text-success" style="font-size: 12px; margin-top: -5px;">NB: Seul 80% du montant seront
+                placés les 20% pour les frais de service</small>
+              <input type="number" class="form-control grey lighten-4" id="montant"
+                (keyup)="handleSimulatedImpressionsCount()" placeholder="Montant" min="10000"
+                placeholder="Montant supérieur ou égal à 10000 FCA" required>
+              <small class="text-danger" id="error_recharge" style="font-size: 12px; display: none">Saisir un montant
+                supérieur ou égal à 10000
+                FCA</small>
+              <div class="d-flex justify-content-between align-items-center bg-grey shadow"
+                *ngIf="budget_to_place!=0 && my_gain!=0">
+                <div><span class="text-white" style="font-size: 12px">Budget placé: {{budget_to_place}} CFA</span></div>
+                <div><span class="text-white" style="font-size: 12px">Frais de service: {{my_gain}} CFA</span></div>
+              </div>
+              <div class="text-center">
+
+                <span style="font-size: 12px" *ngIf="number_of_impressions_simulated!=0">Avec ce budget vos annonces
+                  contenues dans cette campagne peuvent être affichées jusqu'à <span class="text-success"
+                    style="font-size: 14px; font-weight: bold">{{number_of_impressions_simulated}}</span> fois</span>
+
+              </div>
+              <button type="button" class="btn btn-sm adafri-background adafri-police-16 text-white btn-social r-20"
+                style="height: 30px; display: inline-block; margin-top: 30px" (click)="defineBudget()"
+                id="budgetSet">Placer le budget</button>
+              <button type="button" class="btn btn-sm bg-danger text-white btn-social r-20"
+                style="height: 30px; display: inline-block; margin-top: 30px"
+                (click)="CloseBudgetOperation()">Annuler</button>
+
+
+
+            </div>
+
+
+          </div>
+          <div class="form-row text-center" *ngIf="isAccountRechargement">
+            <div class="col-md-12 mb-3 text-center">
+
+              <small class="text-success" style="font-size: 12px; margin-top: -5px;">NB: Cette opération vous permettra
+                dans la suite d'éviter les paiments pour démarrer une nouvelle campagne</small>
+              <input type="number" class="form-control" id="montant" (keyup)="handleIfValide()" placeholder="Montant"
+                min="10000" placeholder="Montant supérieur ou égal à 20 000 FCA" required>
+              <small class="text-danger" id="error_recharge" style="font-size: 12px; display: none">Saisir un montant
+                supérieur ou égal à 20 000
+                FCA</small>
+
+              <button type="button" class="btn btn-sm adafri-background adafri-police-16 text-white btn-social r-20"
+                style="height: 30px; display: inline-block; margin-top: 30px"
+                (click)="defineAmountAccountBeforeBudget()">Recharger mon compte</button>
+              <button type="button" class="btn btn-sm bg-danger text-white btn-social r-20"
+                style="height: 30px; display: inline-block; margin-top: 30px"
+                (click)="CloseRechargeAccountOperation()">Annuler</button>
+
+              <div class="lds-roller" *ngIf="isRoller">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+
+
+
+            </div>
+
+
+          </div>
+
+          <div class="form-row text-center" *ngIf="isPlacementBudgetFromAccount">
+            <div class="col-md-12 mb-3 text-center">
+
+              <small class="text-success" style="font-size: 12px; margin-top: -5px;">NB: La valeur du budget doit être
+                disponible dans votre compte et supérieur ou égale à 10 000 FCFA</small>
+              <input type="number" class="form-control" id="montant" (keyup)="handleIfBudgetToPlaceFromAccountIsValid()"
+                placeholder="Montant" placeholder="Montant supérieur ou égal à 10 000 FCA" required>
+              <small class="text-danger" id="error_recharge" style="font-size: 12px; display: none">La valeur du budget
+                invalide</small>
+              <div class="d-flex justify-content-between align-items-center bg-grey shadow"
+                *ngIf="budget_to_place!=0 && my_gain!=0">
+                <div><span class="text-white" style="font-size: 12px">Budget placé: {{budget_to_place}} CFA</span></div>
+                <div><span class="text-white" style="font-size: 12px">Frais de service: {{my_gain}} CFA</span></div>
+              </div>
+              <div class="text-center">
+
+                <span style="font-size: 12px" *ngIf="number_of_impressions_simulated!=0">Avec ce budget vos annonces
+                  contenues dans cette campagne peuvent être affichées jusqu'à <span class="text-success"
+                    style="font-size: 14px; font-weight: bold">{{number_of_impressions_simulated}}</span> fois</span>
+
+              </div>
+              <button *ngIf="!isRoller" type="button"
+                class="btn btn-sm adafri-background adafri-police-16 text-white btn-social r-20"
+                style="height: 30px; display: inline-block; margin-top: 30px" (click)="defineBudgetFromAccount()">Placer
+                mon budget</button>
+              <button *ngIf="!isRoller" type="button" class="btn btn-sm bg-danger text-white btn-social r-20"
+                style="height: 30px; display: inline-block; margin-top: 30px"
+                (click)=" ClosePlaceBudgetFromAccountValue()">Annuler</button>
+              <div class="lds-roller" *ngIf="isRoller">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+
+
+
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modalRechargement" tabindex="-1" role="dialog" aria-smallledby="exampleModalsmall"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header white no-b">
+          <h5 class="adafri-police-22 adafri" id="exampleModalsmall">Chargement de votre solde</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-small="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body white no-b">
+          <div class="card no-b white">
+            <div class="card-body no-b white">
+              <div class="form-row text-center">
+                <div class="col-md-12 mb-3 text-center">
+                  <h6 for="validationCustom01">Montant à recharger</h6>
+                  <input type="number" class="form-control text-center d-inline-block" id="montant"
+                    placeholder="Montant" min="10000" max="1000000" required>
+                  <small class="adafri-police-14 adafri">Saisir un montant supérieur ou égal à 10000 FCA</small>
+                  <div id="error_recharge" style="display: none">
+                    <p class="text-danger">Eurreur montant saisi invalide !</p>
+                  </div>
+                </div>
+
+
+              </div>
+              <!--   <div class="d-flex justify-content-between">
+                            <div>
+                                <p>
+                                    <i class="icon-angle-double-down text-red mr-2"></i><strong class="text-danger">{{number_of_impressions}} Impressions</strong></p>
+                                <p class="text-success">
+                                <i class="icon-circle-o text-green mr-2 text-infos"></i>Une impression signifie un affichage d'une annonce sur un site</p> 
+                            </div>
+                            <div>
+                               
+                            </div>
+                        </div> -->
+            </div>
+
+            <div class="card-footer white no-b text-center">
+              <button type="button"
+                class="btn btn-sm white btn-social text-black-50 r-20 adafri-police-16 border-grey shadow d-inline-block"
+                id="amountSet" (click)=" defineAmountAccount()">Recharger mon compte</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer white no-b">
+          <button type="button" class="btn btn-sm btn-social text-danger white r-20 shadow border-danger"
+            id="closeModalRecharge" data-dismiss="modal">Fermer</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="fsModal" class="modal animated bounceIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+
+    <!-- dialog -->
+    <div class="modal-dialog">
+
+      <!-- content -->
+      <div class="modal-content">
+
+        <!-- header -->
+        <div class="modal-header">
+          <h1 id="myModalLabel" class="modal-title">
+            Modal title
+          </h1>
+        </div>
+        <!-- header -->
+
+        <!-- body -->
+        <div class="modal-body">
+          <h2>1. Modal sub-title</h2>
+
+          <p>Liquor ipsum dolor sit amet bearded lady, grog murphy's bourbon lancer. Kamikaze vodka gimlet; old rip van
+            winkle, lemon drop martell salty dog tom collins smoky martini ben nevis man o'war. Strathmill grand marnier
+            sea breeze b & b mickey slim. Cactus jack aberlour seven and seven, beefeater early times beefeater
+            kalimotxo royal arrival jack rose. Cutty sark scots whisky b & b harper's finlandia agent orange pink lady
+            three wise men gin fizz murphy's. Chartreuse french 75 brandy daisy widow's cork 7 crown ketel one captain
+            morgan fleischmann's, hayride, edradour godfather. Long island iced tea choking hazard black bison,
+            greyhound harvey wallbanger, "gibbon kir royale salty dog tonic and tequila."</p>
+
+          <h2>2. Modal sub-title</h2>
+
+          <p>The last word drumguish irish flag, hurricane, brandy manhattan. Lemon drop, pulteney fleischmann's seven
+            and seven irish flag pisco sour metaxas, hayride, bellini. French 75 wolfram christian brothers, calvert
+            painkiller, horse's neck old bushmill's gin pahit. Monte alban glendullan, edradour redline cherry herring
+            anisette godmother, irish flag polish martini glen spey. Abhainn dearg bloody mary amaretto sour, ti punch
+            black cossack port charlotte tequila slammer? Rum swizzle glen keith j & b sake bomb harrogate nights 7
+            crown! Hairy virgin tomatin lord calvert godmother wolfschmitt brass monkey aberfeldy caribou lou. Macuá,
+            french 75 three wise men.</p>
+
+          <h2>3. Modal sub-title</h2>
+
+          <p>Pisco sour daiquiri lejon bruichladdich mickey slim sea breeze wolfram kensington court special: pink lady
+            white lady or delilah. Pisco sour glen spey, courvoisier j & b metaxas glenlivet tormore chupacabra, sambuca
+            lorraine knockdhu gin and tonic margarita schenley's." Bumbo glen ord the macallan balvenie lemon split
+            presbyterian old rip van winkle paradise gin sling. Myers black bison metaxa caridan linkwood three wise men
+            blue hawaii wine cooler?" Talisker moonwalk cosmopolitan wolfram zurracapote glen garioch patron saketini
+            brandy alexander, singapore sling polmos krakow golden dream. Glenglassaugh usher's wolfram mojito ramos gin
+            fizz; cactus jack. Mai-tai leite de onça bengal; crown royal absolut allt-á-bhainne jungle juice bacardi
+            benrinnes, bladnoch. Cointreau four horsemen aultmore, "the amarosa cocktail vodka gimlet ardbeg southern
+            comfort salmiakki koskenkorva."</p>
+
+        </div>
+        <!-- body -->
+
+        <!-- footer -->
+        <div class="modal-footer">
+          <button class="btn grey lighten-2 text-black border-right border-left" data-dismiss="modal">
+            close
+          </button>
+          <button class="btn btn-default">
+            Default
+          </button>
+          <button class="btn btn-primary">
+            Primary
+          </button>
+        </div>
+        <!-- footer -->
+
+      </div>
+      <!-- content -->
+
+    </div>
+    <!-- dialog -->
+
+  </div>
+
+<img id="_ad_image" style="display: none" src="#">
+<footer class="white text-center">
+  
+
+  <span class="adafri-police-10 text-black">&copy; Copyright 2019 - Adafri.  All rights reserved.</span>
+   <div class="row">
+    <div class="col-sm-12 text-center float-right">
+         <a href="https://adafri.com/#/terms" class="adafri-police-12 text-black" style="text-decoration: underline">Conditions générales d'utilisations</a>
+          <a href="https://adafri.com/#/confidentialite" class="adafri-police-12 text-black" style="text-decoration: underline">Politique de confidentialité</a>
+    </div>
+    
+   </div>
+ 
+   
+
+</footer>
+</div>

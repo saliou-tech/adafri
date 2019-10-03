@@ -1,0 +1,378 @@
+
+
+
+<ng-template #isConnected>
+    
+  <main>
+       <a onclick="topFunction()" id="myBtn" class="btn-fab btn-fab-md adafri-background" title="Go to top"><i class="icon-caret-up"></i></a>
+       <div id="particles-js">
+           <div  class="height-full text-center " style="background:url(assets/img/images/bureau.jpg) no-repeat left bottom; background-size:cover;">
+           <div class="row">
+             <div class="col-md-6 text-center d-none d-md-block">
+                <h1 class="text-white d-inline-block adafri-police" style="margin-top: 20px;">Bienvenue {{displayName}}</h1>
+                <br>
+                <h5 class="text-white adafri-police d-inline-block" style="margin-top: 20px;">Votre solde est de: {{accountValue}} CFA</h5>
+             </div>
+             <div class="col-md-6 text-center d-md-none d-sm-block">
+                <h4 class="text-white d-inline-block adafri-police" style="margin-top: 20px;">Bienvenue {{email}}</h4>
+                <br>
+                <h5 class="text-white adafri-police d-inline-block" style="margin-top: 20px;">Votre solde est de: {{accountValue}} CFA</h5>
+             </div>
+             <div class="col-md-6"  style="float: right; border-radius: 20px;">
+               <div class="row">
+                 <div class="col-md-12">
+       
+                  <!--  <img [src]="photoUrl" style="width: 100px; height: 100px; border-radius: 100px" alt="" id="photoProfile" (click)="triggerUpload()"> -->
+                   <img [src]="photoUrl" style="width: 100px; height: 100px; border-radius: 100px" alt="" id="photoProfile">
+                   
+                   
+                     <!-- <h5 class="adafri-police text-white" style="margin-top: 60px">Bienvenue</h5>
+                                         <h5 class="adafri-police text-white" style="margin-top: 20px">{{email}}</h5> -->
+                      
+       
+                           
+                                        
+                                         
+                 </div>
+             
+               </div>
+               <br>
+               <br>
+               <div class="row">
+                <div class="col-md-12 text-center">
+                  <!-- <div class="text-center justify-content-between">
+                        
+       
+                            <img class='img-responsive animated pulse fast infinite d-none d-md-block' style="border-radius: 400px;  position: absolute; left: -100px" src="assets/img/images/play.png" (click)="go()">
+                             <img class='img-responsive animated pulse fast infinite d-md-none d-sm-block' style="border-radius: 400px;" src="assets/img/images/play.png" (click)="go()">
+
+
+                               <img class='img-responsive animated pulse fast infinite d-none d-md-block' style="border-radius: 400px;  position: absolute; left: 0px" src="assets/img/images/play.png" (click)="go()">
+                             <img class='img-responsive animated pulse fast infinite d-md-none d-sm-block' style="border-radius: 400px;" src="assets/img/images/play.png" (click)="go()">
+          
+                    
+        
+         </div> -->
+         <mat-card class="d-inline-block">
+           <mat-card-title class="text-center">
+              <span class="font-weight-bold">Plateforme de diffusion</span>
+           </mat-card-title>
+           <mat-card-content class="text-center">
+             <span>Cliquez pour commencer</span>
+             <div class="button-row text-center">
+            <!--   <button mat-fab><img class="img"></button>
+              <button mat-fab>facebook</button> -->
+              
+                            <img class='img-responsive animated pulse fast infinite d-none d-md-inline-block' src="assets/img/images/adwords.png" (click)="go()" style="cursor: pointer">
+                             <img class='img-responsive animated pulse fast infinite d-md-none d-sm-inline-block' src="assets/img/images/adwords.png" (click)="go()" style="cursor: pointer">
+             </div>
+             </mat-card-content>
+         </mat-card>
+                </div>
+                
+               </div>
+           </div>
+           </div>
+           
+            
+       
+               
+           </div>
+
+       </div>
+    <!-- #primary -->
+</main>
+
+<input type="file" (change)="upload($event)" accept=".png,.jpg" class="d-none" id="file">
+</ng-template>
+
+
+<div class="height-full text-center p-0"  *ngIf="!(auth.user | async); else isConnected">
+<!-- <mat-toolbar class="adafri-background mat-elevation-z1" slass="height:200px">
+  <mat-toolbar-row>
+      <span><img src="assets/img/adafri.png" style="width: 10%;"></span>
+    <span class="example-fill-remaining-space"></span>
+    <span class="example-spacer"></span>
+
+    <button mat-button class="adafri-background text-white">Connexion</button>
+    <button mat-button class="adafri-background text-white">Inscription</button>
+  </mat-toolbar-row>
+</mat-toolbar> -->
+<mat-card class="text-center height-full adafri-background">
+ <span class="text-white font-weight-bold float-left" style="font-size: 18px">
+                                       Vos publicités google et Facebook payables par mobile money !</span>
+<div class="button-row float-right">
+  <button mat-stroked-button class="adafri-background text-white"  *ngIf="newUser" (click)="toggleForm()">Connexion</button>
+    <button mat-stroked-button class="adafri-background text-white"  *ngIf="!newUser" (click)="toggleForm()">Inscription</button>
+</div>
+<img class="img-responsive d-inline-block" src="assets/img/images/banner.jpg">
+    <mat-card class="adafri-background float-right text-center p-0" style="margin-top: 0; box-shadow: none; width: 50%">
+<p class="float-right text-white font-weight-bold d-none d-md-block" style="font-size: 16px">Les régies digitales restent beaucoup trop compliquées avec leur mécanisme d’enchères en temps réél.
+
+Notre plateforme automatise vos campagnes digitales après votre règlement.
+
+Nous optimisons vos emplacements et vos enchères en fonction de la demande journalière et garantissons une diffusion de vos publicités.</p>
+                            <p class="float-right text-white font-weight-bold d-none d-md-block" style="font-size: 16px">Charger les paramètres de votre campagne depuis votre canapé et laissez notre algorithme vous réferencer.</p>
+    </mat-card>
+
+<mat-card class="example-card white float-left d-none d-md-block" *ngIf="newUser" style="margin-top: -8%">
+  <mat-card-header>
+
+    <mat-card-subtitle class="text-center">
+      <img src="assets/img/images/newlogo.png" class="d-inline-block" style="width: 35%;">
+      
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="text-center">
+  
+   
+    <form class="example-form d-inline-block" [formGroup]="inscription" (ngSubmit)="signup()">
+      
+      <table class="example-full-width" cellspacing="0">
+           <tr>
+          <td>
+           <mat-form-field class="example-full-width">
+             <input matInput placeholder="Nom d'utilisateur" formControlName="username" required>
+               <mat-icon matSuffix>user</mat-icon>
+                 <mat-error>{{formErrors.username}}</mat-error>
+   
+  </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+          
+    <input matInput placeholder="Email" formControlName="email" required>
+      <mat-icon matSuffix>email</mat-icon>
+    <mat-error>{{formErrors.email}}</mat-error>
+
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><mat-form-field class="example-full-width" style="margin-top: 20px">
+    <input matInput placeholder="Mot de passe" formControlName="password" [type]="hide ? 'password' : 'text'">
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      <mat-error>{{formErrors.password}}</mat-error>
+  </mat-form-field></td>
+        </tr>
+         <tr>
+          <td class="text-center"> <button mat-raised-button class="adafri-background text-white" type="submit" [disabled]="button_signup" *ngIf="!progressBarSignup && inscription.valid">Inscription</button> <mat-spinner [diameter]="20" color="primary" class="d-inline-block" *ngIf="progressBarSignup"></mat-spinner></td>
+        </tr>
+         
+      </table>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="example-card white float-left d-md-none d-sm-block" *ngIf="newUser" style="margin-top: 10%; margin-left: 5%">
+  <mat-card-header>
+
+    <mat-card-subtitle class="text-center">
+      <img src="assets/img/images/newlogo.png" class="d-inline-block" style="width: 35%;">
+      
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="text-center">
+  
+   
+    <form class="example-form d-inline-block" [formGroup]="inscription" (ngSubmit)="signup()">
+      
+      <table class="example-full-width" cellspacing="0">
+           <tr>
+          <td>
+           <mat-form-field class="example-full-width">
+             <input matInput placeholder="Nom d'utilisateur" formControlName="username" required>
+               <mat-icon matSuffix>user</mat-icon>
+                 <mat-error>{{formErrors.username}}</mat-error>
+   
+  </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+          
+    <input matInput placeholder="Email" formControlName="email" required>
+      <mat-icon matSuffix>email</mat-icon>
+    <mat-error>{{formErrors.email}}</mat-error>
+
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><mat-form-field class="example-full-width" style="margin-top: 20px">
+    <input matInput placeholder="Mot de passe" formControlName="password" [type]="hide ? 'password' : 'text'">
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      <mat-error>{{formErrors.password}}</mat-error>
+  </mat-form-field></td>
+        </tr>
+         <tr>
+          <td class="text-center"> <button mat-raised-button class="adafri-background text-white" type="submit" [disabled]="button_signup" *ngIf="!progressBarSignup && inscription.valid">Inscription</button> <mat-spinner [diameter]="20" color="primary" class="d-inline-block" *ngIf="progressBarSignup"></mat-spinner></td>
+        </tr>
+         
+      </table>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="example-card float-left d-none d-md-block" style="margin-top: -8%;"  *ngIf="!newUser">
+  <mat-card-header>
+   <!--  <mat-card-title class="text-white text-blac">Connexion</mat-card-title> -->
+    <mat-card-subtitle class="text-center">
+      <img src="assets/img/images/newlogo.png" class="d-inline-block" style="width: 35%;">
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="text-center">
+  <!--   <img class="img-responsive float-left" src="assets/img/adafri.png" style="width: 30%; margin-top: 20px"> -->
+
+   
+    <form class="example-form d-inline-block" [formGroup]="connexion" (ngSubmit)="login()">
+      <table class="example-full-width" cellspacing="0">
+           <tr>
+          <td>
+          
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+          
+    <input matInput placeholder="Email" formControlName="email" required>
+      <mat-icon matSuffix>email</mat-icon>
+      
+    <mat-error>{{formErrors.email}}</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><mat-form-field class="example-full-width" style="margin-top: 20px">
+    <input matInput placeholder="Mot de passe" [type]="hide ? 'password' : 'text'" formControlName="password">
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+     <mat-error>{{formErrors.password}}</mat-error>
+  </mat-form-field></td>
+        </tr>
+         <tr>
+          <td> <button mat-raised-button class="adafri-background text-white" type="submit" *ngIf="!progressBarLogin &&connexion.valid">Connexion</button><mat-spinner [diameter]="20" color="primary" class="d-inline-block" *ngIf="progressBarLogin"></mat-spinner></td>
+        </tr>
+         <tr>
+          <td><button mat-fab color="warn" style="box-shadow: none" (click)="signInWithGoogle()" style="margin-top: 20px"><img src="assets/img/images/gmail.jpg" style="position: absolute; top: 0; right: 0"></button></td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+
+</mat-card>
+
+
+<mat-card class="example-card float-left d-md-none d-sm-block" style="margin-top: 10%; margin-left: 5%"  *ngIf="!newUser">
+  <mat-card-header>
+   <!--  <mat-card-title class="text-white text-blac">Connexion</mat-card-title> -->
+    <mat-card-subtitle class="text-center">
+      <img src="assets/img/images/newlogo.png" class="d-inline-block" style="width: 35%;">
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="text-center">
+  <!--   <img class="img-responsive float-left" src="assets/img/adafri.png" style="width: 30%; margin-top: 20px"> -->
+
+   
+    <form class="example-form d-inline-block" [formGroup]="connexion" (ngSubmit)="login()">
+      <table class="example-full-width" cellspacing="0">
+           <tr>
+          <td>
+          
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+          
+    <input matInput placeholder="Email" formControlName="email" required>
+      <mat-icon matSuffix>email</mat-icon>
+      
+    <mat-error>{{formErrors.email}}</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><mat-form-field class="example-full-width" style="margin-top: 20px">
+    <input matInput placeholder="Mot de passe" [type]="hide ? 'password' : 'text'" formControlName="password">
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+     <mat-error>{{formErrors.password}}</mat-error>
+  </mat-form-field></td>
+        </tr>
+         <tr>
+          <td> <button mat-raised-button class="adafri-background text-white" type="submit" *ngIf="!progressBarLogin &&connexion.valid">Connexion</button><mat-spinner [diameter]="20" color="primary" class="d-inline-block" *ngIf="progressBarLogin"></mat-spinner></td>
+        </tr>
+         <tr>
+          <td><button mat-fab color="warn" style="box-shadow: none" (click)="signInWithGoogle()" style="margin-top: 20px"><img src="assets/img/images/gmail.jpg" style="position: absolute; top: 0; right: 0"></button></td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+
+</mat-card>
+
+</mat-card>
+
+ <!-- <a class="d-inline-block position-absolute ct-js-btn-scroll animated pulse infinite" style="top: 55%;" href="#section2"><img alt="Arrow Down Icon" src="https://www.solodev.com/assets/anchor/arrow-down.png"></a> -->
+             
+
+
+<!-- <mat-card class="text-center" style="box-shadow: none">
+            <div class="text-center">
+                <div class="card my-3 card-block d-inline-block no-b animated jello" style="width: 70%" >
+                    <div class="card-body align-items-center d-flex justify-content-center">
+                        <div>
+                          
+                            <p class="card-text adafri-police" style="font-size: 18px">Les régies digitales restent beaucoup trop compliquées avec leur mécanisme d’enchères en temps réél.
+
+Notre plateforme automatise vos campagnes digitales après votre règlement.
+
+Nous optimisons vos emplacements et vos enchères en fonction de la demande journalière et garantissons une diffusion de vos publicités.</p>
+                            <p class="card-text adafri-police" style="font-size: 18px">Charger les paramètres de votre campagne depuis votre canapé et laissez notre algorythme vous réferencer.</p>
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+            </div>
+          </mat-card>  -->
+           <mat-card class="text-center p-0 d-md-none d-sm-block" style="box-shadow: none;">
+<p class="text-black" style="font-size: 12px">Les régies digitales restent beaucoup trop compliquées avec leur mécanisme d’enchères en temps réél.
+
+Notre plateforme automatise vos campagnes digitales après votre règlement.
+
+Nous optimisons vos emplacements et vos enchères en fonction de la demande journalière et garantissons une diffusion de vos publicités.</p>
+                            <p class="text-black" style="font-size: 12px">Charger les paramètres de votre campagne depuis votre canapé et laissez notre algorithme vous réferencer.</p>
+    </mat-card>
+          <mat-card style="box-shadow: none">
+             <img class="img-responsive" src="assets/img/images/reason.jpg">
+          </mat-card>
+         <!--  <mat-card class="height-full" style="box-shadow: none; background:url(assets/img/images/adafri1.jpg) no-repeat left bottom; background-size: cover
+" >
+           
+          </mat-card> -->
+
+         <!--  <img class="img-response d-inline-block" src="assets/img/images/adafri1.jpg"> -->
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

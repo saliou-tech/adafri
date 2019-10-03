@@ -1,0 +1,2277 @@
+<!-- <div class="height-full animatedParent animateOnce my-3 paper-card background-yellow-adafri p-0 text-center" style="box-shadow: none"> -->
+ <!--  <img mat-card-image src="assets/img/images/banner.jpg" alt="Photo of a Shiba Inu" class="d-inline-block">
+
+-->
+ <div class="sticky mat-elevation-z4">
+        <!-- <div class="navbar navbar-expand d-flex justify-content-between bd-navbar green lighten-3 shadow">
+             -->
+             <div class="navbar navbar-expand d-flex justify-content-between bd-navbar white" style="height: 70px">
+
+                 <!--  <button mat-raised-button color="accent" (click)="sidenav.open()" class="">Menu</button> -->
+                  <button mat-icon-button (click)="matDrawer.toggle()" class="d-md-none d-sm-block"> <mat-icon aria-label="Example icon-button with a heart icon">menu</mat-icon></button>
+
+                  <img class="d-none d-md-block " src="assets/img/images/newlogo.png" style="width: 15%" (click)="go()">
+                  <img class="d-md-none d-sm-block" src="assets/img/images/newlogo.png" style="width: 20%; margin-left: -70px" (click)="go()">
+
+            <!--Top Menu Start -->
+<div class="navbar-custom-menu">
+    <ul class="nav navbar-nav">
+        <!-- Messages-->
+
+        <!-- Notifications -->
+        <li  style="margin-top: 8px; cursor: pointer">
+
+        </li>
+         <li style="margin-top: 3px">
+            <a class="nav-link adafri-police-16 font-weight-bold" title="Argent disponible dans votre compte">
+                <i class="icon-money-bag"></i> {{accountValue}} CFA
+            </a>
+        </li>
+         <li class="dropdown custom-dropdown notifications-menu" style="margin-top: 5px">
+            <a href="#" class=" nav-link" data-toggle="dropdown" aria-expanded="false">
+                <i class="icon-notifications_none text-black-50"></i>
+                <span class="badge adafri-background badge-mini rounded-circle text-white">{{numberOfNotifications}}</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li class="header">Vous avez {{numberOfNotifications}} notification(s)</li>
+                <li>
+
+                    <ul class="menu no-b">
+                        <li class="no-b white text-center">
+
+                              <a href="#" *ngIf="accountValue !==0">
+                                <i class="icon icon-data_usage text-danger"></i>Aucune Notification pour le moment
+                            </a>
+                           <a class="adafri-police-12 text-danger" *ngIf="accountValue ===0">
+                                <i class="icon icon-data_usage text-danger"></i>Votre solde est vide
+                            </a>
+
+                              <button mat-raised-button class="adafri-background text-white" data-toggle="modal" data-target="#modalRechargement">Charger mon compte</button>
+
+                        </li>
+                        <li class="no-b white text-center">
+
+                        </li>
+
+
+                    </ul>
+                </li>
+
+            </ul>
+        </li>
+
+
+
+        <!-- Right Sidebar Toggle Button -->
+
+        <!-- User Account-->
+        <!-- <li class="dropdown custom-dropdown user user-menu ">
+            <a href="#" class="nav-link text-white" data-toggle="dropdown" style="font-size: 12px">
+
+                <figure class="avatar">
+                  <img [src]='photoURL'>
+                </figure>
+
+            </a>
+            <div class="dropdown-menu p-4 dropdown-menu-right">
+                <div class="row box justify-content-between my-4">
+                    <div class="col">
+                        <a (click)="auth.signOut()">
+                            <i class="icon-apps purple lighten-2 avatar  r-5"></i>
+                            <div class="pt-1" >Déconnexion</div>
+                        </a>
+                    </div>
+                    <div class="col"><a href="#">
+                        <i class="icon-beach_access pink lighten-1 avatar  r-5"></i>
+                        <div class="pt-1">Profile</div>
+                    </a></div>
+
+               </div>
+
+            </div>
+        </li> -->
+        <button mat-button [matMenuTriggerFor]="userMenu" style="box-shadow: none; box-sizing: none">  <figure class="avatar">
+                  <img [src]='photoURL'>
+                </figure></button>
+<mat-menu #userMenu="matMenu" class="adafri-background">
+  <button mat-menu-item (click)="goProfile()">
+    <mat-icon>face</mat-icon>
+    <span>Profile</span>
+  </button>
+  <button mat-menu-item (click)="auth.signOut()">
+    <mat-icon>subdirectory_arrow_left</mat-icon>
+    <span>Déconnexion</span>
+  </button>
+
+
+</mat-menu>
+    </ul>
+</div>
+        </div>
+
+    </div>
+     <mat-toolbar color="warn" style="height: 45px" class="d-flex" *ngIf="budget===0 && showBudgetStatusBar">
+
+
+
+
+                <button mat-icon-button (click)="chooseBudgetOptions()"><mat-icon>warning</mat-icon>Budget de campagne requis!, Cliquez ici</button>
+
+
+
+
+
+</mat-toolbar>
+     <!-- <mat-toolbar color="warn" style="height: 45px" class="d-flex" >
+
+
+
+
+                <button mat-icon-button (click)="chooseBudgetOptions()"><mat-icon>warning</mat-icon>Budget de campagne requis!, Cliquez ici</button>
+
+
+
+
+
+</mat-toolbar> -->
+<mat-drawer-container
+    class="example-container height-full p-0">
+  <mat-drawer mode="side" #matDrawer opened="opened" class="p-0 background-yellow-adafri height-full" style="width: max-content"  *ngIf="showSideBar">
+    <mat-nav-list class="p-0">
+   <!--    <mat-list-item>
+        Menu
+      </mat-list-item>
+
+
+      <br> -->
+      <br>
+      <br>
+
+  <mat-list-item class="p-0 text-center" (click)="handleListeCampaign()">
+     <!-- <a matLine class="d-md-none d-sm-block" style="font-size: 10px">Liste des campagnes</a> -->
+     <mat-icon class="text-black d-none d-md-block" matTooltip="Liste des campagnes" matTooltipPosition="right">airplay</mat-icon>
+     <mat-icon class="text-black d-md-none d-sm-block" matTooltip="Liste des campagnes" matTooltipPosition="right">airplay</mat-icon>
+
+  </mat-list-item>
+   <mat-list-item (click)="handleCampaignSettings()">
+   <!--   <a matLine class="d-md-none d-sm-block" style="font-size: 10px">Paramètres campagne</a> -->
+     <mat-icon class="text-black d-none d-md-block" matTooltip="Paramètres de la campagne" matTooltipPosition="right">settings_applications</mat-icon>
+       <mat-icon class="text-black d-md-none d-sm-block" matTooltip="Paramètres de la campagne" matTooltipPosition="right">settings_applications</mat-icon>
+
+  </mat-list-item>
+  <mat-list-item (click)="handleListeVisuel()">
+    <!--  <a matLine class="d-md-none d-sm-block" style="font-size: 10px">Liste des visuel</a> -->
+     <mat-icon class="text-black d-none d-md-block" matTooltip="Liste des visuels" matTooltipPosition="right">list</mat-icon>
+       <mat-icon class="text-black d-md-none d-sm-block" matTooltip="Liste des visuels" matTooltipPosition="right">list</mat-icon>
+
+  </mat-list-item>
+  <mat-list-item  (click)="handleCAD()">
+    <!--  <a matLine class="d-md-none d-sm-block" style="font-size: 10px">Créer un visuel</a> -->
+     <mat-icon class="text-black d-none d-md-block" matTooltip="Créer un visuel" matTooltipPosition="right">brush</mat-icon>
+       <mat-icon class="text-black d-md-none d-sm-block" matTooltip="Créer un visuel" matTooltipPosition="right">brush</mat-icon>
+
+  </mat-list-item>
+  <br>
+  <br>
+  <br>
+  <!-- <br>
+  <br> -->
+ <!--   <mat-divider style="border-top-color: whitesmoke; margin-top: 2px"></mat-divider> -->
+   <br>
+   <br>
+    <mat-list-item (click)="handleTP()">
+    <!--  <a matLine class="d-md-none d-sm-block" style="font-size: 10px">Emplacements</a> -->
+     <mat-icon class="text-black d-none d-md-block" matTooltip="Emplacements des visuels" matTooltipPosition="right">public</mat-icon>
+      <mat-icon class="text-black d-md-none d-sm-block" matTooltip="Emplacements des visuels" matTooltipPosition="right">public</mat-icon>
+  </mat-list-item>
+   <mat-list-item  (click)="handleTA()">
+   <!--   <a matLine class="d-md-none d-sm-block" style="font-size: 10px" >Ages ciblés</a> -->
+
+     <i class="icon-nature_people text-black s-24 d-none d-md-block" matTooltip="Âges ciblés" matTooltipPosition="right"></i>
+       <i class="icon-nature_people text-black s-24 d-md-none d-sm-block" matTooltip="Âges ciblés" matTooltipPosition="right"></i>
+
+  </mat-list-item>
+   <mat-list-item  (click)="handleTS()">
+    <!--  <a matLine class="d-md-none d-sm-block" style="font-size: 10px">Genre ciblé</a> -->
+     <i class="icon-intersex text-black s-24 d-none d-md-block"  matTooltip="Genres ciblés" matTooltipPosition="right"></i>
+       <i class="icon-intersex text-black  s-24 d-md-none d-sm-block"  matTooltip="Genres ciblés" matTooltipPosition="right"></i>
+  </mat-list-item>
+   <mat-list-item  (click)="handleTD()">
+   <!--   <a matLine class="d-md-none d-sm-block" style="font-size: 10px">Appareils ciblés</a> -->
+     <mat-icon  class="text-black d-none d-md-block" matTooltip="Appareils ciblés" matTooltipPosition="right">important_devices</mat-icon>
+       <mat-icon  class="text-black d-md-none d-sm-block s-24"  matTooltip="Appareils ciblés" matTooltipPosition="right">important_devices</mat-icon>
+
+  </mat-list-item>
+
+</mat-nav-list>
+
+  </mat-drawer>
+
+  <mat-drawer-content class="progress-width height-full">
+
+
+    <div class="paper-card no-b height-full text-center p-0" style="box-shadow: none">
+        <div class="height-full text-center background-yellow-adafri p-0" *ngIf="number_ads!=='0'">
+                        <div class="height-full">
+              <div class="paper-card text-center p-0" style="box-shadow: none">
+              <div class="text-center adafri-background">
+ <img class="img-responsive d-none d-md-inline-block"  src="assets/img/images/banner.jpg">
+  <img class="img-responsive d-md-none d-sm-inline-block" src="assets/img/images/banner.jpg">
+              </div>
+             <div class="paper-card p-10 background-yellow-adafri text-center" *ngIf="chooseOptionsBudget" style="box-shadow: none">
+
+      <mat-card style="box-shadow: none" class="background-yellow-adafri">
+               <mat-card-content *ngIf="button_payments">
+                 <div class="button-row">
+                    <button mat-button  (click)="handlePlaceBudgetFromSolde()" *ngIf="accountValue!=0 && budget==0">
+
+    <span>Placement depuis mon solde </span>
+  </button>
+  <button mat-button (click)="handleAccountRechargement()" *ngIf="accountValue==0">
+
+    <span>Recharger mon compte</span>
+  </button>
+  <button mat-button (click)="handleBudgetPlacement()"  *ngIf="budget==0">
+
+    <span>Placer directement un budget</span>
+  </button>
+                 </div>
+               </mat-card-content>
+               <mat-card-content class="text-center">
+                     <mat-card  class="d-inline-block background-yellow-adafri" style="box-shadow: none">
+              <mat-card  *ngIf="modifyDate" class="text-center d-inline-block mat-elevation-z4" style="margin-top: 20px">
+                 <p class="font-weight-bold">Dates de campagne</p>
+  <mat-card-content>
+    <p class="adafri-police-14">Date de début: {{startDateFrench}}</p>
+     <ejs-datepicker id='datepicker' (change)="onStartDateChange($event)" [min]='minDate' [max]='maxDate'>
+                </ejs-datepicker>
+    <br>
+    <p class="adafri-police-14">Date de fin: {{endDateFrench}}</p>
+     <ejs-datepicker id='datepicker' (change)=" onEndDateChange($event)" [min]='minDate' [max]='maxDate'>
+                </ejs-datepicker>
+  </mat-card-content>
+  <mat-card-actions>
+     <button mat-button (click)="updateCampaignDate()" color="primary">Modifier</button>
+   <!--  <button mat-button   (click)="CloseUpdateCampaignDate()" color="warn">Annuler</button> -->
+  </mat-card-actions>
+
+</mat-card>
+
+<mat-card class="mat-elevation-z4 d-inline-block text-center" style="margin-top: 20px" *ngIf="isSetBudget">
+  <p class="font-weight-bold">Placez votre budget</p>
+<mat-card-content>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Montant supérieur ou égal à 10000 FCA" id="montant" (keyup)="handleSimulatedImpressionsCount()" required>
+  </mat-form-field>
+  <p class="text-danger" id="error_recharge"
+           style="font-size: 12px; display: none; ">{{error_recharge}}</p>
+  <p class="adafri-police-14">Nombre de vues estimées: {{number_of_impressions_simulated}}</p>
+</form>
+</mat-card-content>
+<mat-card-actions>
+   <button mat-button  (click)="defineBudget()" color="primary">Placer le budget</button>
+                <button mat-button color="red"
+                (click)="CloseBudgetOperation()">Annuler</button>
+</mat-card-actions>
+</mat-card>
+
+
+<mat-card class="mat-elevation-z4 d-inline-block text-center" style="margin-top: 20px" *ngIf="isAccountRechargement">
+   <p class="font-weight-bold">Charger votre solde</p>
+<mat-card-content>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Montant supérieur ou égal à 10000 FCA" id="montant"(keyup)="handleIfValide()" required>
+  </mat-form-field>
+  <p class="text-danger" id="error_recharge"
+           style="font-size: 12px; display: none; ">Saisir un montant supérieur ou égal à 20 000
+           FCA</p>
+
+</form>
+</mat-card-content>
+<mat-card-actions >
+   <button mat-button  (click)="defineAmountAccountBeforeBudget()" color="primary">Recharger mon compte</button>
+                <button mat-button color="red"
+                (click)="CloseRechargeAccountOperation()">Annuler</button>
+</mat-card-actions>
+</mat-card>
+
+<mat-card class="mat-elevation-z4 d-inline-block" style="margin-top: 20px" *ngIf="isPlacementBudgetFromAccount">
+<mat-card-content>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Montant supérieur ou égal à 10000 FCA" id="montant"(keyup)="handleIfBudgetToPlaceFromAccountIsValid()" required>
+     <mat-error class="text-danger" id="error_recharge"
+              style="font-size: 12px; display: none; ">La valeur du budget invalide<</mat-error>
+  </mat-form-field>
+   <p class="adafri-police-14">Nombre de vues estimées: {{number_of_impressions_simulated}}</p>
+
+</form>
+</mat-card-content>
+<mat-card-actions >
+   <button mat-button  (click)="defineBudgetFromAccount()" color="primary">Placer mon budget</button>
+                <button mat-button color="red"
+                (click)=" ClosePlaceBudgetFromAccountValue()">Annuler</button>
+</mat-card-actions>
+</mat-card>
+             </mat-card>
+               </mat-card-content>
+               <mat-card-actions>
+               <!--   <button mat-raised-button (click)="chooseBudgetOptions()" color="accent" *ngIf="budget==0">
+
+    <span>Annuler</span>
+  </button> -->
+               </mat-card-actions>
+             </mat-card>
+
+              <button mat-raised-button color="warn" (click)="chooseBudgetOptions()">retour</button>
+             </div>
+              <div class="paper-card p-10 background-yellow-adafri text-center no-b" style="box-shadow: none" *ngIf="!chooseOptionsBudget && !isAdBlock">
+                  <div class="p-0 no-b" style="box-shadow: none">
+
+   <!--  <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Rechercher un visuel">
+    </mat-form-field> -->
+<!-- <mat-toolbar>
+  <mat-toolbar-row>
+    <span>Custom Toolbar</span>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+    <span>Second Line</span>
+    <span class="example-spacer"></span>
+    <mat-icon class="example-icon">verified_user</mat-icon>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+    <span>Third Line</span>
+    <span class="example-spacer"></span>
+    <mat-icon class="example-icon">favorite</mat-icon>
+    <mat-icon class="example-icon">delete</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar> -->
+   <!--  <mat-accordion class="d-inline-block">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="adafri-police-14">
+      <mat-panel-title>
+       <p class="adafri-police-16 d-none d-md-block">Budget</p>
+        <p class="adafri-police-12 d-md-none d-sm-block">Budget</p>
+      </mat-panel-title>
+      <mat-panel-description>
+         <p class="adafri-police-14 d-none d-md-block"> Définir le budget pour commencer à publier les visuels</p>
+ <p class="adafri-police-12 d-md-none d-sm-block"> Définir le budget pour commencer à publier les visuels</p>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+  </mat-expansion-panel>
+
+</mat-accordion> -->
+     <!-- <mat-card class="d-inline-block" *ngIf="budget===0">
+      <mat-card-content>
+       <p > Le budget de cette campagne publicitaire est actuellement insuffisant pour commencer à diffuser des annonces</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="chooseBudgetOptions()" >
+       Définir le budget
+     </button>
+      </mat-card-actions>
+    </mat-card>
+  -->
+  </div>
+
+  <!--Block Create Ad-->
+  <mat-card *ngIf="cad && !tp && !ta && !ts && !td && !isAdBlock" class="background-yellow-adafri" style="box-shadow: none">
+
+    <mat-card *ngIf="chooseAdSize" class="text-center background-yellow-adafri p-0"  style="box-shadow: none">
+                  <mat-card class="text-center" style="box-shadow: none">
+                       <div class="text-center">
+                    <span class="adafri-police-16 font-weight-bold">Nos coups de coeur<!--  <i
+                          class="icon-diamond2 adafri d-inline-block s-36"></i> --></span>
+                    <div class="row">
+
+                      <div class="col text-center" *ngFor="let type of AD_TYPES_SPECIAL_1" style="cursor: pointer"> <span
+                          class="badge text-black-50 badge-white adafri-police-14 img-check d-inline" style="border: 1px solid grey"
+                          (click)="checkAdType(type.id, type.width, type.height, type.img, type.name)"
+                          [id]="type.id">{{type.width}}x{{type.height}}</span></div>
+
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+
+                      <div class="col text-center" *ngFor="let type of AD_TYPES_SPECIAL_2" style="cursor: pointer"> <span
+                          class="badge text-black-50 badge-white adafri-police-14 img-check d-inline" style="border: 1px solid grey"
+                          (click)="checkAdType(type.id, type.width, type.height, type.img, type.name)"
+                          [id]="type.id">{{type.width}}x{{type.height}}</span></div>
+
+                    </div>
+                  </div>
+                  <br>
+                  <hr>
+                  <br>
+                  <div class="text-center">
+                    <span class="adafri-police-16 font-weight-bold"> Autres formats</span>
+                    <div class="row">
+
+                      <div class="col text-center" *ngFor="let type of AD_TYPES_NOSPECIAL_1" style="cursor: pointer"><i
+                          class="icon-diamond2 adafri d-inline" *ngIf="type.isSpecial===true"></i> <span
+                          class="badge badge-white text-black-50 adafri-police-14 img-check d-inline"
+                          style="border: 1px solid grey; margin-left: 5px"
+                          (click)="checkAdType(type.id, type.width, type.height, type.img, type.name)"
+                          [id]="type.id">{{type.width}}x{{type.height}}</span></div>
+
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+
+                      <div class="col text-center" *ngFor="let type of AD_TYPES_NOSPECIAL_2" style="cursor: pointer"><i
+                          class="icon-diamond2 adafri d-inline" *ngIf="type.isSpecial===true"></i> <span
+                          class="badge badge-white adafri-police-14 text-black-50 img-check d-inline"
+                          style="border: 1px solid grey; margin-left: 5px"
+                          (click)="checkAdType(type.id, type.width, type.height, type.img, type.name)"
+                          [id]="type.id">{{type.width}}x{{type.height}}</span></div>
+
+                    </div>
+                  </div>
+                  </mat-card>
+                  <mat-card *ngIf="illustration" class="text-center d-inline-block" style="margin-top: 20px">
+                     <img class="img-responsive d-inline-block" [src]="illustrationUrl" id="illustration">
+                    <!--  <mat-card-actions>
+                       <button mat-raised-button color="accent" (click)="chooseAdType()">Choisir</button>
+                     </mat-card-actions> -->
+                  </mat-card>
+                  <br>
+                  <br>
+                  <mat-card *ngIf="chooseBlock" class="d-inline-block" style="margin-top: 20px">
+                    Choisir une option
+
+                      <div class="button-row">
+                        <button mat-raised-button (click)="handleUploadBanner()">Charger un visuel</button>
+                        <button mat-raised-button  (click)="handleCreatives()">Créer un visuel</button>
+
+  </div>
+
+                  </mat-card>
+                </mat-card>
+                <div id="block" style="display: none">
+                   <mat-card class="mat-elevation-z3">
+                  <mat-card-header>
+                    <mat-card-title><p class="adafri-police-14 font-weight-bold">Format: {{selectedWidth}}x{{selectedHeight}}</p></mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                     <mat-form-field class="d-block">
+    <input matInput placeholder="Exemple: https://www.votresite.com"
+
+                            [id]="idOfDisplayUrlCreateUpload" required (keyup)="handleErrorUrl()">
+                             <ng-container *ngIf="url_errors != []">
+                            <div class="text-danger" *ngFor="let error of url_errors">
+                              {{error.url}} {{error.text}}
+                            </div>
+
+                          </ng-container>
+  </mat-form-field>
+                  </mat-card-content>
+                  <mat-card-content style="margin-top: 10px">
+                    <mat-card>
+                       <ngx-dropzone (change)="onSelect($event)" class="text-center">
+                    <ngx-dropzone-label><i class="icon-cloud_upload text-black-50 s-48"></i><br>Glissez ou cliquez pour ajouter une ou plusieurs images</ngx-dropzone-label>
+                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true"
+                      (removed)="onRemove(f)" *ngFor="let f of files" [file]="f" class="text-center"
+                      style="width: 100% !important ;display: inline-flex !important;height: 140px;min-height: 140px;min-width: 180px;max-width: 180px;justify-content: center;align-items: center;padding: 0px 20px;margin: 10px;border-radius: 5px;position: relative;">
+                      <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                    </ngx-dropzone-image-preview>
+                  </ngx-dropzone>
+                    </mat-card>
+                  </mat-card-content>
+
+                  <mat-card-actions>
+                     <mat-progress-bar mode="indeterminate" *ngIf="progresBarCreateImageUpload"></mat-progress-bar>
+                    <button mat-raised-button color="primary"  (click)="handleImageUploadModal()"  *ngIf="!progresBarCreateImageUpload">Visualiser</button>
+                     <button mat-raised-button class="adafri-background text-white" (click)="saveNewUploadAd()" *ngIf="!progresBarCreateImageUpload">Sauvegarder</button>
+                    <button mat-raised-button color="accent"  (click)="goBackFromUpload()"  *ngIf="!progresBarCreateImageUpload">Annuler</button>
+                  </mat-card-actions>
+
+                </mat-card>
+                </div>
+
+                <mat-card *ngIf="handleCreateCanvas" class="p-0 mat-elevation-z3">
+                    <mat-card-header>
+                    <mat-card-title><p class="adafri-police-14 font-weight-bold">Format: {{selectedWidth}}x{{selectedHeight}}</p></mat-card-title>
+                  </mat-card-header>
+                   <mat-card-content>
+                     <p class="adafri-police-14">Nom de l'annonce</p>
+                     <mat-form-field class="d-block" style="margin-left: 20px">
+    <input matInput placeholder="Nom visuel"
+                              [id]="idOfAdNameCreateCreatives"  required>
+                            </mat-form-field>
+                            <br>
+                            <p class="adafri-police-14">Url de votre site</p>
+                              <mat-form-field class="d-block" style="margin-left: 20px">
+    <input matInput placeholder="Exemple: https://www.votresite.com"
+                            [id]="idOfDisplayUrlCreateCreatives" required (keyup)="handleErrorUrl()">
+                             <ng-container *ngIf="url_errors != []">
+                            <div class="text-danger" *ngFor="let error of url_errors">
+                              {{error.url}} {{error.text}}
+                            </div>
+
+                          </ng-container>
+  </mat-form-field>
+</mat-card-content>
+                          <mat-card-content class="p-0">
+                            <mat-card class="p-0 text-center background-yellow-adafri" style="box-shadow: none">
+       <mat-card-header class="text-center d-inline-block">
+         <div class="button-row d-inline-block">
+            <form [formGroup]="form">
+     <mcc-speed-dial [direction]="direction" [open]="open" [spin]="spin" [mouseHover]="mouse_hover" class="adafri-background text-white">
+            <!-- This icon can be anything you want -->
+            <mat-icon>add</mat-icon>
+
+            <mcc-speed-dial-actions [animation]="animation">
+              <button mat-mini-fab class="adafri-background text-white" (click)="triggerImage()">
+                <mat-icon>add_a_photo</mat-icon>
+              </button>
+              <button mat-mini-fab  [matMenuTriggerFor]="menuFigure" class="adafri-background text-white">
+                <mat-icon>format_shapes</mat-icon>
+              </button>
+              <mat-menu #menuFigure="matMenu">
+  <button mat-menu-item  (click)="addShape('circle');">  <mat-icon aria-label="Example icon-button with a heart icon">trip_origin</mat-icon> Cercle</button>
+  <button mat-menu-item  (click)="addShape('square');">  <mat-icon aria-label="Example icon-button with a heart icon">check_box_outline_blank</mat-icon> Carré</button>
+  <button mat-menu-item  (click)="addShape('rectangle');">  <mat-icon aria-label="Example icon-button with a heart icon">aspect_ratio</mat-icon> Rectangle</button>
+  <button mat-menu-item  (click)="addShape('triangle');">  <mat-icon aria-label="Example icon-button with a heart icon">change_history</mat-icon> Triangle</button>
+  <button mat-menu-item  (click)="addShape('star');">  <mat-icon aria-label="Example icon-button with a heart icon">star</mat-icon> Etoile</button>
+</mat-menu>
+              <button mat-mini-fab [matMenuTriggerFor]="menuElements" class="adafri-background text-white">
+                <mat-icon>group_work</mat-icon>
+              </button>
+               <mat-menu #menuElements="matMenu">
+                <button  dnd-sortable-container [sortableData]="layers.reverse()" mat-menu-item *ngFor="let item of layers; let i = index" dnd-sortable
+                            [dragEnabled]="item.selectable" [sortableIndex]="layers.length - i - 1"
+                            (click)="selectLayer(item)" (onDropSuccess)="updateLayerSort()"
+                            [ngClass]="{'active': item.active}"><i
+                                class="text-dark {{elementTypes[item.type].icon}}"
+                                [ngClass]="{'text-muted': !item.active}"></i> </button>
+                </mat-menu>
+
+
+                 <button mat-mini-fab [matMenuTriggerFor]="menuTexte" class="adafri-background text-white">
+                <mat-icon>title</mat-icon>
+              </button>
+               <mat-menu #menuTexte="matMenu">
+               <button mat-menu-item (click)="handleTextAdd()">  <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon> Texte</button>
+
+               <button mat-menu-item (click)="handleColorTexte()"> <mat-icon aria-label="Example icon-button with a heart icon">format_paint</mat-icon>Couleur</button>
+              <button mat-menu-item [matMenuTriggerFor]="menuPolice"> <mat-icon aria-label="Example icon-button with a heart icon">format_size</mat-icon> Police</button>
+               <mat-menu #menuPolice="matMenu">
+               <button mat-menu-item *ngFor="let sizes of FONT_SIZES"
+                                  (click)="setFontSize(sizes.size)">{{sizes.name}}</button>
+
+                </mat-menu>
+              <button mat-menu-item [matMenuTriggerFor]="menuStyle"><mat-icon>text_format</mat-icon>Style</button>
+               <mat-menu #menuStyle="matMenu">
+               <button mat-menu-item *ngFor="let font of FONT_FAMILY"
+                                  (click)="setFontFamily(font.font)">{{font.name}}</button>
+
+                </mat-menu>
+                 <button mat-menu-item (click)="setBold()" >  <mat-icon aria-label="Example icon-button with a heart icon">format_bold</mat-icon>Gras</button>
+                  <button mat-menu-item  (click)="setTextDecoration('italic')" >  <mat-icon aria-label="Example icon-button with a heart icon">format_italic</mat-icon>Italic</button>
+                   <button mat-menu-item (click)="setTextDecoration('underline')">  <mat-icon aria-label="Example icon-button with a heart icon">format_underline</mat-icon>Souligner</button>
+                    <button mat-menu-item (click)="setTextDecoration('overline')">  <mat-icon aria-label="Example icon-button with a heart icon">format_clear</mat-icon>Barrer</button>
+                </mat-menu>
+                <button mat-mini-fab  (click)="handleColorTexte()" class="adafri-background text-white">
+                <mat-icon>color_lens</mat-icon>
+              </button>
+                     <button mat-mini-fab (click)="removeSelected();">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mcc-speed-dial-actions>
+          </mcc-speed-dial>
+ </form>
+          </div>
+                 </mat-card-header>
+                  <mat-card *ngIf="text_add" class="draggable d-inline-block" style="z-index: 99; position: absolute;">
+                    <button mat-mini-fab (click)="handleTextAdd()"><mat-icon>cancel</mat-icon></button>
+                  <mat-card-content>
+                    Couleur de l'élement sélectionner
+                     <mat-form-field>
+  <textarea matInput placeholder="texte" matTextareaAutosize matAutosizeMinRows="2"
+            matAutosizeMaxRows="5" id="text_canvas"></textarea>
+</mat-form-field>
+</mat-card-content>
+  <mat-card-actions>
+    <button mat-mini-fab (click)="addText()"><mat-icon>add</mat-icon></button>
+  </mat-card-actions>
+                </mat-card>
+                 <mat-card *ngIf="text_color" class="draggable d-inline-block" style="z-index: 99; position: absolute;">
+                    <button mat-mini-fab (click)="handleColorTexte()"><mat-icon>cancel</mat-icon></button>
+                  <mat-card-content>
+                    Couleur:
+                    <mcc-color-picker [usedColorLabel]="'Mes couleurs'" hideEmptyUsedColors [hideHexForms]="true" [usedSizeColors]="'50'" (change)="handleChange($event)" (selected)="changeColor = $event" hideEmpty="true" value="#ffffff" hideEmptyUsedColors  hideButtons>
+
+      <mcc-color-picker-collection [label]="'Collection'" hideEmpty="true" [colors]="colors">
+      </mcc-color-picker-collection>
+
+    </mcc-color-picker>
+  </mat-card-content>
+
+                </mat-card>
+                 <mat-card-content class="text-center p-0">
+                    <div style="display: inline-block" class="paper-card p-0 animated fadeInRightBig delay-2">
+                            <div class="canvas-container text-center" (drop)="handleDropOnCanvas($event)"
+                              (dragover)="handleDragOverCanvas($event)" placeholder="canvas">
+                              <canvas id="canvas" class="d-inline-block" [ngStyle]="canvas_style"></canvas>
+                            </div>
+                          </div>
+                 </mat-card-content>
+
+
+                </mat-card>
+                <mat-card-actions>
+                  <mat-progress-bar mode="indeterminate" *ngIf="progresBarCreateImageCreatives"></mat-progress-bar>
+                  <button mat-raised-button  (click)="handleImageModal()" *ngIf="!progresBarCreateImageCreatives">Visualiser</button>
+                   <button mat-raised-button class="adafri-background text-white" (click)="saveNewCreativeAd()" *ngIf="!progresBarCreateImageCreatives">Sauvegarder</button>
+                  <button mat-raised-button color="warn" (click)="goBackFromCreatives()" *ngIf="!progresBarCreateImageCreatives">Annuler le canvas</button>
+                </mat-card-actions>
+              </mat-card-content>
+
+                </mat-card>
+  <!--   <div style="margin-top: 20px">
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+
+      <button mat-button (click)=" initAllSteps()">Sauvegarder</button>
+    </div> -->
+  </mat-card>
+
+  <!--End Block Create Ad-->
+
+
+  <!--Bloc Targetion-->
+  <mat-card *ngIf="!cad && tp && !ta && !ts && !td && !isAdBlock" class="d-inline-block p-0" style="box-shadow: none">
+
+    <ng-container *ngIf="isPlacement">
+
+      <mat-card>
+
+        <mat-card-header class="text-center">
+          <p class="font-weight-bold d-inline-block">Emplacements de vos visuels</p>
+        </mat-card-header>
+       <mat-card-content  *ngIf="spinnerDeletePlacement" class="text-center">
+          <p class="text-danger">Suppression en cours...</p>
+          <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
+       </mat-card-content>
+        <mat-card-content *ngIf="!spinnerDeletePlacement">
+          <p *ngIf="placement.length===0">Aucun emplacement</p>
+    <mat-selection-list #shoes (selectionChange)="placeChange($event)">
+      <mat-list-option *ngFor="let place of placement" [value]="{'item_id': place.item_id, 'item_text': place.item_text, 'criterion_id': place.criterion_id}" >
+        {{place.item_text}}
+      </mat-list-option>
+
+    </mat-selection-list>
+        </mat-card-content>
+          <mat-card-actions>
+        <button mat-raised-button color="warn" (click)="removePlacement()" *ngIf="placementSelected && !spinnerDeletePlacement && SELECTED_PLACEMENT.length>0">Supprimer</button>
+        <button mat-button (click)="handleTogglePlacement()" *ngIf="!spinnerDeletePlacement && placement.length>0">Modifier les emplacements</button>
+        <button mat-button (click)="handleTogglePlacement()" *ngIf="!spinnerDeletePlacement && placement.length===0">Définir les emplacements</button>
+      </mat-card-actions>
+      </mat-card>
+    </ng-container>
+    <ng-container *ngIf="!isPlacement">
+              <mat-card *ngIf="!spinnerTargetPlacement">
+        <mat-card-content class="justify-content-between">
+         <form [formGroup]="emplacement">
+            <mat-form-field >
+  <mat-select #nationals placeholder="Sites nationaux" formControlName="nationalWeb"  [(ngModel)]="national_websites"  multiple required>
+   <mat-select-trigger>
+         <span *ngIf="national_websites?.length===1" class="example-additional-selection">
+
+        {{national_websites[0].item_text}}
+      </span>
+      <span *ngIf="national_websites?.length > 1" class="example-additional-selection">
+       {{national_websites[0].item_text}} (+{{national_websites.length - 1}} autres)
+      </span>
+    </mat-select-trigger>
+    <mat-option *ngFor="let site of NATIONALS_WEBSITES" (onSelectionChange)="onNationalsWebsitesSelect($event)" [value]="{'item_id': site[3], 'item_text': site[2]}">{{site[2]}}</mat-option>
+
+  </mat-select>
+
+</mat-form-field>
+  <mat-form-field>
+   <mat-select placeholder="Sites internationnaux" #internationals [(ngModel)]="international_websites" formControlName="internationalWeb" multiple>
+    <mat-select-trigger>
+         <span *ngIf="international_websites?.length===1" class="example-additional-selection">
+
+        {{international_websites[0].item_text}}
+      </span>
+      <span *ngIf="international_websites?.length > 1" class="example-additional-selection">
+       {{international_websites[0].item_text}} (+{{international_websites.length - 1}} autres)
+      </span>
+    </mat-select-trigger>
+    <mat-option *ngFor="let site of INTERNATIONALS_WEBSITES" [value]="{'item_id': site[3], 'item_text': site[2]}" (onSelectionChange)="onInternationalsWebsitesSelect($event)">{{site[2]}}</mat-option>
+  </mat-select>
+</mat-form-field>
+ <mat-form-field>
+   <mat-select placeholder="Sites d'annonces" #adsWeb formControlName="adWeb" [(ngModel)]="ads_websites"  multiple>
+     <mat-select-trigger>
+         <span *ngIf="ads_websites?.length===1" class="example-additional-selection">
+
+        {{ads_websites[0].item_text}}
+      </span>
+      <span *ngIf="ads_websites?.length > 1" class="example-additional-selection">
+       {{ads_websites[0].item_text}} (+{{ads_websites.length - 1}} autres)
+      </span>
+    </mat-select-trigger>
+    <mat-option (onSelectionChange)="onAdsWebsitesSelect($event)" *ngFor="let site of SITES_ANNONCES" [value]="{'item_id': site[3], 'item_text': site[2]}">{{site[2]}}</mat-option>
+  </mat-select>
+</mat-form-field>
+         </form>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="warn" (click)="closeAddPlacement()">Annuler</button>
+          <button mat-button color="primary"  (click)="targetPlacement()">Modifier</button>
+        </mat-card-actions>
+      </mat-card>
+      <mat-card  *ngIf="spinnerTargetPlacement">
+         <mat-card-content  class="text-center">
+          <p class="text-black-50">Opération en cours...</p>
+          <mat-progress-bar mode="indeterminate" color="primary"></mat-progress-bar>
+       </mat-card-content>
+      </mat-card>
+    </ng-container>
+
+
+</mat-card>
+
+  <mat-card *ngIf="!cad && !tp && ta && !ts && !td && !isAdBlock"  class="d-inline-block p-0" style="box-shadow: none">
+ <ng-container *ngIf="!isCiblageAge">
+
+      <mat-card>
+
+        <mat-card-header class="text-center">
+          <p class="font-weight-bold d-inline-block">Ciblage des tranches d'âges</p>
+        </mat-card-header>
+        <mat-card-content *ngIf="!spinnerDeletePlacement">
+          <p *ngIf="populations.length===0">Aucune tranche d'âge ciblée</p>
+          <mat-list role="list" *ngFor="let pop of populations" class="text-center">
+  <mat-list-item role="listitem" class="d-inlie-block">{{pop.item_text}}</mat-list-item>
+</mat-list>
+        </mat-card-content>
+          <mat-card-actions>
+        <button mat-button (click)="openAddCiblageAge()" *ngIf="populations.length>0">Modifier le ciblage</button>
+        <button mat-button (click)="openAddCiblageAge()" *ngIf="populations.length===0">Définir le ciblage</button>
+      </mat-card-actions>
+      </mat-card>
+    </ng-container>
+
+     <ng-container *ngIf="isCiblageAge">
+       <form [formGroup]="ageForm"  (ngSubmit)="targetAge()">
+              <mat-card *ngIf="!spinnerTargetAge">
+        <mat-card-content class="justify-content-between">
+
+   <mat-form-field>
+   <mat-select placeholder="Tranches d'ages" #age formControlName="age" [(ngModel)]="ages" multiple required>
+    <mat-select-trigger>
+       <span *ngIf="ages?.length===1" class="example-additional-selection">
+
+        {{ages[0].item_text}}
+      </span>
+      <span *ngIf="ages?.length > 1" class="example-additional-selection">
+       {{ages[0].item_text}} (+{{ages.length - 1}} autres)
+      </span>
+    </mat-select-trigger>
+    <mat-option (onSelectionChange)="onAgeSelect($event)" *ngFor="let age of dropdownListAges" [value]="{'item_id': age.item_id, 'item_text': age.item_text}">{{age.item_text}}</mat-option>
+  </mat-select>
+</mat-form-field>
+</mat-card-content>
+<mat-card-actions>
+  <button mat-button color="warn"  (click)="closeAddCiblageAges()">Annuler</button>
+  <button mat-button color="primary" type="submit" >Modifier</button>
+</mat-card-actions>
+</mat-card>
+<mat-card  *ngIf="spinnerTargetAge">
+  <mat-card-content  class="text-center">
+    <p class="text-black-50">Opération en cours...</p>
+    <mat-progress-bar mode="indeterminate" color="primary"></mat-progress-bar>
+  </mat-card-content>
+</mat-card>
+</form>
+</ng-container>
+</mat-card>
+
+  <mat-card *ngIf="!cad && !tp && !ta && ts && !td && !isAdBlock" class="d-inline-block p-0" style="box-shadow: none">
+  <ng-container *ngIf="!isCiblageGenre">
+
+      <mat-card>
+
+        <mat-card-header class="text-center">
+          <p class="font-weight-bold d-inline-block">Ciblage de genre</p>
+        </mat-card-header>
+        <mat-card-content>
+          <p *ngIf="genres.length===0">Aucun genre ciblé</p>
+          <mat-list role="list" *ngFor="let genre of genres" class="text-center">
+  <mat-list-item role="listitem" class="d-inlie-block">{{genre.item_text}}</mat-list-item>
+</mat-list>
+        </mat-card-content>
+          <mat-card-actions>
+        <button mat-button (click)="openAddCiblageGenre()" *ngIf="genres.length>0">Modifier le ciblage</button>
+        <button mat-button (click)="openAddCiblageGenre()" *ngIf="genres.length===0">Définir le ciblage</button>
+      </mat-card-actions>
+      </mat-card>
+    </ng-container>
+
+     <ng-container *ngIf="isCiblageGenre">
+       <form [formGroup]="genreForm"  (ngSubmit)="targetGender()">
+              <mat-card *ngIf="!spinnerTargetGenre">
+        <mat-card-content class="justify-content-between">
+
+   <mat-form-field>
+   <mat-select placeholder="Genres" #genre formControlName="genre" [(ngModel)]="sexes" multiple required>
+    <mat-select-trigger>
+       <span *ngIf="sexes?.length===1" class="example-additional-selection">
+
+        {{sexes[0].item_text}}
+      </span>
+      <span *ngIf="sexes?.length > 1" class="example-additional-selection">
+       {{sexes[0].item_text}} (+{{sexes.length - 1}} autres)
+      </span>
+    </mat-select-trigger>
+    <mat-option (onSelectionChange)="onSexeSelect($event)" *ngFor="let sexe of dropdownListSexes" [value]="{'item_id': sexe.item_id, 'item_text': sexe.item_text}">{{sexe.item_text}}</mat-option>
+  </mat-select>
+</mat-form-field>
+</mat-card-content>
+<mat-card-actions>
+  <button mat-button color="warn"  (click)="closeAddCiblageGenre()">Annuler</button>
+  <button mat-button color="primary" type="submit" >Modifier</button>
+</mat-card-actions>
+</mat-card>
+<mat-card  *ngIf="spinnerTargetGenre">
+  <mat-card-content  class="text-center">
+    <p class="text-black-50">Opération en cours...</p>
+    <mat-progress-bar mode="indeterminate" color="primary"></mat-progress-bar>
+  </mat-card-content>
+</mat-card>
+</form>
+</ng-container>
+  </mat-card>
+
+  <mat-card *ngIf="!cad && !tp && !ta && !ts && td && !isAdBlock" style="box-shadow: none" class="d-inline-block p-0">
+  <ng-container *ngIf="!isCiblageDevices">
+
+      <mat-card>
+
+        <mat-card-header class="text-center">
+          <p class="font-weight-bold d-inline-block">Ciblage d'appareil</p>
+        </mat-card-header>
+        <mat-card-content>
+          <p *ngIf="appareils.length===0">Aucun appareil ciblé</p>
+          <mat-list role="list" *ngFor="let appareil of appareils" class="text-center">
+  <mat-list-item role="listitem" class="d-inlie-block">{{appareil.item_text}}</mat-list-item>
+</mat-list>
+        </mat-card-content>
+          <mat-card-actions>
+        <button mat-button (click)="openAddCiblageDevices()" *ngIf="appareils.length>0">Modifier le ciblage</button>
+        <button mat-button (click)="openAddCiblageDevices()" *ngIf="appareils.length===0">Définir le ciblage</button>
+      </mat-card-actions>
+      </mat-card>
+    </ng-container>
+
+     <ng-container *ngIf="isCiblageDevices">
+       <form [formGroup]="deviceForm"  (ngSubmit)="targetDevices()">
+              <mat-card *ngIf="!spinnerTargetDevice">
+        <mat-card-content class="justify-content-between">
+
+   <mat-form-field>
+   <mat-select placeholder="Appareils" #genre formControlName="device" [(ngModel)]="devices" multiple required>
+    <mat-select-trigger>
+       <span *ngIf="devices?.length===1" class="example-additional-selection">
+
+        {{devices[0].item_text}}
+      </span>
+      <span *ngIf="sexes?.length > 1" class="example-additional-selection">
+       {{devices[0].item_text}} (+{{devices.length - 1}} autres)
+      </span>
+    </mat-select-trigger>
+    <mat-option (onSelectionChange)="onDeviceSelect($event)" *ngFor="let device of dropdownListDevices" [value]="{'item_id': device.item_id, 'item_text': device.item_text}">{{device.item_text}}</mat-option>
+  </mat-select>
+</mat-form-field>
+</mat-card-content>
+<mat-card-actions>
+  <button mat-button color="warn"  (click)="closeAddCiblageDevices()">Annuler</button>
+  <button mat-button color="primary" type="submit" >Modifier</button>
+</mat-card-actions>
+</mat-card>
+<mat-card  *ngIf="spinnerTargetDevice">
+  <mat-card-content  class="text-center">
+    <p class="text-black-50">Opération en cours...</p>
+    <mat-progress-bar mode="indeterminate" color="primary"></mat-progress-bar>
+  </mat-card-content>
+</mat-card>
+</form>
+</ng-container>
+  </mat-card>
+   <!--End block targeting-->
+  <mat-card class="mat-elevation-z1 p-0" style="margin-top: 50px;" *ngIf="!cad && !tp && !ta && !ts && !td && !isAdBlock">
+<mat-table #table [dataSource]="dataSource">
+
+    <!-- Checkbox Column -->
+   <!--  <ng-container matColumnDef="select">
+      <mat-header-cell *matHeaderCellDef >
+        <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)">
+        </mat-checkbox>
+      </mat-cell>
+    </ng-container> -->
+     <ng-container matColumnDef="select">
+      <mat-header-cell *matHeaderCellDef >
+
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row">
+
+               <button mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon>more_vert</mat-icon>
+
+</button>
+<mat-menu #menu="matMenu">
+   <ng-container *ngIf="row.status===''">
+    <button mat-menu-item disabled>
+      <mat-icon >fiber_manual_record</mat-icon>
+      <span>Activer</span>
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>pause_circle_outline</mat-icon>
+      <span>Désactiver</span>
+    </button>
+    <button mat-menu-item (click)=" removeAdFirebase(row.id)" color="warn">
+      <mat-icon>delete</mat-icon>
+      <span>Supprimer</span>
+    </button>
+  </ng-container>
+  <ng-container *ngIf="row.status==='PAUSED'">
+    <button mat-menu-item (click)="changeAdStatus(row.id, row.ad_group_id, row.ad_id, row.status)">
+      <mat-icon >fiber_manual_record</mat-icon>
+      <span>Activer</span>
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>pause_circle_outline</mat-icon>
+      <span>Désactiver</span>
+    </button>
+     <button mat-menu-item (click)="removeAd(row.id, row.ad_group_id, row.ad_id)" color="warn">
+      <mat-icon>delete</mat-icon>
+      <span>Supprimer</span>
+    </button>
+  </ng-container>
+    <ng-container *ngIf="row.status==='ENABLED'">
+    <button mat-menu-item disabled>
+      <mat-icon >fiber_manual_record</mat-icon>
+      <span>Activer</span>
+    </button>
+    <button mat-menu-item (click)="changeAdStatus(row.id, row.adgroup_id, row.ad_id, row.status)">
+      <mat-icon>pause_circle_outline</mat-icon>
+      <span>Désactiver</span>
+    </button>
+     <button mat-menu-item (click)="removeAd(row.id, row.adgroup_id, row.ad_id)" color="warn">
+      <mat-icon>delete</mat-icon>
+      <span>Supprimer</span>
+    </button>
+  </ng-container>
+
+</mat-menu>
+
+      <!--  <button mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon>more_vert</mat-icon>
+
+</button>
+<mat-menu #menu="matMenu" class="mat-elevation-z4">
+  <ng-container >
+    <button mat-menu-item (click)="updateCampaign(row.id, row.id_campagne, row.name, row.status, row.budget)">
+      <mat-icon >edit</mat-icon>
+      <span>Modifier</span>
+    </button>
+    <button mat-menu-item (click)="deleteCampaign(row.id, row.id_campagne)">
+      <mat-icon>delete</mat-icon>
+      <span>Supprimer</span>
+    </button>
+  </ng-container>
+
+</mat-menu> -->
+      </mat-cell>
+    </ng-container>
+
+    <!-- Position Column -->
+    <!-- <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Libellé </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <span class="adafri-police-14 d-none d-md-block"> {{element.ad_name}}</span>
+         <span class="adafri-police-12 d-md-none d-sm-block"> {{element.ad_name}}</span>
+        </mat-cell>
+    </ng-container> -->
+
+    <!-- Name Column -->
+     <ng-container matColumnDef="image">
+      <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+         <img src="{{element.url_image}}" style="width: 20%"
+                                        class="img-responsive d-inline-block shadow" alt="{{element.ad_name}}">
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+      <mat-cell *matCellDef="let element"> <span class="adafri-police-14 d-none d-md-block" *ngIf="element.status==='PAUSED'">Mise en veille</span>
+      <span class="adafri-police-12 d-md-none d-sm-block" *ngIf="element.status==='PAUSED'">Mise en veille</span>
+
+      <span class="adafri-police-14 d-none d-md-block" *ngIf="element.status===''">En attente</span>
+      <span class="adafri-police-12 d-md-none d-sm-block" *ngIf="element.status===''">En attente</span>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="state">
+      <mat-header-cell *matHeaderCellDef> Etat </mat-header-cell>
+      <mat-cell *matCellDef="let element"> <span class="adafri-police-14 d-none d-md-block" *ngIf="element.combinedApprovalStatus==='APPROUVÉ'">Approuvé</span>
+        <span class="adafri-police-14 d-none d-md-block" *ngIf="element.combinedApprovalStatus==='À L\'ÉTUDE'">À L'ÉTUDE</span>
+       <span class="adafri-police-12 d-md-none d-sm-block" *ngIf="element?.combinedApprovalStatus==='APPROUVÉ'"> Approuvé</span>
+       <ng-container *ngIf="element.combinedApprovalStatus==='DÉSAPPROUVÉ'">
+         <p class="d-none d-md-inline-block adafri-police-14 text-danger font-weight-bold">Désaprouvé</p>
+                                              <p class="d-none d-md-inline-block adafri-police-14 text-black-50 font-weight-bold">{{element.policy[0].policyTopicName}}</p>
+                                               <p class="d-md-none d-sm-inline-block adafri-police-12 text-danger font-weight-bold">Désaprouvé</p>
+                                              <p class="d-md-none d-sm-inline-block adafri-police-12 text-black-50 font-weight-bold">{{element.policy[0].policyTopicName}}</p>
+       </ng-container>
+        <span class="adafri-police-14 d-none d-md-block" *ngIf="element.combinedApprovalStatus===''">...</span>
+       <span class="adafri-police-12 d-md-none d-sm-block" *ngIf="element?.combinedApprovalStatus===''"> ...</span>
+       </mat-cell>
+    </ng-container>
+
+
+    <!-- Symbol Column -->
+
+     <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> <ng-container *ngIf="!spinnerPublish && !spinnerSuccess"><mat-icon>build</mat-icon></ng-container><mat-icon class="text-success animated fadeIn delay-1s slow"  *ngIf="!spinnerPublish && spinnerSuccess">done</mat-icon> <mat-spinner color="accent" *ngIf="spinnerPublish && !spinnerSuccess" diameter="30"></mat-spinner> </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+
+
+         <button mat-icon-button [matMenuTriggerFor]="menuActions" *ngIf="!spinnerPublish && !successPublish && element.status===''">
+  <mat-icon>call_to_action</mat-icon>
+
+</button>
+<button mat-icon-button disabled *ngIf="!spinnerPublish && !successPublish && element.status!==''">
+  <mat-icon>call_to_action</mat-icon>
+
+</button>
+<mat-menu #menuActions="matMenu">
+   <ng-container *ngIf="budget===0">
+    <button mat-menu-item disabled>
+      <mat-icon >send</mat-icon>
+      <span>Publier</span>
+    </button>
+    <button mat-menu-item  (click)="goAdSettings(element.id, element.ad_name, element.ad_group_id, element.ad_id, element.status, element.url_image, element.finalUrls, element.finalAppUrls, element.finalMobileUrls, element.image_content, element.referenceId, element.size, element.ad_type)">
+      <mat-icon>edit</mat-icon>
+      <span>Modifier</span>
+    </button>
+
+  </ng-container>
+  <ng-container *ngIf="budget>0" >
+    <button mat-menu-item (click)="publishOnAdwords(element.id, element.ad_group_id, element.ad_name, element.url_image, element.finalUrls, element.finalAppUrls, element.finalMobileUrls, element.size)">
+      <mat-icon >send</mat-icon>
+      <span>Publier</span>
+    </button>
+    <button mat-menu-item (click)="goAdSettings(element.id, element.ad_name, element.ad_group_id, element.ad_id, element.status, element.url_image, element.finalUrls, element.finalAppUrls, element.finalMobileUrls, element.image_content, element.referenceId, element.size, element.ad_type)">
+      <mat-icon>edit</mat-icon>
+      <span>Modifier</span>
+    </button>
+
+  </ng-container>
+
+</mat-menu>
+
+
+        <!-- <button mat-raised-button color="accent" class="adafri-police-14 d-none d-md-block" (click)="goCampaignSettings(element.id, element.id_campagne, element.name, element.status, element.budget, element.budgetId, element.dailyBudget, element.numberOfDays)">Configurer</button>
+      <button mat-raised-button color="accent" class="adafri-police-12 d-md-none d-sm-block" (click)="goCampaignSettings(element.id, element.id_campagne, element.name, element.status, element.budget, element.budgetId, element.dailyBudget, element.numberOfDays)">Configurer</button> -->
+   <!--     <button mat-button color="accent"  >Débuter</button> -->
+    <!--    <button mat-mini-fab color="accent" (click)="goCampaignSettings(element.id, element.id_campagne, element.name, element.status, element.budget, element.budgetId, element.dailyBudget, element.numberOfDays)"><i class="icon-settings2"></i></button> -->
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns" class="p-0"></mat-header-row>
+    <mat-row class="p-0" *matRowDef="let row; columns: displayedColumns;"
+             (click)="selection.toggle(row)">
+    </mat-row>
+  </mat-table>
+  <mat-paginator #paginator
+                 [pageSize]="10"
+                 [pageSizeOptions]="[1, 5, 10, 20]"
+                 [showFirstLastButtons]="false">
+  </mat-paginator>
+</mat-card>
+  <br>
+  <br>
+  <br>
+  <br>
+
+              </div>
+                            <ng-container *ngIf="isAdBlock">
+                <div class="height-full text-center background-yellow-adafri">
+
+                <mat-card class="example-card" style="box-shadow: none">
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>Votre site: {{currentFinalUrls}}</mat-card-title>
+                    <mat-card-subtitle>Format: {{currentAdSize[0].width}}x{{currentAdSize[0].height}}</mat-card-subtitle>
+                  </mat-card-header>
+                  <mat-card-content class="text-center">
+                      <img class="img-responsive d-inline-block" [src]="currentImageUrl">
+                    <p>
+
+                    </p>
+                  </mat-card-content>
+                  <mat-card-actions>
+
+                    <button mat-button (click)="toggleCurrentEditor()"
+                        *ngIf="currentAdType==='CREATIVE' && currentAdStatus==='' && !isRoller">{{text_modify}}</button>
+                    <button mat-button  (click)="toggleCurrentUploadBlock()"
+                        *ngIf="currentAdType==='UPLOAD' && currentAdStatus==='' && !isRoller">{{text_modify}}</button>
+                          <button mat-button  (click)="buildAd()"
+                        *ngIf="currentAdStatus=='' && !isRoller && !isUploadModified">Diffuser sur google</button>
+                           <button mat-button  (click)="toggleListAd()" *ngIf="!isRoller && !isUploadModified" style="border: 1px solid red">Fermer</button>
+                  </mat-card-actions>
+                </mat-card>
+       <!--            <div class="card mb-3 no-b r-0 animated fadeIn background-yellow-adafri">
+
+                    <div class="card-body text-center" id="isAdBlock">
+                      <div class="row">
+                        <div class="col-md-12 text-center">
+                          <div class="card no-b d-inline-block rey lighten-4">
+
+                            <div class="card-body text-center background-yellow-adafri">
+                              <span class="adafri-police text-black">Votre site web</span>
+                              <input type="text" autocomplete="off"
+                                class="form-control background-yellow-adafri no-b text-black adafri-police d-inline-block text-center"
+                                 placeholder="Exemple: https://www.votresite.com"
+                                 [value]="currentFinalUrls" required
+                                (keyup)="handleErrorUrl()" readonly>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-12 text-center">
+                          <div class="card no-b shadow" style="display: inline-block;">
+                            <div class="card-header adafri-background text-white no-b text-center">
+                              <h6 class="adafri-police">Nom: <strong> {{currentAdName}}</strong></h6>
+                              <span style="float: right; font-size: 12px; margin-top: -5px"><strong>Format:
+                                  {{currentAdSize[0].width}}x{{currentAdSize[0].height}}</strong></span>
+                            </div>
+                            <div class="card-body white no-b">
+                              <div class="card-img no-b">
+                                <img class="img-responsive" [src]="currentImageUrl">
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer no-b background-yellow-adafri justify-content-between">
+                      <button class="btn shadow white text-black-50 r-20 btn-sm btn-social"
+                        style="border: solid 1px grey" title="modifier" (click)="toggleCurrentEditor()"
+                        *ngIf="currentAdType==='CREATIVE' && currentAdStatus==='' && !isRoller "><i
+                          [class]="iconEditor"></i>{{text_modify}}</button>
+                      <button class="btn shadow white text-black-50 r-20 btn-sm btn-social"
+                        style="border: solid 1px grey" title="modifier" (click)="toggleCurrentUploadBlock()"
+                        *ngIf="currentAdType==='UPLOAD' && currentAdStatus==='' && !isRoller"><i
+                          [class]="iconEditor"></i>{{text_modify}}</button>
+                      <a class="btn btn-sm btn-social white text-warning blink r-20"
+                        style="font-size: 12px; border: 1px solid orange" (click)="buildAd()"
+                        *ngIf="currentAdStatus=='' && !isRoller && !isUploadModified">
+                        <i class="icon-send"></i> Diffuser sur google
+                      </a>
+                      <a class="btn btn-sm btn-social white text-danger r-20" style="font-size: 12px"
+                        (click)="toggleListAd()" *ngIf="!isRoller && !isUploadModified" style="border: 1px solid red">
+                        <i class="icon-close"></i> Fermer
+                      </a>
+                    </div>
+                  </div> -->
+
+
+
+                      <ng-container  *ngIf="currentEditor && currentAdStatus===''">
+
+                                        <mat-card id="blockModifyCreatives" class="p-0">
+                    <mat-card-header>
+                    <mat-card-title><p class="adafri-police-14 font-weight-bold">Format: {{selectedWidth}}x{{selectedHeight}}</p></mat-card-title>
+                  </mat-card-header>
+                   <mat-card-content>
+                     <p class="adafri-police-14">Nom de l'annonce</p>
+                     <mat-form-field class="d-block" style="margin-left: 20px">
+    <input matInput placeholder="Nom visuel"
+                            [id]="idOfAdNameNotPublishCreatives"
+                             [value]="currentAdName" required>
+                            </mat-form-field>
+                            <br>
+                            <p class="adafri-police-14">Url de votre site</p>
+                              <mat-form-field class="d-block" style="margin-left: 20px">
+    <input matInput placeholder="Exemple: https://www.votresite.com"
+                             [id]="idOfdisplayUrlNotPublishCreatives" [value]="currentFinalUrls" required (keyup)="handleErrorUrl()" >
+                             <ng-container *ngIf="url_errors != []">
+                            <div class="text-danger" *ngFor="let error of url_errors">
+                              {{error.url}} {{error.text}}
+                            </div>
+
+                          </ng-container>
+  </mat-form-field>
+</mat-card-content>
+                          <mat-card-content class="p-0">
+                            <mat-card class="p-0 text-center background-yellow-adafri" style="box-shadow: none">
+       <mat-card-header class="text-center d-inline-block">
+         <div class="button-row d-inline-block">
+            <form [formGroup]="form">
+     <mcc-speed-dial [direction]="direction" [open]="open" [spin]="spin" [mouseHover]="mouse_hover">
+            <!-- This icon can be anything you want -->
+            <mat-icon>add</mat-icon>
+
+            <mcc-speed-dial-actions [animation]="animation">
+              <button mat-mini-fab (click)="triggerImage()">
+                <mat-icon>add_a_photo</mat-icon>
+              </button>
+              <button mat-mini-fab  [matMenuTriggerFor]="menuFigure">
+                <mat-icon>format_shapes</mat-icon>
+              </button>
+              <mat-menu #menuFigure="matMenu">
+  <button mat-menu-item  (click)="addShape('circle');">  <mat-icon aria-label="Example icon-button with a heart icon">trip_origin</mat-icon> Cercle</button>
+  <button mat-menu-item  (click)="addShape('square');">  <mat-icon aria-label="Example icon-button with a heart icon">check_box_outline_blank</mat-icon> Carré</button>
+  <button mat-menu-item  (click)="addShape('rectangle');">  <mat-icon aria-label="Example icon-button with a heart icon">aspect_ratio</mat-icon> Rectangle</button>
+  <button mat-menu-item  (click)="addShape('triangle');">  <mat-icon aria-label="Example icon-button with a heart icon">change_history</mat-icon> Triangle</button>
+  <button mat-menu-item  (click)="addShape('star');">  <mat-icon aria-label="Example icon-button with a heart icon">star</mat-icon> Etoile</button>
+</mat-menu>
+              <button mat-mini-fab [matMenuTriggerFor]="menuElements">
+                <mat-icon>group_work</mat-icon>
+              </button>
+               <mat-menu #menuElements="matMenu">
+                <button  dnd-sortable-container [sortableData]="layers.reverse()" mat-menu-item *ngFor="let item of layers; let i = index" dnd-sortable
+                            [dragEnabled]="item.selectable" [sortableIndex]="layers.length - i - 1"
+                            (click)="selectLayer(item)" (onDropSuccess)="updateLayerSort()"
+                            [ngClass]="{'active': item.active}"><i
+                                class="text-dark {{elementTypes[item.type].icon}}"
+                                [ngClass]="{'text-muted': !item.active}"></i> </button>
+                </mat-menu>
+
+
+                 <button mat-mini-fab [matMenuTriggerFor]="menuTexte">
+                <mat-icon>title</mat-icon>
+              </button>
+               <mat-menu #menuTexte="matMenu">
+               <button mat-menu-item (click)="handleTextAdd()">  <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon> Texte</button>
+
+               <button mat-menu-item (click)="handleColorTexte()"> <mat-icon aria-label="Example icon-button with a heart icon">format_paint</mat-icon>Couleur</button>
+              <button mat-menu-item [matMenuTriggerFor]="menuPolice"> <mat-icon aria-label="Example icon-button with a heart icon">format_size</mat-icon> Police</button>
+               <mat-menu #menuPolice="matMenu">
+               <button mat-menu-item *ngFor="let sizes of FONT_SIZES"
+                                  (click)="setFontSize(sizes.size)">{{sizes.name}}</button>
+
+                </mat-menu>
+              <button mat-menu-item [matMenuTriggerFor]="menuStyle"><mat-icon>text_format</mat-icon>Style</button>
+               <mat-menu #menuStyle="matMenu">
+               <button mat-menu-item *ngFor="let font of FONT_FAMILY"
+                                  (click)="setFontFamily(font.font)">{{font.name}}</button>
+
+                </mat-menu>
+                 <button mat-menu-item (click)="setBold()" >  <mat-icon aria-label="Example icon-button with a heart icon">format_bold</mat-icon>Gras</button>
+                  <button mat-menu-item  (click)="setTextDecoration('italic')" >  <mat-icon aria-label="Example icon-button with a heart icon">format_italic</mat-icon>Italic</button>
+                   <button mat-menu-item (click)="setTextDecoration('underline')">  <mat-icon aria-label="Example icon-button with a heart icon">format_underline</mat-icon>Souligner</button>
+                    <button mat-menu-item (click)="setTextDecoration('overline')">  <mat-icon aria-label="Example icon-button with a heart icon">format_clear</mat-icon>Barrer</button>
+                </mat-menu>
+                <button mat-mini-fab  (click)="handleColorTexte()">
+                <mat-icon>color_lens</mat-icon>
+              </button>
+                     <button mat-mini-fab (click)="removeSelected();">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mcc-speed-dial-actions>
+          </mcc-speed-dial>
+ </form>
+          </div>
+                 </mat-card-header>
+                  <mat-card *ngIf="text_add" class="draggable d-inline-block" style="z-index: 99; position: absolute;">
+                    <button mat-mini-fab (click)="handleTextAdd()"><mat-icon>cancel</mat-icon></button>
+                  <mat-card-content>
+                    Couleur de l'élement sélectionner
+                     <mat-form-field>
+  <textarea matInput placeholder="texte" matTextareaAutosize matAutosizeMinRows="2"
+            matAutosizeMaxRows="5" id="text_canvas"></textarea>
+</mat-form-field>
+</mat-card-content>
+  <mat-card-actions>
+    <button mat-mini-fab (click)="addText()"><mat-icon>add</mat-icon></button>
+  </mat-card-actions>
+                </mat-card>
+                 <mat-card *ngIf="text_color" class="draggable d-inline-block" style="z-index: 99; position: absolute;">
+                    <button mat-mini-fab (click)="handleColorTexte()"><mat-icon>cancel</mat-icon></button>
+                  <mat-card-content>
+                    Couleur:
+                    <mcc-color-picker [usedColorLabel]="'Mes couleurs'" hideEmptyUsedColors [hideHexForms]="true" [usedSizeColors]="'50'" (change)="handleChange($event)" (selected)="changeColor = $event" hideEmpty="true" value="#ffffff" hideEmptyUsedColors  hideButtons>
+
+      <mcc-color-picker-collection [label]="'Collection'" hideEmpty="true" [colors]="colors">
+      </mcc-color-picker-collection>
+
+    </mcc-color-picker>
+  </mat-card-content>
+
+                </mat-card>
+                 <mat-card-content class="text-center p-0">
+                    <div style="display: inline-block" class="paper-card p-0 animated fadeInRightBig delay-2">
+                            <div class="canvas-container text-center" (drop)="handleDropOnCanvas($event)"
+                              (dragover)="handleDragOverCanvas($event)" placeholder="canvas">
+                              <canvas id="canvas" class="d-inline-block" [ngStyle]="canvas_style"></canvas>
+                            </div>
+                          </div>
+                 </mat-card-content>
+
+
+                </mat-card>
+                <mat-card-actions>
+                  <div class="text-center" *ngIf="progresBarModifiedImageCreative">
+                    <p class="text-black-50">Modification du visuel en cours...</p>
+                    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                  </div>
+                  <button mat-raised-button color="primary" (click)="handleModifiedImage()" *ngIf="!progresBarModifiedImageCreative">Visualiser</button>
+                     <button mat-raised-button  class="adafri-background text-white" (click)="updateAdOnFirebase()" *ngIf="!progresBarModifiedImageCreative">Sauvegarder</button>
+                  <button mat-raised-button color="warn" (click)="destroyModifyCanvas()" *ngIf="!progresBarModifiedImageCreative">Annuler le canvas</button>
+                </mat-card-actions>
+              </mat-card-content>
+
+                </mat-card>
+<!--                 <div class="paper-card shadow p-0 animated fadeInDown delay-1s" id="blockModifyCreatives" >
+                  <div class="card grey lighten-2 no-b paper-card p-0">
+                    <div class="card-header grey lighten-2 adafri-police-16 text-center text-black no-b">
+                      <span style="font-size: 12px"><strong *ngFor="let size of currentAdSize">Format: {{size.width}}x{{size.height}}</strong></span>
+                    </div>
+                    <div class="card-body">
+                      <form >
+                        <div class="form-row text-center">
+                          <div class="col-md-12 text-center">
+                            <small class="adafri-police-14 font-weight-bold">Nom du visuel</small><br>
+                            <input type="text" class="form-control d-inline-block text-center"
+                             [id]="idOfAdNameNotPublishCreatives"
+                                placeholder="Nom" [value]="currentAdName"  style="width: 100%" required>
+
+
+                          <br>
+                          <div class="col-md-12 text-center">
+                            <small class="adafri-police-14 font-weight-bold">Votre site web</small><br>
+                            <input type="text" autocomplete="off" class="form-control d-inline-block text-center"
+                              placeholder="Exemple: https://www.votresite.com" style="width: 100%"
+                              [id]="idOfdisplayUrlNotPublishCreatives" [value]="currentFinalUrls" required (keyup)="handleErrorUrl()" >
+                              <ng-container *ngIf="url_errors != []">
+                              <div class="text-danger" *ngFor="let error of url_errors">
+                                {{error.url}} {{error.text}}
+                              </div>
+
+                            </ng-container>
+                          </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+
+                  <div class="card no-b">
+
+                           <div class="card-header white text-center b-0 d-md-none d-sm-block">
+                      <div class="row">
+                                <div class="btn-toolbar mb-3 d-inline-block animated fadeInLeftBig delay-2" role="toolbar"
+                        aria-label="Toolbar with button groups">
+
+                        <div class="btn-group " id="tool" style="" role="group" aria-label="First group">
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="triggerImage()"><i class="icon-image"></i></button>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button id="btnGroupDrop1" type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/img/images/squares.png">
+                              </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" (click)="addShape('circle');"><img
+                                    src="assets/img/images/circle.png"> Cercle</a>
+                                <a class="dropdown-item" (click)="addShape('square');"><img
+                                    src="assets/img/images/carre.png"> Carré</a>
+                                <a class="dropdown-item" (click)="addShape('rectangle');"><img
+                                    src="assets/img/images/rectangle.png"> Rectangle</a>
+                                <a class="dropdown-item" (click)="addShape('triangle');"><img
+                                    src="assets/img/images/triangle.png"> Triangle</a>
+                                <a class="dropdown-item" (click)="addShape('star');"><img
+                                    src="assets/img/images/star.png"> Polygone</a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button id="btnGroupDrop1" type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/img/images/background.png">
+                              </button>
+                              <div class="dropdown-menu paper-card shadow no-b text-center"
+                                style="padding: 40px !important" aria-labelledby="btnGroupDrop1">
+                                <span class="adafri-police-14">
+                                  Couleur du canvas
+                                </span>
+                                <input class="no-b" style="cursor: pointer" type="text" class="form-control"
+                                  [cpPosition]="'right'" [cpPresetColors]="customColors" [cpOKButton]="true"
+                                  [cpAddColorButtonText]="'Speichern'" [cpAddColorButton]="true"
+                                  [cpOKButtonClass]="'btn btn-light btn-sm'" [cpSaveClickOutside]="false"
+                                  [(colorPicker)]="props.canvasFill" [style.background]="props.canvasFill"
+                                  [value]="props.canvasFill" (cpPresetColorsChange)="updateColorPresets($event)"
+                                  (colorPickerChange)="setCanvasFill()" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button id="btnGroupDrop1" type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/img/images/opacity.png">
+                              </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1"
+                                style="padding: 40px !important">
+                                <input type="range" class="range-slider form-control" [(ngModel)]="props.opacity"
+                                  (change)="setOpacity()">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                  src="assets/img/images/add-text.png"> </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+                                <div class="input-group mb-2 mr-sm-2">
+                                  <div class="input-group-prepend no-b white">
+                                    <div class="input-group-text no-b white"><a
+                                        class="btn-fab btn-fab-sm adafri-background text-white" (click)="addText()"><i
+                                          class="icon-add_circle text-white"></i></a></div>
+                                  </div>
+                                  <input type="text" class="form-control" id="text_canvas" placeholder="Texte">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                  src="assets/img/images/font-size.png"> </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+
+                                <a class="dropdown-item" *ngFor="let sizes of FONT_SIZES"
+                                  (click)="setFontSize(sizes.size)" style="cursor: pointer">{{sizes.name}}</a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                  src="assets/img/images/style.png"> </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+
+                                <a class="dropdown-item" *ngFor="let font of FONT_FAMILY"
+                                  (click)="setFontFamily(font.font)" style="cursor: pointer">{{font.name}}</a>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                      </div>
+                      <div class="row">
+                       <div class="btn-toolbar mb-3 d-inline-block animated fadeInLeftBig delay-2" role="toolbar"
+                        aria-label="Toolbar with button groups">
+                        <div class="btn-group " id="tool" style="" role="group" aria-label="First group">
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="setTextDecoration('underline')"><img
+                              src="assets/img/images/underline.png"></button>
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="setTextDecoration('underline')"><img src="assets/img/images/barre.png"></button>
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="setBold()"><img src="assets/img/images/bold.png"></button>
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"><img
+                              src="assets/img/images/delete.png" (click)="removeSelected();"></button>
+
+
+                          </div>
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="card-header white text-center b-0 d-none d-md-block">
+                      <div class="btn-toolbar mb-3 d-inline-block animated fadeInLeftBig delay-2" role="toolbar"
+                        aria-label="Toolbar with button groups">
+
+                        <div class="btn-group " id="tool" style="" role="group" aria-label="First group">
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="triggerImage()"><i class="icon-image"></i></button>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button id="btnGroupDrop1" type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/img/images/list.png">
+                              </button>
+                              <div class="dropdown-menu paper-card shadow no-b text-center" aria-labelledby="btnGroupDrop1">
+                                <span class="adafri-police-16 font-weight-bold">Element du canvas</span>
+
+                                 <ul class="social social list-inline" dnd-sortable-container [sortableData]="layers.reverse()">
+                          <li class="list-inline-item r-20" *ngFor="let item of layers; let i = index" dnd-sortable
+                            [dragEnabled]="item.selectable" [sortableIndex]="layers.length - i - 1"
+                            (click)="selectLayer(item)" (onDropSuccess)="updateLayerSort()"
+                            [ngClass]="{'active': item.active}"><a
+                              class="btn-fab btn-fab-sm shadow white border-dark adafri-police-16 text-dark"><i
+                                class="text-dark {{elementTypes[item.type].icon}}"
+                                [ngClass]="{'text-muted': !item.active}"></i></a>
+                          </li>
+                        </ul>
+
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button id="btnGroupDrop1" type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/img/images/squares.png">
+                              </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" (click)="addShape('circle');"><img
+                                    src="assets/img/images/circle.png"> Cercle</a>
+                                <a class="dropdown-item" (click)="addShape('square');"><img
+                                    src="assets/img/images/carre.png"> Carré</a>
+                                <a class="dropdown-item" (click)="addShape('rectangle');"><img
+                                    src="assets/img/images/rectangle.png"> Rectangle</a>
+                                <a class="dropdown-item" (click)="addShape('triangle');"><img
+                                    src="assets/img/images/triangle.png"> Triangle</a>
+                                <a class="dropdown-item" (click)="addShape('star');"><img
+                                    src="assets/img/images/star.png"> Polygone</a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button id="btnGroupDrop1" type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/img/images/background.png">
+                              </button>
+                              <div class="dropdown-menu paper-card shadow no-b text-center"
+                                style="padding: 40px !important" aria-labelledby="btnGroupDrop1">
+                                <span class="adafri-police-14">
+                                  Couleur du canvas
+                                </span>
+                                <input class="no-b" style="cursor: pointer" type="text" class="form-control"
+                                  [cpPosition]="'right'" [cpPresetColors]="customColors" [cpOKButton]="true"
+                                  [cpAddColorButtonText]="'Speichern'" [cpAddColorButton]="true"
+                                  [cpOKButtonClass]="'btn btn-light btn-sm'" [cpSaveClickOutside]="false"
+                                  [(colorPicker)]="props.canvasFill" [style.background]="props.canvasFill"
+                                  [value]="props.canvasFill" (cpPresetColorsChange)="updateColorPresets($event)"
+                                  (colorPickerChange)="setCanvasFill()" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button id="btnGroupDrop1" type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/img/images/opacity.png">
+                              </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1"
+                                style="padding: 40px !important">
+                                <input type="range" class="range-slider form-control" [(ngModel)]="props.opacity"
+                                  (change)="setOpacity()">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                  src="assets/img/images/add-text.png"> </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+                                <div class="input-group mb-2 mr-sm-2">
+                                  <div class="input-group-prepend no-b white">
+                                    <div class="input-group-text no-b white"><a
+                                        class="btn-fab btn-fab-sm adafri-background text-white" (click)="addText()"><i
+                                          class="icon-add_circle text-white"></i></a></div>
+                                  </div>
+                                  <input type="text" class="form-control" id="text_canvas" placeholder="Texte">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                  src="assets/img/images/font-size.png"> </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+
+                                <a class="dropdown-item" *ngFor="let sizes of FONT_SIZES"
+                                  (click)="setFontSize(sizes.size)" style="cursor: pointer">{{sizes.name}}</a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <div class="dropup">
+                              <button type="button"
+                                class="btn grey lighten-2 text-black border-right border-left dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                  src="assets/img/images/style.png"> </button>
+                              <div class="dropdown-menu paper-card shadow no-b" aria-labelledby="btnGroupDrop1">
+
+                                <a class="dropdown-item" *ngFor="let font of FONT_FAMILY"
+                                  (click)="setFontFamily(font.font)" style="cursor: pointer">{{font.name}}</a>
+                              </div>
+                            </div>
+                          </div>
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="setTextDecoration('underline')"><img
+                              src="assets/img/images/underline.png"></button>
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="setTextDecoration('underline')"><img src="assets/img/images/barre.png"></button>
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"
+                            (click)="setBold()"><img src="assets/img/images/bold.png"></button>
+                          <button type="button" class="btn grey lighten-2 text-black border-right border-left"><img
+                              src="assets/img/images/delete.png" (click)="removeSelected();"></button>
+
+
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                    <div class="card-body white no-b p-0">
+
+                      <div class="row">
+                        <div class="col-md-12" style="text-align: center;">
+                          <div style="display: inline-block" class="paper-card p-0 animated fadeInRightBig delay-2">
+                            <div class="canvas-container text-center" (drop)="handleDropOnCanvas($event)"
+                              (dragover)="handleDragOverCanvas($event)" placeholder="canvas">
+                              <canvas id="canvas" class="d-inline-block" [ngStyle]="canvas_style"></canvas>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+                    <div class="card-footer border-0 white text-center justify-content-between">
+                      <button class="btn btn-sm r-20 btn-social white text-black-50 adafri-police-14 border-grey"
+                        (click)="handleModifiedImage()">
+                        <i class="icon-paper-plane text-black"></i> Visualiser le visuel
+                      </button>
+                       <button class="btn btn-sm btn-social text-danger white r-20 border-danger adafri-police-14"
+                        title="Ajouter un texte" (click)="destroyModifyCanvas()"><i
+                          class="icon-edit"></i>Détruire le canvas</button>
+                    </div>
+                  </div>
+                </div> -->
+
+
+
+              </ng-container>
+
+                  <mat-card style="box-shadow: none; display: none" id="blockUploadModified">
+                    <mat-card-content class="text-center">
+                      <mat-card style="box-shadow: none">
+                          <mat-card-content>
+                                <mat-form-field>
+    <input matInput id="redirect" placeholder="Exemple: https://www.votresite.com"
+                          [id]="idOfDisplayUrlNotPublishUpload" [value]="currentFinalUrls" (keyup)="handleErrorUrl()">
+  </mat-form-field>
+    <ng-container *ngIf="url_errors != []">
+                            <div class="text-danger" *ngFor="let error of url_errors">
+                              {{error.url}} {{error.text}}
+                            </div>
+
+                          </ng-container>
+                          </mat-card-content>
+                          <mat-card-actions  *ngIf="button_modify_image_upload">
+                            <button mat-raised-button color="warn"  (click)="toggleModifyUploadImage()">Modifier l'image</button>
+                          </mat-card-actions>
+                      </mat-card>
+                      <mat-card style="box-shadow: none; display: none" id="button_modify_image_upload">
+                          <mat-card-content>
+                               <ngx-dropzone (change)="onSelect($event)" class="text-center" [multiple]="false">
+                    <ngx-dropzone-label><i class="icon-cloud_upload text-black-50 s-48"></i><br>Glissez ou cliquez pour ajouter une ou plusieurs images</ngx-dropzone-label>
+                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true"
+                      (removed)="onRemove(f)" *ngFor="let f of files" [file]="f" class="text-center"
+                      style="width: 100% !important ;display: inline-flex !important;height: 140px;min-height: 140px;min-width: 180px;max-width: 180px;justify-content: center;align-items: center;padding: 0px 20px;margin: 10px;border-radius: 5px;position: relative;">
+                      <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                    </ngx-dropzone-image-preview>
+                  </ngx-dropzone>
+
+                          </mat-card-content>
+                          <mat-card-actions>
+                            <button mat-raised-button color="warn" (click)="closeModifyUploadImage()">Ne pas modifier l'image</button>
+                          </mat-card-actions>
+                      </mat-card>
+
+                    </mat-card-content>
+                    <mat-card-actions>
+                      <div *ngIf="progresBarModifiedImageUpload" class="text-center">
+                        <p class="text-black-50">Modification du visuel en cours....</p>
+                        <mat-progress-bar mode="indeterminate" ></mat-progress-bar>
+                      </div>
+                       <button mat-raised-button color="primary" *ngIf="!progresBarModifiedImageUpload"
+                    (click)="handleModifiedImage()"> Visualiser la modification
+                  </button>
+                   <button mat-raised-button class="adafri-background text-white"
+                     *ngIf="!progresBarModifiedImageUpload" (click)="updateAdOnFirebase()"> Sauvegarder
+                  </button>
+                    </mat-card-actions>
+
+                  </mat-card>
+
+
+                </div>
+              </ng-container>
+
+            </div>
+            </div>
+        </div>
+
+      <div class="height-full text-center background-yellow-adafri p-0" *ngIf="number_ads==='0' && init_choose_ad_size!==true">
+        <mat-card class="background-yellow-adafri mat-elevation-z3">
+
+          <img src="assets/img/images/placementad.png" class="img-responsive" alt="Photo of a Shiba Inu" class="d-none d-md-inline-block">
+          <img  src="assets/img/images/placementad.png" class="img-responsive" alt="Photo of a Shiba Inu" class="d-md-none d-sm-inline-block">
+        </mat-card>
+
+        <mat-card style="margin-top: 20px" class="background-yellow-adafri p-0 height-full" style="box-shadow: none">
+            <mat-card-header class="text-center">
+              <p class="d-inline-block font-weight-bold">Paramétrez votre premier visuel</p>
+            </mat-card-header>
+
+<mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper" class="background-yellow-adafri p-0 text-center">
+  <mat-step [stepControl]="emplacement">
+<!--     <img src="assets/img/images/placementad.png" class="d-inline-block"> -->
+    <form [formGroup]="emplacement">
+      <ng-template matStepLabel>Emplacements</ng-template>
+      <mat-card>
+        <mat-card-content class="justify-content-between">
+          <mat-form-field >
+  <mat-select #nationals placeholder="Sites nationaux" formControlName="nationalWeb"  [(ngModel)]="national_websites"  multiple required>
+   <mat-select-trigger>
+         <span *ngIf="national_websites?.length===1" class="example-additional-selection">
+
+        {{national_websites[0].item_text}}
+      </span>
+      <span *ngIf="national_websites?.length > 1" class="example-additional-selection">
+       {{national_websites[0].item_text}} (+{{national_websites.length - 1}} autres)
+      </span>
+    </mat-select-trigger>
+    <mat-option *ngFor="let site of NATIONALS_WEBSITES" (onSelectionChange)="onNationalsWebsitesSelect($event)" [value]="{'item_id': site[3], 'item_text': site[2]}">{{site[2]}}</mat-option>
+
+  </mat-select>
+
+</mat-form-field>
+  <mat-form-field>
+   <mat-select placeholder="Sites internationnaux" #internationals [(ngModel)]="international_websites" formControlName="internationalWeb" multiple>
+    <mat-select-trigger>
+         <span *ngIf="international_websites?.length===1" class="example-additional-selection">
+
+        {{international_websites[0].item_text}}
+      </span>
+      <span *ngIf="international_websites?.length > 1" class="example-additional-selection">
+       {{international_websites[0].item_text}} (+{{international_websites.length - 1}} autres)
+      </span>
+    </mat-select-trigger>
+    <mat-option *ngFor="let site of INTERNATIONALS_WEBSITES" [value]="{'item_id': site[3], 'item_text': site[2]}" (onSelectionChange)="onInternationalsWebsitesSelect($event)">{{site[2]}}</mat-option>
+  </mat-select>
+</mat-form-field>
+ <mat-form-field>
+   <mat-select placeholder="Sites d'annonces" #adsWeb formControlName="adWeb" [(ngModel)]="ads_websites"  multiple>
+     <mat-select-trigger>
+         <span *ngIf="ads_websites?.length===1" class="example-additional-selection">
+
+        {{ads_websites[0].item_text}}
+      </span>
+      <span *ngIf="ads_websites?.length > 1" class="example-additional-selection">
+       {{ads_websites[0].item_text}} (+{{ads_websites.length - 1}} autres)
+      </span>
+    </mat-select-trigger>
+    <mat-option (onSelectionChange)="onAdsWebsitesSelect($event)" *ngFor="let site of SITES_ANNONCES" [value]="{'item_id': site[3], 'item_text': site[2]}">{{site[2]}}</mat-option>
+  </mat-select>
+</mat-form-field>
+        </mat-card-content>
+      </mat-card>
+      <div>
+        <button mat-button matStepperNext>Suivant</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="ciblageControl">
+    <form [formGroup]="ciblageControl">
+      <ng-template matStepLabel>Ciblage du groupe</ng-template>
+      <mat-form-field>
+   <mat-select placeholder="Tranches d'ages" #age formControlName="ageControl" [(ngModel)]="ages" multiple required>
+    <mat-select-trigger>
+       <span *ngIf="ages?.length===1" class="example-additional-selection">
+
+        {{ages[0].item_text}}
+      </span>
+      <span *ngIf="ages?.length > 1" class="example-additional-selection">
+       {{ages[0].item_text}} (+{{ages.length - 1}} autres)
+      </span>
+    </mat-select-trigger>
+    <mat-option (onSelectionChange)="onAgeSelect($event)" *ngFor="let age of dropdownListAges" [value]="{'item_id': age.item_id, 'item_text': age.item_text}">{{age.item_text}}</mat-option>
+  </mat-select>
+</mat-form-field>
+ <mat-form-field>
+   <mat-select placeholder="Genres ciblés" #sexe formControlName="genreControl" [(ngModel)]="sexes" multiple required>
+    <mat-select-trigger>
+       <span *ngIf="sexes?.length===1" class="example-additional-selection">
+
+        {{sexes[0].item_text}}
+      </span>
+      <span *ngIf="sexes?.length > 1" class="example-additional-selection">
+       {{sexes[0].item_text}} (+{{sexes.length - 1}} autres)
+      </span>
+    </mat-select-trigger>
+    <mat-option (onSelectionChange)="onSexeSelect($event)" *ngFor="let sexe of dropdownListGenres" [value]="{'item_id': sexe.item_id, 'item_text': sexe.item_text}">{{sexe.item_text}}</mat-option>
+  </mat-select>
+</mat-form-field>
+ <mat-form-field>
+   <mat-select placeholder="Appareils ciblés" #device formControlName="deviceControl" [(ngModel)]="devices" multiple required>
+    <mat-select-trigger>
+       <span *ngIf="devices?.length===1" class="example-additional-selection">
+
+        {{devices[0].item_text}}
+      </span>
+      <span *ngIf="devices?.length > 1" class="example-additional-selection">
+       {{devices[0].item_text}} (+{{devices.length - 1}} autres)
+      </span>
+    </mat-select-trigger>
+    <mat-option (onSelectionChange)="onDevicesSelect($event)" *ngFor="let device of dropdownListDevices" [value]="{'item_id': device.item_id, 'item_text': device.item_text}">{{device.item_text}}</mat-option>
+  </mat-select>
+</mat-form-field>
+      <div style="box-shadow: none">
+        <button mat-button matStepperPrevious>Retour</button>
+        <button mat-button matStepperNext>Suivant</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step class="p-0">
+    <ng-template matStepLabel>Créer une annonce</ng-template>
+    <mat-card *ngIf="chooseAdSize" class="text-center background-yellow-adafri p-0">
+                  <mat-card class="text-center">
+                       <div class="text-center">
+                    <span class="adafri-police-16 font-weight-bold">Nos coups de coeur<!--  <i
+                          class="icon-diamond2 adafri d-inline-block s-36"></i> --></span>
+                    <div class="row">
+
+                      <div class="col text-center" *ngFor="let type of AD_TYPES_SPECIAL_1" style="cursor: pointer"> <span
+                          class="badge text-black-50 badge-white adafri-police-14 img-check d-inline" style="border: 1px solid grey"
+                          (click)="checkAdType(type.id, type.width, type.height, type.img, type.name)"
+                          [id]="type.id">{{type.width}}x{{type.height}}</span></div>
+
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+
+                      <div class="col text-center" *ngFor="let type of AD_TYPES_SPECIAL_2" style="cursor: pointer"> <span
+                          class="badge text-black-50 badge-white adafri-police-14 img-check d-inline" style="border: 1px solid grey"
+                          (click)="checkAdType(type.id, type.width, type.height, type.img, type.name)"
+                          [id]="type.id">{{type.width}}x{{type.height}}</span></div>
+
+                    </div>
+                  </div>
+                  <br>
+                  <hr>
+                  <br>
+                  <div class="text-center">
+                    <span class="adafri-police-16 font-weight-bold"> Autres formats</span>
+                    <div class="row">
+
+                      <div class="col text-center" *ngFor="let type of AD_TYPES_NOSPECIAL_1" style="cursor: pointer"><i
+                          class="icon-diamond2 adafri d-inline" *ngIf="type.isSpecial===true"></i> <span
+                          class="badge badge-white text-black-50 adafri-police-14 img-check d-inline"
+                          style="border: 1px solid grey; margin-left: 5px"
+                          (click)="checkAdType(type.id, type.width, type.height, type.img, type.name)"
+                          [id]="type.id">{{type.width}}x{{type.height}}</span></div>
+
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+
+                      <div class="col text-center" *ngFor="let type of AD_TYPES_NOSPECIAL_2" style="cursor: pointer"><i
+                          class="icon-diamond2 adafri d-inline" *ngIf="type.isSpecial===true"></i> <span
+                          class="badge badge-white adafri-police-14 text-black-50 img-check d-inline"
+                          style="border: 1px solid grey; margin-left: 5px"
+                          (click)="checkAdType(type.id, type.width, type.height, type.img, type.name)"
+                          [id]="type.id">{{type.width}}x{{type.height}}</span></div>
+
+                    </div>
+                  </div>
+                  </mat-card>
+                  <mat-card *ngIf="illustration" class="text-center d-inline-block" style="margin-top: 20px">
+                     <img class="img-responsive d-inline-block" [src]="illustrationUrl" id="illustration">
+                    <!--  <mat-card-actions>
+                       <button mat-raised-button color="accent" (click)="chooseAdType()">Choisir</button>
+                     </mat-card-actions> -->
+                  </mat-card>
+                  <br>
+                  <br>
+                  <mat-card *ngIf="chooseBlock" class="d-inline-block" style="margin-top: 20px">
+                    Choisir une option
+
+                      <div class="button-row">
+                        <button mat-raised-button (click)="handleUploadBannerNew()">Charger un visuel</button>
+                        <button mat-raised-button  (click)="handleCreativesNew()">Créer un visuel</button>
+
+  </div>
+
+                  </mat-card>
+                </mat-card>
+                <div id="blockNew" style="display: none">
+                   <mat-card>
+                  <mat-card-header>
+                    <mat-card-title><p class="adafri-police-14 font-weight-bold">Format: {{selectedWidth}}x{{selectedHeight}}</p></mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                     <mat-form-field class="d-block">
+    <input matInput placeholder="Exemple: https://www.votresite.com"
+                            [id]="idOfDisplayUrlCreateUploadNew" required (keyup)="handleErrorUrl()">
+                             <ng-container *ngIf="url_errors != []">
+                            <div class="text-danger" *ngFor="let error of url_errors">
+                              {{error.url}} {{error.text}}
+                            </div>
+
+                          </ng-container>
+  </mat-form-field>
+                  </mat-card-content>
+                  <mat-card-content style="margin-top: 10px">
+                    <mat-card>
+                       <ngx-dropzone (change)="onSelect($event)" class="text-center">
+                    <ngx-dropzone-label><i class="icon-cloud_upload text-black-50 s-48"></i><br>Glissez ou cliquez pour ajouter une ou plusieurs images</ngx-dropzone-label>
+                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true"
+                      (removed)="onRemove(f)" *ngFor="let f of files" [file]="f" class="text-center"
+                      style="width: 100% !important ;display: inline-flex !important;height: 140px;min-height: 140px;min-width: 180px;max-width: 180px;justify-content: center;align-items: center;padding: 0px 20px;margin: 10px;border-radius: 5px;position: relative;">
+                      <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                    </ngx-dropzone-image-preview>
+                  </ngx-dropzone>
+                    </mat-card>
+                  </mat-card-content>
+
+                  <mat-card-actions>
+                    <div class="text-center" *ngIf="progressBarInit">
+                      <p class="text-black d-none d-md-block">{{message_create}}</p>
+                      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+
+                    </div>
+                    <button mat-raised-button color="primary" *ngIf="!progressBarInit"  (click)="handleImageUploadModal()">Visualiser</button>
+                     <button mat-raised-button class="adafri-background text-white" (click)="initAllStepsUpload()" *ngIf="!progressBarInit">sauvegarger</button>
+                    <button mat-raised-button color="accent"  (click)="goBackFromUploadNew()" *ngIf="!progressBarInit">Annuler</button>
+                  </mat-card-actions>
+
+                </mat-card>
+                </div>
+
+                <mat-card *ngIf="handleCreateCanvas" class="p-0">
+                    <mat-card-header>
+                    <mat-card-title><p class="adafri-police-14 font-weight-bold">Format: {{selectedWidth}}x{{selectedHeight}}</p></mat-card-title>
+                  </mat-card-header>
+                   <mat-card-content>
+                     <p class="adafri-police-14">Nom de l'annonce</p>
+                     <mat-form-field class="d-block" style="margin-left: 20px">
+    <input matInput placeholder="Nom visuel"
+                              [id]="idOfAdNameCreateCreativesNew"  required>
+                            </mat-form-field>
+                            <br>
+                            <p class="adafri-police-14">Url de votre site</p>
+                              <mat-form-field class="d-block" style="margin-left: 20px">
+    <input matInput placeholder="Exemple: https://www.votresite.com"
+                            [id]="idOfDisplayUrlCreateCreativesNew" required (keyup)="handleErrorUrl()">
+                             <ng-container *ngIf="url_errors != []">
+                            <div class="text-danger" *ngFor="let error of url_errors">
+                              {{error.url}} {{error.text}}
+                            </div>
+
+                          </ng-container>
+  </mat-form-field>
+</mat-card-content>
+                          <mat-card-content class="p-0">
+                            <mat-card class="p-0 text-center background-yellow-adafri" style="box-shadow: none">
+       <mat-card-header class="text-center d-inline-block">
+         <div class="button-row d-inline-block">
+            <form [formGroup]="form">
+     <mcc-speed-dial [direction]="direction" [open]="open" [spin]="spin" [mouseHover]="mouse_hover">
+            <!-- This icon can be anything you want -->
+            <mat-icon>add</mat-icon>
+
+            <mcc-speed-dial-actions [animation]="animation" (click)="triggerImage()">
+              <button mat-mini-fab>
+                <mat-icon>add_a_photo</mat-icon>
+              </button>
+              <button mat-mini-fab  [matMenuTriggerFor]="menuFigure">
+                <mat-icon>format_shapes</mat-icon>
+              </button>
+              <mat-menu #menuFigure="matMenu">
+  <button mat-menu-item  (click)="addShape('circle');">  <mat-icon aria-label="Example icon-button with a heart icon">trip_origin</mat-icon> Cercle</button>
+  <button mat-menu-item  (click)="addShape('square');">  <mat-icon aria-label="Example icon-button with a heart icon">check_box_outline_blank</mat-icon> Carré</button>
+  <button mat-menu-item  (click)="addShape('rectangle');">  <mat-icon aria-label="Example icon-button with a heart icon">aspect_ratio</mat-icon> Rectangle</button>
+  <button mat-menu-item  (click)="addShape('triangle');">  <mat-icon aria-label="Example icon-button with a heart icon">change_history</mat-icon> Triangle</button>
+  <button mat-menu-item  (click)="addShape('star');">  <mat-icon aria-label="Example icon-button with a heart icon">star</mat-icon> Etoile</button>
+</mat-menu>
+              <button mat-mini-fab [matMenuTriggerFor]="menuElements">
+                <mat-icon>group_work</mat-icon>
+              </button>
+               <mat-menu #menuElements="matMenu">
+                <button  dnd-sortable-container [sortableData]="layers.reverse()" mat-menu-item *ngFor="let item of layers; let i = index" dnd-sortable
+                            [dragEnabled]="item.selectable" [sortableIndex]="layers.length - i - 1"
+                            (click)="selectLayer(item)" (onDropSuccess)="updateLayerSort()"
+                            [ngClass]="{'active': item.active}"><i
+                                class="text-dark {{elementTypes[item.type].icon}}"
+                                [ngClass]="{'text-muted': !item.active}"></i> </button>
+                </mat-menu>
+
+
+                 <button mat-mini-fab [matMenuTriggerFor]="menuTexte">
+                <mat-icon>title</mat-icon>
+              </button>
+               <mat-menu #menuTexte="matMenu">
+               <button mat-menu-item (click)="handleTextAdd()">  <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon> Texte</button>
+
+               <button mat-menu-item (click)="handleColorTexte()"> <mat-icon aria-label="Example icon-button with a heart icon">format_paint</mat-icon>Couleur</button>
+              <button mat-menu-item [matMenuTriggerFor]="menuPolice"> <mat-icon aria-label="Example icon-button with a heart icon">format_size</mat-icon> Police</button>
+               <mat-menu #menuPolice="matMenu">
+               <button mat-menu-item *ngFor="let sizes of FONT_SIZES"
+                                  (click)="setFontSize(sizes.size)">{{sizes.name}}</button>
+
+                </mat-menu>
+              <button mat-menu-item [matMenuTriggerFor]="menuStyle"><mat-icon>text_format</mat-icon>Style</button>
+               <mat-menu #menuStyle="matMenu">
+               <button mat-menu-item *ngFor="let font of FONT_FAMILY"
+                                  (click)="setFontFamily(font.font)">{{font.name}}</button>
+
+                </mat-menu>
+                 <button mat-menu-item (click)="setBold()" >  <mat-icon aria-label="Example icon-button with a heart icon">format_bold</mat-icon>Gras</button>
+                  <button mat-menu-item  (click)="setTextDecoration('italic')" >  <mat-icon aria-label="Example icon-button with a heart icon">format_italic</mat-icon>Italic</button>
+                   <button mat-menu-item (click)="setTextDecoration('underline')">  <mat-icon aria-label="Example icon-button with a heart icon">format_underline</mat-icon>Souligner</button>
+                    <button mat-menu-item (click)="setTextDecoration('overline')">  <mat-icon aria-label="Example icon-button with a heart icon">format_clear</mat-icon>Barrer</button>
+                </mat-menu>
+                <button mat-mini-fab  (click)="handleColorTexte()">
+                <mat-icon>color_lens</mat-icon>
+              </button>
+                     <button mat-mini-fab (click)="removeSelected();">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mcc-speed-dial-actions>
+          </mcc-speed-dial>
+ </form>
+          </div>
+                 </mat-card-header>
+                  <mat-card *ngIf="text_add" class="draggable d-inline-block" style="z-index: 99; position: absolute;">
+                    <button mat-mini-fab (click)="handleTextAdd()"><mat-icon>cancel</mat-icon></button>
+                  <mat-card-content>
+                    Couleur de l'élement sélectionner
+                     <mat-form-field>
+  <textarea matInput placeholder="texte" matTextareaAutosize matAutosizeMinRows="2"
+            matAutosizeMaxRows="5" id="text_canvas"></textarea>
+</mat-form-field>
+</mat-card-content>
+  <mat-card-actions>
+    <button mat-mini-fab (click)="addText()"><mat-icon>add</mat-icon></button>
+  </mat-card-actions>
+                </mat-card>
+                 <mat-card *ngIf="text_color" class="draggable d-inline-block" style="z-index: 99; position: absolute;">
+                    <button mat-mini-fab (click)="handleColorTexte()"><mat-icon>cancel</mat-icon></button>
+                  <mat-card-content>
+                    Couleur:
+                    <mcc-color-picker [usedColorLabel]="'Mes couleurs'" hideEmptyUsedColors [hideHexForms]="true" [usedSizeColors]="'50'" (change)="handleChange($event)" (selected)="changeColor = $event" hideEmpty="true" value="#ffffff" hideEmptyUsedColors  hideButtons>
+
+      <mcc-color-picker-collection [label]="'Collection'" hideEmpty="true" [colors]="colors">
+      </mcc-color-picker-collection>
+
+    </mcc-color-picker>
+  </mat-card-content>
+
+                </mat-card>
+                 <mat-card-content class="text-center p-0">
+                    <div style="display: inline-block" class="paper-card p-0 animated fadeInRightBig delay-2">
+                            <div class="canvas-container text-center" (drop)="handleDropOnCanvas($event)"
+                              (dragover)="handleDragOverCanvas($event)" placeholder="canvas">
+                              <canvas id="canvas" class="d-inline-block" [ngStyle]="canvas_style"></canvas>
+                            </div>
+                          </div>
+                 </mat-card-content>
+
+
+                </mat-card>
+                <mat-card-actions>
+                   <div class="text-center" *ngIf="progressBarInit">
+                      <p class="text-black d-none d-md-block">{{message_create}}</p>
+                      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+
+                    </div>
+                    <button mat-raised-button color="primary" *ngIf="!progressBarInit"  (click)="handleImageModal()">Visualiser</button>
+                     <button mat-raised-button class="adafri-background text-white" (click)=" initAllStepsCreative()" *ngIf="!progressBarInit">sauvegarger</button>
+                    <button mat-raised-button color="accent"  (click)="goBackFromCreativesNew()" *ngIf="!progressBarInit">Annuler</button>
+
+                </mat-card-actions>
+              </mat-card-content>
+
+                </mat-card>
+    <div style="margin-top: 20px" *ngIf="!progressBarInit">
+      <button mat-button matStepperPrevious>Retour</button>
+<!--       <button mat-button (click)="stepper.reset()">Reset</button> -->
+     <!--
+      <button mat-button (click)=" initAllSteps()">Sauvegarder</button> -->
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
+
+
+        </mat-card>
+      </div>
+
+
+    </div>
+
+
+  </mat-drawer-content>
+</mat-drawer-container>
+
+
+
+
+ <div *ngIf="isCreating">
+        <app-spinner-overlay [message]="message"></app-spinner-overlay>
+
+      </div>
+
+
+  <button style="display: none" data-toggle="modal" data-target="#modalViewInit" id="button_modal_init"></button>
+  <button style="display: none" data-toggle="modal" data-target="#modalViewModified"
+    id="button_modal_modified"></button>
+
+    <div class="modal fade no-b modal-fullscreen" id="modalViewInit" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalLabel" aria-hidden="false">
+      <div class="modal-dialog no-b" role="document">
+        <div class="modal-content no-b">
+          <div class="modal-header no-b">
+            <h5 class="modal-title" id="exampleModalsmall">{{text_visualise}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-small="Close">
+              <span aria-d-none="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body no-b text-center" style="height: max-content">
+            <div class="paper-card shadow">
+               <div class="card no-b d-inline-block" *ngFor="let image of imagesUpload">
+
+              <img class="img-responsive" src="{{image.src}}" alt="{{image.name}}" id="ad_image" [ngStyle]="img_view_create_style">
+
+
+            </div>
+            </div>
+          </div>
+          <div class="modal-footer no-b white">
+
+            <button mat-stroked-button  color="warn"  *ngIf="!isRoller" data-dismiss="modal" id="button_close_ad">Fermer</button>
+
+            <button mat-stroked-button (click)="initAllSteps()" color="primary"  *ngIf="!isRoller">Sauvegarder</button>
+         <div class="lds-roller" *ngIf="isRoller">
+           <div></div>
+           <div></div>
+           <div></div>
+           <div></div>
+           <div></div>
+           <div></div>
+           <div></div>
+           <div></div>
+         </div>
+          </div>
+
+          </div>
+        </div>
+      </div>
+
+
+          <div class="modal fade no-b modal-fullscreen" id="modalViewModified" tabindex="-1" role="dialog"
+      aria-smallledby="exampleModalsmall" aria-d-none="true">
+      <div class="modal-dialog no-b" role="document">
+        <div class="modal-content no-b">
+          <div class="modal-header no-b">
+            <h5 class="modal-title" id="exampleModalsmall">{{text_visualise}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-small="Close">
+              <span aria-d-none="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body no-b text-center">
+            <div class="card white no-b shadow d-inline-block" [ngStyle]="img_view_create_style">
+              <img class="card-img-top" [ngStyle]="img_view_create_style" src="assets/img/demo/portfolio/p6.jpg" alt="card my-3 image cap"
+                id="ad_image_modified">
+
+              <div class="card-footer no-b">
+                <small>Nom: </small>
+                <small class="text-muted" id="modified_name"></small><br>
+                <small>Url de destination: </small>
+                <small class="text-muted">{{url_modify}}</small>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer whtite no-b">
+
+            <button type="button" class="btn white text-danger btn-social btn-sm r-20 border-red"
+              id="closeModalViewModified" data-dismiss="modal" *ngIf="!isRoller"><i
+                class="icon-arrow_back"></i>Revenir</button>
+            <!-- <button type="button" class="btn white adafri-police border-grey text-black-50 btn-sm btn-social r-20"
+              (click)="updateAdOnFirebase()" *ngIf="!isRoller"><i class="icon-send"></i>Enregistrer</button> -->
+           <!--  <div class="lds-roller" *ngIf="isRoller">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <div class="col image-block draggable" style="display: none">
+                <div class="card b-0">
+                  <div class="card-body p-5">
+                    <div class="card">
+                      <div class="card-header">Upload image</div>
+                      <div class="card-body text-center">
+                        <img id="testImage" *ngIf="url" class="images-item-upload" [src]="url"
+                          (click)="addImageOnCanvas(url);">
+                        <input type="file" (change)="readUrl($event);" id="image">
+                        <br />
+                        <br />
+                        <div class="btn-group btn-group-justified" role="group" aria-small="...">
+                          <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeWhite(url);">
+                              <i class="fa fa-times" aria-d-none="true"></i> Remove</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>

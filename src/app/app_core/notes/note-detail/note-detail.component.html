@@ -1,0 +1,268 @@
+<!--  <div class="animatedParent animateOnce p-0 bg-white text-center paper-card" style="box-shadow: none"  *ngIf="!_showCampaignSettings_">
+
+<div class="row d-flex bd-highlight no-gutters">
+<div class="col-md-12 text-center grey lighten-4">
+ <button mat-fab class="adafri-background"><i class="icon-add"></i></button></th>
+                                        <th class="adafri-police-14">Campagne</th>
+                                        <th class="adafri-police-14">Etat</th>
+                                        <th class="adafri-police-14">Date de début</th>
+                                        <th class="adafri-police-14">Date de fin</th>
+                                        <th class="adafri-police-14">Budget</th>
+                                        <th class="adafri-police-14">Paramétrer</th>
+                                    </tr>
+                                    <tr class="white" *ngFor="let note of notes | async">
+                                        <td class="text-center" style="width: 30px">
+
+                                          <div class="dropdown text-center" *ngIf="!isRoller">
+    <button type="button" class="btn btn-sm white dropdown-toggle float-left box-popup box text-black-50" style="box-shadow: none;" data-toggle="dropdown">
+      <i class="icon-pause_circle_filled" *ngIf="note?.status==='PAUSED'"></i>
+       <i class="icon-circle text-success adafri-police-12"  *ngIf="note?.status==='ENABLED'"></i>
+
+    </button>
+    <div class="dropdown-menu no-b shadow">
+      <a class="dropdown-item adafri-police-14 cursor" style="cursor: pointer"  (click)="updateCampaign(note?.id, note?.id_campagne, note?.name, note?.status, note?.budget)"><i class="icon-circle text-success"></i> Modifier</a>
+      <a class="dropdown-item text-danger adafri-police-14 cursor" style="cursor: pointer" (click)="deleteCampaign(note?.id, note?.id_campagne)"><i class="icon-delete"></i> Supprimmer</a>
+    </div>
+
+  </div>
+                                        </td>
+                                        <td class="text-center">
+                                           <p class="d-inline-block adafri-police-14 text-black">{{note?.name}}</p>
+                                        </td>
+                                           <td class="text-center" *ngIf="note?.status==='PAUSED'">
+                                           <p class="d-inline-block adafri-police-14 text-black-50">Mise en ville</p>
+                                        </td>
+                                         <td class="text-center" *ngIf="note?.status==='ENABLED'">
+                                           <p class="d-inline-block adafri-police-14 adafri">En diffusion</p>
+                                        </td>
+                                        <td class="text-center">
+                                           <span class="adafri-police r-20">{{ note?.startDateFrench }}</span>
+                                        </td>
+                                         <td class="text-center">
+                                           <span class="adafri-police r-20">{{ note?.endDateFrench }}</span>
+                                        </td>
+                                         <td class="text-center">
+                                           <span class="adafri-police r-20">{{ ((note?.budget * 100)/80).toString() }} XOF</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <a class="btn btn-sm white text-black btn-social r-20 d-inline-block adafri-police-12 border-grey" [id]="note?.id" (click)="goCampaignSettings(note?.id, note?.id_campagne, note?.name, note?.status, note?.budget, note?.budgetId, note?.dailyBudget, note?.numberOfDays)"><i class="icon-mode_edit"></i> je débute</a>
+                                        </td>
+                                        <hr>
+                                    </tr>
+                    </tbody>
+                    </table>
+                    </div>
+
+                    </div>
+                    </div>
+
+
+                              <div class="card no-b paper-card white p-0 height-full d-md-none d-sm-block">
+                                  <img class="img-responsive" src="assets/img/images/banner.jpg">
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                  <tbody>
+                                     <tr>
+                                       <th><div class="lds-roller" *ngIf="isRoller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></th>
+                                        <th class="adafri-police-12 p-0">Campagne</th>
+                                        <th class="adafri-police-12 p-0">Etat</th>
+                                        <th class="adafri-police-12 p-0">Date de début</th>
+                                        <th class="adafri-police-12 p-0">Date de fin</th>
+                                        <th class="adafri-police-12 p-0">Budget</th>
+                                        <th class="adafri-police-12 p-0">Paramétrer</th>
+                                    </tr>
+                                    <tr class="white" *ngFor="let note of notes | async">
+                                        <td class="text-center p-0">
+
+                                          <div class="dropdown text-center" *ngIf="!isRoller">
+    <button type="button" class="btn btn-sm white dropdown-toggle float-left box-popup box text-black-50" style="box-shadow: none;" data-toggle="dropdown">
+      <i class="icon-pause_circle_filled" *ngIf="note?.status==='PAUSED'"></i>
+       <i class="icon-circle text-success adafri-police-12"  *ngIf="note?.status==='ENABLED'"></i>
+
+    </button>
+    <div class="dropdown-menu no-b shadow">
+      <a class="dropdown-item adafri-police-12 cursor" style="cursor: pointer"  (click)="updateCampaign(note?.id, note?.id_campagne, note?.name, note?.status, note?.budget)"><i class="icon-circle text-success"></i> Modifier</a>
+      <a class="dropdown-item text-danger adafri-police-12 cursor" style="cursor: pointer" (click)="deleteCampaign(note?.id, note?.id_campagne)"><i class="icon-delete"></i> Supprimmer</a>
+    </div>
+
+  </div>
+                                        </td>
+                                        <td class="text-center p-0">
+                                           <p class="d-inline-block adafri-police-12 text-black">{{note?.name}}</p>
+                                        </td>
+                                           <td class="text-center p-0" *ngIf="note?.status==='PAUSED'" >
+                                           <p class="d-inline-block adafri-police-12 text-black-50">Mise en ville</p>
+                                        </td>
+                                         <td class="text-center p-0" *ngIf="note?.status==='ENABLED'" style="padding: -0.5rem">
+                                           <p class="d-inline-block adafri-police-12 adafri">En diffusion</p>
+                                        </td>
+                                        <td class="text-center p-0">
+                                           <span class="adafri-police-12">{{ note?.startDateFrench }}</span>
+                                        </td>
+                                         <td class="text-center p-0">
+                                           <span class="adafri-police-12"> {{ note?.endDateFrench }}</span>
+                                        </td>
+                                         <td class="text-center p-0" >
+                                           <span class="adafri-police-12"> {{ ((note?.budget * 100)/80).toString() }} XOF</span>
+                                        </td>
+                                        <td class="text-center p-0">
+                                            <a class="btn btn-sm white text-black btn-social r-20 d-inline-block adafri-police-12 border-grey" [id]="note?.id" (click)="goCampaignSettings(note?.id, note?.id_campagne, note?.name, note?.status, note?.budget, note?.budgetId, note?.dailyBudget, note?.numberOfDays)"><i class="icon-mode_edit"></i> je débute</a>
+                                        </td>
+                                        <hr>
+                                    </tr>
+                    </tbody>
+                    </table>
+                    </div>
+
+                    </div>
+                    </div>
+
+                    </div>
+
+
+
+
+
+
+</div>
+
+ </div>
+ -->
+
+            <div class="height-full background-yellow-adafri" style="box-shadow: none">
+              <div class="paper-card text-center p-0 background-yellow-adafri no-b" style="box-shadow: none">
+              <div class="text-center adafri-background">
+ <img class="img-responsive d-inline-block" src="assets/img/images/banner.jpg">
+              </div>
+              <div class="paper-card p-10 background-yellow-adafri text-center height-full" style="box-shadow: none">
+                  <div class="example-header d-flex">
+
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Rechercher une campagne">
+    </mat-form-field>
+
+    <button mat-fab (click)="createNewcampaign()" class="adafri-background text-white" matTooltip="Créer une nouvelle campagne" matTooltipPosition="left" style="box-shadow: none">
+    <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+  </button>
+  </div>
+
+  <mat-card class="p-0" style="margin-top: 10px;" style="box-shadow: none">
+<mat-table #table [dataSource]="dataSource">
+
+    <!-- Checkbox Column -->
+   <!--  <ng-container matColumnDef="select">
+      <mat-header-cell *matHeaderCellDef >
+        <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)">
+        </mat-checkbox>
+      </mat-cell>
+    </ng-container> -->
+     <ng-container matColumnDef="select">
+      <mat-header-cell *matHeaderCellDef >
+        Actions
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row">
+
+       <button mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon>more_vert</mat-icon>
+
+</button>
+<mat-menu #menu="matMenu" class="mat-elevation-z4">
+  <ng-container >
+    <button mat-menu-item (click)="updateCampaign(row.id, row.id_campagne, row.name, row.status, row.budget)">
+      <mat-icon >edit</mat-icon>
+      <span>Modifier</span>
+    </button>
+    <button mat-menu-item (click)="deleteCampaign(row.id, row.id_campagne)">
+      <mat-icon>delete</mat-icon>
+      <span>Supprimer</span>
+    </button>
+  </ng-container>
+
+</mat-menu>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Campagne</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <span class="adafri-police-14 d-none d-md-block"> {{element.name}}</span>
+         <span class="adafri-police-12 d-md-none d-sm-block"> {{element.name}}</span>
+        </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+      <mat-cell *matCellDef="let element"> <span class="adafri-police-14 d-none d-md-block text-warning" *ngIf="element.status==='PAUSED'">En pause</span>
+      <span class="adafri-police-12 d-md-none d-sm-block text-warning" *ngIf="element.status==='PAUSED'">En pause</span>
+
+       <span class="adafri-police-14 d-none d-md-block text-success" *ngIf="element.status==='ENABLED'">Activée</span>
+      <span class="adafri-police-12 d-md-none d-sm-block text-success" *ngIf="element.status==='ENABLED'">Activée</span>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="date de début">
+      <mat-header-cell *matHeaderCellDef> Dates </mat-header-cell>
+      <mat-cell *matCellDef="let element"> <span class="adafri-police-14 d-none d-md-block">Du: {{element.startDateFrench}}</span>
+       <span class="adafri-police-12 d-md-none d-sm-block">Du: {{element.startDateFrench}}</span>
+         <span class="adafri-police-14 d-none d-md-block">Au: {{element.endDateFrench}}</span>
+           <span class="adafri-police-12 d-md-none d-sm-block">Au: {{element.endDateFrench}}</span>
+       </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+   <!--  <ng-container matColumnDef="date de fin">
+      <mat-header-cell *matHeaderCellDef> Date de fin </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+          <span class="adafri-police-14 d-none d-md-block"> {{element.endDateFrench}}</span>
+           <span class="adafri-police-12 d-md-none d-sm-block"> {{element.endDateFrench}}</span>
+          </mat-cell>
+    </ng-container> -->
+     <ng-container matColumnDef="Budget">
+      <mat-header-cell *matHeaderCellDef> Budget </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+         <span class="adafri-police-14 d-none d-md-block font-weight-bold">{{(((element.budget*100)/80))}} XOF</span>
+                  <span class="adafri-police-12 d-md-none d-sm-block font-weight-bold">{{(((element.budget*100)/80))}} XOF</span>
+         </mat-cell>
+    </ng-container>
+     <ng-container matColumnDef="Paramétrer">
+      <mat-header-cell *matHeaderCellDef> <mat-icon>build</mat-icon> </mat-header-cell>
+      <mat-cell *matCellDef="let element">   <!-- <button mat-raised-button color="accent" class="adafri-police-14 d-none d-md-block" (click)="goCampaignSettings(element.id, element.id_campagne, element.name, element.status, element.budget, element.budgetId, element.dailyBudget, element.numberOfDays)">Configurer</button>
+      <button mat-raised-button color="accent" class="adafri-police-12 d-md-none d-sm-block" (click)="goCampaignSettings(element.id, element.id_campagne, element.name, element.status, element.budget, element.budgetId, element.dailyBudget, element.numberOfDays)">Configurer</button> -->
+       <button mat-mini-fab class="text-white adafri-background r-20"  style="box-shadow: none" (click)="goCampaignSettings(element.id, element.id_campagne, element.name, element.status, element.budget, element.budgetId, element.dailyBudget, element.numberOfDays)"><mat-icon>forward</mat-icon></button>
+    <!--    <button mat-mini-fab color="accent" (click)="goCampaignSettings(element.id, element.id_campagne, element.name, element.status, element.budget, element.budgetId, element.dailyBudget, element.numberOfDays)"><i class="icon-settings2"></i></button> -->
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns" class="p-0"></mat-header-row>
+    <mat-row class="p-0" *matRowDef="let row; columns: displayedColumns;"
+             (click)="selection.toggle(row)">
+    </mat-row>
+  </mat-table>
+  <mat-paginator #paginator
+                 [pageSize]="10"
+                 [pageSizeOptions]="[1, 5, 10, 20]"
+                 [showFirstLastButtons]="false">
+  </mat-paginator>
+</mat-card>
+  <br>
+  <br>
+  <br>
+  <br>
+
+              </div>
+
+            </div>
+            </div>

@@ -1,0 +1,196 @@
+
+
+<!-- User NOT logged in -->
+
+
+  <!-- h3>Howdy, GUEST</h3>
+  <p class="card-text">Login to get started...</p>
+  <button class="button" routerLink="/login">Login</button>
+</ng-template>
+
+
+<ng-template #authenticated>
+  <div *ngIf="auth.user | async as user">
+    <h3>Howdy, {{ user.displayName }}</h3>
+    <img class="card-img-top" [src]="user.photoURL || 'https://api.adorable.io/avatars/109/fire.png'" style="width: 100px; height: 100px; border-radius: 400px">
+    <p class="text-truncate">UID: {{ user.uid }}</p>
+    <button class="button" (click)="logout()">Logout</button>
+  </div> -->
+
+
+
+
+    <!--navbar-->
+
+<mat-drawer-container
+    class="example-container height-full p-0">
+  <mat-drawer mode="side" #matDrawer opened="opened" class="adafri-background height-full p-0 text-center" style="width: max-content" >
+    <mat-icon class="d-inline-block" style="margin-top: 20%">menu</mat-icon>
+<mat-list style="margin-top: 20%" class="p-0" >
+
+  <mat-list-item matLine *ngFor="let menuItem of modulesList" class="p-0" #button class="adafri-background text-black box-shadow-none " style="cursor: pointer" (click)="buttonEnter(levelOneTrigger, menuItem.id)" [matMenuTriggerFor]="levelOne" #levelOneTrigger="matMenuTrigger" [id]="menuItem.id">
+     <mat-icon>{{menuItem.icon}}</mat-icon>
+     <mat-menu #levelOne="matMenu" direction="right" xPosition="before" class="adafri-background p-0 max-width-menu">
+   <!--     <mat-list>
+  <mat-list-item (mouseenter)="menuenter()" (mouseleave)="menuLeave(levelOneTrigger, button)">
+    <mat-icon>{{childL1.icon}}</mat-icon>
+  </mat-list-item>
+</mat-list> -->
+
+      <span (mouseenter)="menuenter()" (mouseleave)="menuLeave(levelOneTrigger, button)">
+      <ng-container *ngFor="let childL1 of menuItem.children">
+         <button mat-menu-item *ngIf="!childL1.children">  <mat-icon>{{childL1.icon}}</mat-icon>
+           <span class="adafri-police-14">{{childL1.label}}</span></button>
+        <ng-container *ngIf="childL1.children && childL1.children.length > 0">
+          <li mat-menu-item #levelTwoTrigger="matMenuTrigger" [matMenuTriggerFor]="levelTwo">
+            <span class="icon fa" [ngClass]="childL1.icon"></span>
+            <span>{{childL1.label}}</span>
+          </li>
+
+          <mat-menu #levelTwo="matMenu">
+            <span (mouseenter)="menu2enter()" (mouseleave)="menu2Leave(levelOneTrigger,levelTwoTrigger, button)">
+            <ng-container *ngFor="let childL2 of childL1.children">
+              <li class="p-0" mat-menu-item>
+                <a class="nav-link">{{childL2.label}}
+                  <i *ngIf="childL2.icon" [ngClass]="childL2.icon"></i>
+                </a>
+              </li>
+            </ng-container>
+            </span>
+          </mat-menu>
+        </ng-container>
+      </ng-container>
+      </span>
+    </mat-menu>
+  </mat-list-item>
+
+</mat-list>
+
+  </mat-drawer>
+
+    <mat-drawer-content class="progress-width height-full">
+      <div class="sticky mat-elevation-z4">
+        <!-- <div class="navbar navbar-expand d-flex justify-content-between bd-navbar green lighten-3 shadow">
+             -->
+             <div class="navbar navbar-expand d-flex justify-content-between bd-navbar white" style="height: 70px">
+
+
+
+                  <img class="d-none d-md-block " src="assets/img/images/newlogo.png" style="height: 70px" (click)="go()">
+                  <img class="d-md-none d-sm-block" src="assets/img/images/newlogo.png" style="width: 20%;" (click)="go()">
+
+            <!--Top Menu Start -->
+<div class="navbar-custom-menu">
+    <ul class="nav navbar-nav">
+        <!-- Messages-->
+
+        <!-- Notifications -->
+        <li  style="margin-top: 8px; cursor: pointer">
+
+        </li>
+         <li style="margin-top: 3px">
+            <a class="nav-link adafri-police-16 font-weight-bold" title="Argent disponible dans votre compte">
+                <i class="icon-money-bag"></i> {{accountValue}} CFA
+            </a>
+        </li>
+         <li class="dropdown custom-dropdown notifications-menu" style="margin-top: 5px">
+            <a href="#" class=" nav-link" data-toggle="dropdown" aria-expanded="false">
+                <i class="icon-notifications_none text-black-50"></i>
+                <span class="badge adafri-background badge-mini rounded-circle text-white">{{numberOfNotifications}}</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li class="header">Vous avez {{numberOfNotifications}} notification(s)</li>
+                <li>
+
+                    <ul class="menu no-b">
+                        <li class="no-b white text-center">
+
+                              <a href="#" *ngIf="accountValue !==0">
+                                <i class="icon icon-data_usage text-danger"></i>Aucune Notification pour le moment
+                            </a>
+                           <a class="adafri-police-12 text-danger" *ngIf="accountValue ===0">
+                                <i class="icon icon-data_usage text-danger"></i>Votre solde est vide
+                            </a>
+
+                              <button mat-raised-button class="adafri-background text-white" data-toggle="modal" data-target="#modalRechargement">Charger mon compte</button>
+
+                        </li>
+                        <li class="no-b white text-center">
+
+                        </li>
+
+
+                    </ul>
+                </li>
+
+            </ul>
+        </li>
+
+        <button mat-button [matMenuTriggerFor]="userMenu" style="box-shadow: none; box-sizing: none">  <figure class="avatar">
+                  <img [src]='photoURL'>
+                </figure></button>
+<mat-menu #userMenu="matMenu" class="adafri-background">
+  <button mat-menu-item (click)="goProfile()">
+    <mat-icon>face</mat-icon>
+    <span>Profile</span>
+  </button>
+  <button mat-menu-item (click)="auth.signOut()">
+    <mat-icon>subdirectory_arrow_left</mat-icon>
+    <span>Déconnexion</span>
+  </button>
+
+
+</mat-menu>
+    </ul>
+</div>
+        </div>
+
+    </div>
+          <div class="paper-card no-b height-full" style="box-shadow: none">
+        <mat-card class="profile-card adafri-background">
+  <header>
+    <!-- here’s the avatar -->
+    <a target="_blank" href="#">
+      <img [src]="photoURL" class="hoverZoomLink">
+    </a>
+
+    <!-- the username -->
+    <h1>
+            {{username}}
+          </h1>
+
+    <!-- and role or location -->
+    <h2>
+            {{email}}
+          </h2>
+
+  </header>
+
+  <!-- bit of a bio; who are you? -->
+ <mat-card-actions>
+     <div class="example-button-row text-center">
+  <!-- button mat-stroked-button>Basic</button> -->
+  <button mat-stroked-button  class="d-inline-block adafri r-20 box-shadow-none">Modifier le profile</button>
+ <!--  <button mat-stroked-button color="accent">Accent</button> -->
+
+
+</div>
+ </mat-card-actions>
+  <!-- some social links to show off -->
+
+</mat-card>
+    </div>
+    </mat-drawer-content>
+</mat-drawer-container>
+
+
+
+
+
+
+
+
+
+
+
+

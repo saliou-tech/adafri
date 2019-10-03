@@ -1,0 +1,484 @@
+
+
+
+<ng-template #isConnected >
+
+    <main>
+         <a onclick="topFunction()" id="myBtn" class="btn-fab btn-fab-md adafri-background" title="Go to top"><i class="icon-caret-up"></i></a>
+         <div id="particles-js">
+             <div  class="height-full text-center " style="background:url(assets/img/images/bureau.jpg) no-repeat left bottom; background-size:cover;">
+             <div class="row">
+               <div class="col-md-6 text-center d-none d-md-block">
+                  <h1 class="text-white d-inline-block adafri-police" style="margin-top: 20px;">Bienvenue {{email}}</h1>
+                  <br>
+                  <h5 class="text-white adafri-police d-inline-block" style="margin-top: 20px;">Votre solde est de: {{accountValue}} CFA</h5>
+               </div>
+               <div class="col-md-6 text-center d-md-none d-sm-block">
+                  <h4 class="text-white d-inline-block adafri-police" style="margin-top: 20px;">Bienvenue {{email}}</h4>
+                  <br>
+                  <h5 class="text-white adafri-police d-inline-block" style="margin-top: 20px;">Votre solde est de: {{accountValue}} CFA</h5>
+               </div>
+               <div class="col-md-6"  style="float: right; border-radius: 20px;">
+                 <div class="row">
+                   <div class="col-md-12">
+  
+                     <img [src]="photoUrl" alt="" style="width:35%; border-radius: 200px" id="photoProfile" (click)="triggerUpload()">
+  
+  
+                       <!-- <h5 class="adafri-police text-white" style="margin-top: 60px">Bienvenue</h5>
+                                           <h5 class="adafri-police text-white" style="margin-top: 20px">{{email}}</h5> -->
+  
+  
+  
+  
+  
+                   </div>
+  
+                 </div>
+                 <br>
+                 <br>
+                 <div class="row">
+                  <div class="col-md-12">
+                    <div class="text-center justify-content-between">
+  
+  
+                              <img class='img-responsive animated pulse fast infinite d-none d-md-block' style="border-radius: 400px;  position: absolute; left: -100px" src="assets/img/images/play.png" (click)="go()">
+                               <img class='img-responsive animated pulse fast infinite d-md-none d-sm-block' style="border-radius: 400px;" src="assets/img/images/play.png" (click)="go()">
+  
+  
+  
+           </div>
+                  </div>
+  
+                 </div>
+             </div>
+             </div>
+  
+  
+  
+  
+             </div>
+  
+         </div>
+      <!-- #primary -->
+  </main>
+  
+  </ng-template>
+  
+
+
+
+
+
+<div class="paper-card p-0 white" *ngIf="!(auth.user | async); else isConnected">
+    <mat-toolbar>
+
+        <mat-toolbar-row class="justify-content-between">
+                <img src="assets/img/images/newlogo.png" class="flaot-left" style="width: 10%;">
+                <div class="button-row float-right">
+<button mat-stroked-button class="adafri-background text-white r-20"  *ngIf="newUser" (click)="toggleForm()">Connexion</button>
+<button mat-stroked-button class="adafri-background text-white r-20"  *ngIf="!newUser" (click)="toggleForm()">Inscription</button>
+</div>
+  </mat-toolbar-row>
+    </mat-toolbar>
+ <a onclick="topFunction()" id="myBtn" class="btn-fab btn-fab-md adafri-background" title="Go to top"><i class="icon-caret-up"></i></a>
+<div class="login-block height-full"  style="background:url(assets/img/images/fond-sombre.png) no-repeat left bottom; background-size: cover
+">
+
+
+
+
+
+  <div class="row">
+
+    <div class="col-md-6 text-center" >
+
+        <div class="d-none d-md-inline d-sm-none" >
+
+            <div class="d-flex justify-content-between">
+                                 <div class="white shadow" style="width: 300px; height: 10px">
+
+                                 </div>
+                                 <div  style="margin-top: -5px;">
+                                     <h5 class="text-white font-weight-bold" style="font-family: 'soleil', sans-serif ">
+                                       Vos publicités google et Facebook payables par mobile money !</h5>
+
+                                 </div>
+                             </div>
+                             <div class="text-center"><img class="img-responsive float-right" src="assets/img/init.png" style="width: 15%; position: absolute; top: 40%; right: -5%"></div>
+        </div>
+          <a class="ct-btn-scroll d-none d-md-block ct-js-btn-scroll animated pulse infinite" href="#section2"><img alt="Arrow Down Icon" src="https://www.solodev.com/assets/anchor/arrow-down.png"></a>
+                  <a class="ct-btn-scroll1 d-md-none d-sm-block ct-js-btn-scroll animated pulse infinite" href="#section2"><img alt="Arrow Down Icon" src="https://www.solodev.com/assets/anchor/arrow-down.png"></a>
+        </div>
+
+
+<mat-card class="example-card white float-left adafri-background" *ngIf="newUser" style="margin-top: 12%">
+  <mat-card-header>
+
+    <mat-card-subtitle class="text-center">
+      <img src="assets/img/images/newlogo.png" class="d-inline-block" style="width: 35%;">
+
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="text-center">
+
+
+    <form class="example-form d-inline-block" id="inscription" [formGroup]="inscription" (ngSubmit)="signup()">
+
+      <table class="example-full-width" cellspacing="0">
+           <tr>
+          <td>
+           <mat-form-field class="example-full-width">
+             <input matInput placeholder="Nom d'utilisateur" formControlName="username" required>
+               <mat-icon matSuffix>user</mat-icon>
+                 <mat-error>{{formErrors.username}}</mat-error>
+
+  </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+
+    <input matInput placeholder="Email" formControlName="email" required>
+      <mat-icon matSuffix>email</mat-icon>
+    <mat-error>{{formErrors.email}}</mat-error>
+
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><mat-form-field class="example-full-width" style="margin-top: 20px">
+    <input matInput placeholder="Mot de passe" formControlName="password" [type]="hide ? 'password' : 'text'">
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      <mat-error>{{formErrors.password}}</mat-error>
+  </mat-form-field></td>
+        </tr>
+         <tr>
+          <td class="text-center"> <button mat-raised-button class="white adafri r-20" type="submit" [disabled]="button_signup" *ngIf="!progressBarSignup">Inscription</button> <mat-spinner [diameter]="20" color="primary" class="d-inline-block" *ngIf="progressBarSignup"></mat-spinner></td>
+        </tr>
+         <tr style="margin-top: 20px">
+          <td><p class="text-divider" style="margin-top: 10px"><span class="adafri-background text-white">Ou</span></p></td>
+        </tr>
+         <tr>
+          <td>
+             <a href="#" class="btn btn-sm btn-block btn-social gplus bg-danger text-white r-20" (click)="signInWithGoogle()">
+                            <i class="icon-google"></i> Inscrivez vous avec Gmail
+                        </a>
+        </td>
+        </tr>
+
+      </table>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="example-card float-left adafri-background" style="margin-top: 12%;"  *ngIf="!newUser">
+  <mat-card-header>
+   <!--  <mat-card-title class="text-white text-blac">Connexion</mat-card-title> -->
+    <mat-card-subtitle class="text-center">
+      <img src="assets/img/images/newlogo.png" class="d-inline-block" style="width: 35%;">
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="text-center">
+  <!--   <img class="img-responsive float-left" src="assets/img/adafri.png" style="width: 30%; margin-top: 20px"> -->
+
+
+    <form class="example-form d-inline-block" [formGroup]="connexion" (ngSubmit)="login()">
+      <table class="example-full-width" cellspacing="0">
+           <tr>
+          <td>
+
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+
+    <input matInput placeholder="Email" formControlName="email" required>
+      <mat-icon matSuffix>email</mat-icon>
+
+    <mat-error>{{formErrors.email}}</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><mat-form-field class="example-full-width" style="margin-top: 20px">
+    <input matInput placeholder="Mot de passe" [type]="hide ? 'password' : 'text'" formControlName="password">
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+     <mat-error>{{formErrors.password}}</mat-error>
+  </mat-form-field></td>
+        </tr>
+         <tr>
+          <td> <button mat-raised-button class="white r-20 adafri" type="submit" *ngIf="!progressBarLogin">Connexion</button><mat-spinner [diameter]="20" color="primary" class="d-inline-block" *ngIf="progressBarLogin"></mat-spinner></td>
+        </tr>
+        <br>
+        <button class="btn"> 
+            <a class="adafri-background text-white"  (click)="openDialog()">Mot de passe oublie?</a>
+        </button>
+
+        <button class="btn"> 
+            <a class="adafri-background text-white"  (click)="openDialogusername()">change username?</a>
+        </button>
+            
+          
+        <!--  <tr style="margin-top: 20px">
+          <td><p class="text-divider" style="margin-top: 10px"><span class="adafri-background text-white">Ou</span></p></td>
+        </tr>
+         <tr>
+          <td>
+             <a href="#" class="btn btn-sm btn-block btn-social gplus bg-danger text-white r-20" (click)="signInWithGoogle()">
+                            <i class="icon-google"></i> Connectez vous avec Gmail
+                        </a>
+        </td>
+        </tr> -->
+      </table>
+    </form>
+  </mat-card-content>
+
+</mat-card>
+
+  </div>
+
+
+</div>
+<div class="login-block1 white" id="section2">
+
+     <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="text-center">
+                <div class="card my-3 card-block d-inline-block no-b animated jello" style="width: 70%" >
+                    <div class="card-body align-items-center d-flex justify-content-center">
+                        <div>
+                            <!-- <h2 class="card-title"></h2> -->
+                            <p class="card-text adafri-police" style="font-size: 18px">Les régies digitales restent beaucoup trop compliquées avec leur mécanisme d’enchères en temps réél.
+
+Notre plateforme automatise vos campagnes digitales après votre règlement.
+
+Nous optimisons vos emplacements et vos enchères en fonction de la demande journalière et garantissons une diffusion de vos publicités.</p>
+                            <p class="card-text adafri-police" style="font-size: 18px">Charger les paramètres de votre campagne depuis votre canapé et laissez notre algorythme vous réferencer.</p>
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+   <!--  <div class="card no-b white shadow" style="margin-top: 20px">
+        <div class="card-header white no-b text-center">
+<h2 class="text-wrap"></h2>
+        </div>
+        <div class="card-body text-center">
+            <span class="adafri-police text-wrap" style="font-size: 16px">Ad’Afri est simple d’utilisation.
+
+</span>
+        </div>
+    </div> -->
+ <div class="card no-b"  style="margin-top: 20px">
+
+      <div class="row">
+        <div class="col-md-4">
+            <img class="img-responsive" src="assets/img/images/etape1.jpg">
+        </div>
+         <div class="col-md-4">
+            <img class="img-responsive" src="assets/img/images/etape2.jpg">
+        </div>
+
+         <div class="col-md-4">
+            <img class="img-responsive" src="assets/img/images/etape 3_1.jpg">
+        </div>
+      </div>
+
+
+  </div>
+
+<mat-card class="white" style="box-shadow: none"></mat-card>
+
+  <!-- <div class="card no-b d-none d-md-block"  style="width: 1200px; height: 315px">
+    <img class="img-responsive" src="assets/img/images/reason.jpg">
+  </div>
+  <div class="card no-b d-md-none d-sm-block" >
+    <img class="img-responsive" src="assets/img/images/reason.jpg">
+  </div>
+ -->
+   <div class="card no-b d-none d-md-block adafri-background text-center">
+        <mat-card class="d-inline-block adafri-background text-center" style="box-shadow: none"><button mat-raised-button class="white adafri r-20 d-inline-block" (click)="goToSignUp()">Inscrivez-vous</button></mat-card><br>
+    <img class="img-responsive d-inline-block" src="assets/img/images/banner.jpg">
+  </div>
+  <div class="card no-b d-md-none d-sm-block" >
+    <img class="img-responsive" src="assets/img/images/banner.jpg">
+  </div>
+</div>
+
+
+
+
+   <!--  <div class="limiter">
+      <div class="container-login100">
+        <div class="wrap-login100 shadow">
+
+            <div class="card-body white no-b">
+
+        <div class="row">
+          <div class="col">
+             <div class="login100-pic js-tilt" data-tilt>
+                <img src="assets/img/dummy/img-01.png" alt="">
+            </div>
+
+          </div>
+          <div class="col">
+             <user-form></user-form>
+          </div>
+        </div>
+
+      </div>
+        </div>
+      </div>
+    </div>  -->
+
+</div>
+<div *ngIf="isCreating">
+  <app-spinner-overlay [message]="message"></app-spinner-overlay>
+
+</div>
+
+
+<input type="file" (change)="upload($event)" accept=".png,.jpg" class="d-none" id="file">
+<div class="control-sidebar-bg shadow white fixed"></div>
+
+<ol>
+  <li>
+    <mat-form-field>
+      <input matInput  name="animal"  [(ngModel)]="this.getemail.email" placeholder="entrez votre mail">
+    </mat-form-field>
+  </li>
+  <!-- <li>
+    <button mat-raised-button (click)="openDialog()">Pick one</button>
+  </li> -->
+  <!-- <li *ngIf="animal">
+    You chose: <i>{{animal}}</i>
+  </li> -->
+</ol>
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Mail Verification</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> -->
+     
+      
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+        <button type="button" class="btn btn-primary" (click)=" logout()">fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- for connexion -->
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <!-- <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Mail Verification</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div> -->
+        <div class="modal-body ">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-md-6 offset-md-3">
+                    <br><br><br>
+                      <img src="assets/img/images/newlogo.png" alt="" width="450px;">
+
+                  </div>
+                  
+                </div>
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <h1 class="text-center adafri-police-14">veuillez validez votre compte <br> Le lien de vaidation vous a ete envoye.</h1>
+
+  
+                    </div>
+                    
+                  </div>
+
+          </div>
+         
+          .
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+          <button type="button"   class="btn btn-primary" (click)=" logout()">fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- modal for reseting a password -->
+
+
+  
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> -->
+      <div class="modal-body">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-md-6 offset-md-3">
+                    <br><br><br>
+                      <img src="assets/img/adafri.png" alt="" width="450px;">
+
+                  </div>
+                  
+              </div>
+              <div class="row">
+                  <div class=" col-md-8 offset-md-2">
+                    <form>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Veuillez entrez votre mail:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="email" [(ngModel)]="this.getemail.email">
+                      </div>
+                    <!-- <div class="form-group">
+                      <label for="message-text" class="col-form-label">Message:</label>
+                      <textarea class="form-control" id="message-text"></textarea>
+                    </div> -->
+                     
+                    </form>
+                </div>
+              </div>
+              <div class="row">
+                
+                <div class="col-md-8 offset-md-4">
+                  
+                        <button type="button" class="adafri-background text-white r-20 mat-stroked-button ng-star-inserted" (click)="resetPassword()">Reinitialiser</button>
+                </div>
+              </div>
+              
+          </div>
+
+        
+       
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+

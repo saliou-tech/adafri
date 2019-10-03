@@ -1,0 +1,35 @@
+    
+ <div class="container-fluid pt-5 background-yellow-adafri" >
+           <div class="height-full paper-card text-center" style="box-shadow: none">
+                 <div class="row">
+        <div class="col-md-12 background-yellow-adafri text-center">
+            <form class="example-form" [formGroup]="campaign" (ngSubmit)="addCampaign()">
+                <mat-card class="d-inline-block text-center mat-elevation-z10">
+            
+                           
+
+                   
+                            <img class="img-responsive d-inline-block" style="width: 50%" src="assets/img/init.png">
+               
+                <mat-card-content>
+                    <p class="font-weight-bold text-black">Créer une campagne publicitaire</p>
+  <mat-form-field class="example-full-width text-black" >
+    <input matInput [(ngModel)]="new_name" placeholder="Nom de la campagne" id="campagne" formControlName="campaign">
+  </mat-form-field>
+
+</mat-card-content>
+<mat-card-actions class="text-center">
+    <p class="text-black">{{message_to_show}}</p>
+     <mat-progress-bar mode="indeterminate" class="teal" *ngIf="progressBarAddCampaign"></mat-progress-bar>
+    <button mat-raised-button class="teal text-white" type="submit" *ngIf="!progressBarAddCampaign">Créer</button>
+     <button mat-raised-button color="warn"  *ngIf="!progressBarAddCampaign" (click)="go()">Retour</button>
+</mat-card-actions>
+</mat-card>
+</form>
+          
+        </div>
+                   
+                     
+     </div>
+        </div>
+</div>
