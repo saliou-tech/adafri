@@ -34,6 +34,7 @@ interface User {
   account_value?: number;
   paymentKey?: string;
   // emailVerified?:boolean;
+  isConnectWithMailAndPassword?:boolean;
 }
 
 interface NotificationAccountValue {
@@ -127,7 +128,7 @@ export class AuthService {
       .signInWithPopup(provider)
       .then(credential => {
         console.log(credential)
-        this.updateUserData(credential.user, credential.user.displayName).then(res => {
+        this.updateUserData(credential.user, credential.user.displayName,false).then(res => {
           if (res == "ok") {
             resolve('ok')
           } else {
@@ -197,7 +198,7 @@ export class AuthService {
         //envoi une notification de verification de mail quand un user est cree
         this.SendVerificationMail().then(verify =>{
           if(verify=="ok"){
-            self.updateUserData(credential.user, username).then(res => {
+            self.updateUserData(credential.user, username,true).then(res => {
               if (res == "ok"  ) {
                 // $('#exampleModalCenter').modal('show');
                 this.showDialog()
@@ -334,7 +335,7 @@ export class AuthService {
   }
 
   // Sets user data to firestore after succesful login
-  public updateUserData(user: User, username): Promise<any> {
+  public updateUserData(user: User, username,connectionType:boolean): Promise<any> {
     return new Promise(resolve => {
       const userRef: AngularFirestoreDocument<User> = this.afs.doc(
       `users/${user.uid}` 
@@ -353,7 +354,8 @@ export class AuthService {
       displayName: user.displayName || username,
       photoURL: user.photoURL || 'assets/img/images/user.png',
       account_value: 0,
-      paymentKey: ""
+      paymentKey: "",
+      isConnectWithMailAndPassword:connectionType
       // emailVerified: user.emailVerified
     };
       userRef.set(data);

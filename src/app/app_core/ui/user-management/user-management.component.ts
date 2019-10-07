@@ -67,13 +67,25 @@ export class UserManagementComponent implements OnInit {
     if (!this.checkEmailValid(this.getemail.email)) {
       this.isemailNotvalid = true;
     }
+
+    this.auth.getUserCredential(this.getemail.email).then(response=>{
+      console.log(response)
+      if(response.isConnectWithMailAndPassword){
+        this.auth.resetPasswordInit(this.getemail.email) 
+        .then(
+          () => 
+          this.openDialogMailConfimation(), 
+          (rejectionReason) => alert(rejectionReason)) 
+        .catch(e => alert('An error occurred while attempting to reset your password')); 
+
+      }
+      else{
+        console.log("vous ne pouvez pas modifier votre email")
+      }
+    })
     
-    this.auth.resetPasswordInit(this.getemail.email) 
-    .then(
-      () => 
-      this.openDialogMailConfimation(), 
-      (rejectionReason) => alert(rejectionReason)) 
-    .catch(e => alert('An error occurred while attempting to reset your password')); 
+    
+   
   }
 
   openDialogConfimation(): void {
@@ -121,7 +133,7 @@ export class UserManagementComponent implements OnInit {
        
         this.user.displayName = this.getName.name
         console.log(this.user)
-        this.auth.updateUserData( this.user , this.user.displayName).then(res=> {
+        this.auth.updateUserData( this.user , this.user.displayName,true).then(res=> {
           if(res==='ok'){
             this.data.changeusername=false
             this.updateNameOk = true
