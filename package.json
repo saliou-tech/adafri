@@ -52,7 +52,7 @@
     "google-protobuf": "^3.8.0",
     "grpc": "^1.21.1",
     "html2canvas": "^1.0.0-rc.3",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "lodash": "^4.17.11",
     "mat-color-picker": "^1.4.3",
     "material-community-components": "^5.0.1",
