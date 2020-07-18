@@ -53,7 +53,7 @@
     "grpc": "^1.21.1",
     "html2canvas": "^1.0.0-rc.3",
     "jquery": "^3.4.1",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "mat-color-picker": "^1.4.3",
     "material-community-components": "^5.0.1",
     "moment": "^2.24.0",
