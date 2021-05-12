@@ -50,7 +50,7 @@
     "fusioncharts": "^3.14.0-sr.1",
     "google-ads-api": "^2.3.0",
     "google-protobuf": "^3.8.0",
-    "grpc": "^1.21.1",
+    "grpc": "^1.24.9",
     "html2canvas": "^1.0.0-rc.3",
     "jquery": "^3.4.1",
     "lodash": "^4.17.11",
