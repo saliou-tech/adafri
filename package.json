@@ -39,7 +39,7 @@
     "bootstrap": "^4.1.1",
     "bootstrap4-fullscreen-modal": "^1.0.5",
     "buffer": "^5.2.1",
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "cldr-data": "^35.1.0",
     "core-js": "^2.4.1",
     "crypto": "^1.0.1",
