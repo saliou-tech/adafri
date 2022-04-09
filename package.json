@@ -56,7 +56,7 @@
     "lodash": "^4.17.11",
     "mat-color-picker": "^1.4.3",
     "material-community-components": "^5.0.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "network-status-angular": "^1.0.4",
     "ng-lazyload-image": "^3.3.5",
     "ng-multiselect-dropdown": "^0.2.3",
